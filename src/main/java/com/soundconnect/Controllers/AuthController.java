@@ -1,4 +1,4 @@
-package com.soundconnect;
+package com.soundconnect.Controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

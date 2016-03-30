@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/security
+     http://www.springframework.org/schema/security/spring-security-3.2.xsd
+     http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
+     
+<http use-expressions="true">
+		<intercept-url pattern="/" access="isAnonymous()" />
+
+		<intercept-url pattern="/tasks/**" access="isAuthenticated()" />
+		<intercept-url pattern="/createComment" access="isAuthenticated()" />
+		<intercept-url pattern="/profile/**" access="isAuthenticated()" />
+		<intercept-url pattern="/freeTasks" access="hasAnyRole('admin','laborant')" />
+		<intercept-url pattern="/search" access="isAuthenticated()" />
+		<intercept-url pattern="/takeTask/**" access="hasRole('laborant')" />
+		<intercept-url pattern="/changeTaskStaff/**" access="hasRole('laborant')" />
+		<intercept-url pattern="/setTask/**" access="hasRole('admin')" />
+		<intercept-url pattern="/equipment/**" access="hasRole('admin')" />
+		<intercept-url pattern="/rooms/**" access="hasRole('admin')" />
+		<intercept-url pattern="/userAdmin" access="hasRole('admin')" />
+		<intercept-url pattern="/reports/**" access="hasRole('admin')" />
+		<intercept-url pattern="/inviteUser" access="hasRole('admin')" />
+		<intercept-url pattern="/banUser" access="hasRole('admin')" />
+
+		<access-denied-handler error-page="/403" />
+
+		<form-login login-page='/welcome?attention' login-processing-url="/j_spring_security_check"
+			default-target-url="/welcome?login" always-use-default-target="false"
+			authentication-failure-url="/welcome?error" username-parameter="username"
+			password-parameter="password" />
+
+		<logout logout-url="/logout" logout-success-url="/"
+			delete-cookies="JSESSIONID" invalidate-session="true" />
+			
+		<remember-me key="lmsBaratheons" token-validity-seconds="2000000" />
+</http>
+	
+	<authentication-manager>
+		<authentication-provider>
+			<password-encoder hash="md5"/>
+			<jdbc-user-service data-source-ref="dataSource"
+				users-by-username-query="select email, password, is_active as enabled from 
+users where email=?"
+				authorities-by-username-query="select email, namel from role inner join users on role.role_id=users.role_id where email=?" />
+		</authentication-provider>
+
+	</authentication-manager>
+
+</beans:beans>
