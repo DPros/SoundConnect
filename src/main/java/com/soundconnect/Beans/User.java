@@ -1,7 +1,7 @@
 package com.soundconnect.Beans;
 public class User {
 
-	int id;
+	long id;
 	String name;
 	Conference conference;
 }

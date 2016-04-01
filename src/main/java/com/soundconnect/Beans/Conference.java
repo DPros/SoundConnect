@@ -5,7 +5,7 @@ import java.util.Queue;
 
 public class Conference {
 	
-	int id;
+	long id;
 	String name;
 	List<User>users;
 	Queue<Audio> tracks;

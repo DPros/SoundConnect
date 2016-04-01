@@ -4,7 +4,7 @@ import java.net.URL;
 
 public class Audio {
 
-	int id;
+	long id;
 	URL source;
 	int length;
 	String name;
