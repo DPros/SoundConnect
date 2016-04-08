@@ -26,33 +26,8 @@ function authInfo(response) {
 VK.Auth.getLoginStatus(authInfo);
 VK.UI.button('login_button');
 </script>
-${message} 
- <script type="text/javascript">
-  function getVKurl(query){
-	  var res = VK.api('audio.search', {q: document.getElementById("qbox").value}, function(data){
-	 	if(data.response){
-	 		console.log(data);
-	 		for(var i=1; i<data.response.length; ++i){
-	 			var sound = data.response[i];
-		 	 	var a = document.createElement("A");
-		 	 	//console.log(sound);
-		 		a.setAttribute("href", sound.url);
-		 		a.innerHTML= sound.artist+' - '+sound.title;
-		  		document.getElementById("resultDiv").appendChild(a);
-		  		document.getElementById("resultDiv").appendChild(document.createElement("br"));
-	 		}
-	  	}
-	 	else if(data.error){
-	 		alert('vk api request failed!'+data.error);
-	 	}
-	  });
-	  console.log(res);
-  };
-</script>
-<h1>VK API search demo</h1>
-<br>
-<input type="text" id="qbox">
-<button onclick="getVKurl()">Search for music via VK api!</button>
-<div id="resultDiv"></div> 
+
+${message}
+
 </body>  
 </html>  
