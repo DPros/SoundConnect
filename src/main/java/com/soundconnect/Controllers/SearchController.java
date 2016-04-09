@@ -1,22 +1,17 @@
 package com.soundconnect.Controllers;
 
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URLEncoder;
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-
-import org.apache.jasper.tagplugins.jstl.core.Url;
+import com.soundconnect.Beans.Audio;
+import com.soundconnect.Services.VKAudioService;
+import com.soundconnect.Services.VKAudioServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.soundconnect.Beans.Audio;
-import com.soundconnect.Services.VKAudioService;
-import com.soundconnect.Services.VKAudioServiceImpl;
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.net.URLEncoder;
+import java.util.List;
 
 @Controller
 @RequestMapping("/search")
