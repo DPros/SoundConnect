@@ -27,6 +27,22 @@ public class Audio {
 	private String title;
 	private String artist;
 	private long genre;
+
+	public void setSource(URL source) {
+		this.source = source;
+	}
+	public void setLength(long length) {
+		this.length = length;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public void setArtist(String artist) {
+		this.artist = artist;
+	}
+	public void setGenre(long genre) {
+		this.genre = genre;
+	}
 	/**
 	 * @return the id
 	 */

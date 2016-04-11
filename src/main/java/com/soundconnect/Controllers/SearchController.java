@@ -3,6 +3,8 @@ package com.soundconnect.Controllers;
 import com.soundconnect.Beans.Audio;
 import com.soundconnect.Services.VKAudioService;
 import com.soundconnect.Services.VKAudioServiceImpl;
+import com.soundconnect.dao.UserDaoImpl;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.net.URLEncoder;
+import java.sql.SQLException;
 import java.util.List;
 
 @Controller
@@ -43,7 +46,9 @@ public class SearchController {
 	}
 	
 	@RequestMapping(method=RequestMethod.GET)
-	public String showView(Model model, HttpServletRequest request){
+	public String showView(Model model, HttpServletRequest request) throws SQLException{
+		UserDaoImpl userDaoImpl = new UserDaoImpl();
+		userDaoImpl.createUser("DPro");
 		return "search";
 	}
 }

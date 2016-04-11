@@ -1,4 +1,4 @@
-package DAO;
+package com.soundconnect.dao;
 
 import com.soundconnect.Beans.Conference;
 
@@ -8,5 +8,7 @@ public interface ConferenceDAO {
 	
 	void deleteConferenceById(long id);
 	
-	void createConference(Conference conference);
+	long createConference(Conference conference);
+	
+	void updateConference(Conference conference);
 }

@@ -1,5 +1,7 @@
 package com.soundconnect.Services;
 
+import org.springframework.stereotype.Service;
+
 import com.soundconnect.Beans.Conference;
 
 public interface ConferenceService {

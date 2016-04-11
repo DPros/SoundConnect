@@ -1,4 +1,4 @@
-package DAO;
+package com.soundconnect.dao;
 
 import java.sql.SQLException;
 
@@ -10,6 +10,7 @@ public interface UserDao {
 	
 	void deleteUserById(long id);
 	
-	void createUser(User user);
+	long createUser(String name) throws SQLException;
 
+	void updateUser(User user) throws SQLException;
 }

@@ -1,20 +1,15 @@
 package com.soundconnect.Beans;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
-import com.soundconnect.Services.ConferenceService;
-
 public class User {
 
-	@Autowired
-	ConferenceService conferenceService;
-	
 	private long id;
 	private String name;
-	private long conference;
+	private Conference conference;
 
-	public User(long id){
+	public User(long id, String name, Conference conference){
 		this.id = id;
+		this.name = name;
+		this.conference = conference;
 	}
 	
 	public String getName() {
@@ -24,10 +19,10 @@ public class User {
 		this.name = name;
 	}
 	public Conference getConference() {
-		return conferenceService.getConferenceById(conference);
+		return conference;
 	}
 	public void setConference(Conference conference) {
-		this.conference = conference.getId();
+		this.conference = conference;
 	}
 	public long getId() {
 		return id;
