@@ -30,37 +30,7 @@
 <div class="container-fluid text-center">
     <div class="row content">
         <div class="col-sm-3 sidenav" id="left-panel">
-            <div class="panel panel-default" id="party-panel">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" href="#collapse1">Conference</a>
-                    </h4>
-                </div>
-                <div id="collapse1" class="panel-collapse collapse in">
-                    <div class="panel-body">
-                        <div class="snd">
-                            <div class="toggle">
-                                <button type="button" class="button btn-default toggle-play">Play</button>
-                                <button type="button" class="mute button btn-default">Mute</button>
-                            </div>
-                            <div id="slider">
-                                <input class="time bar" id="rangeinput" type="range" value="0" onchange="rangevalue.value=value"/>
-                                <span class="highlight"></span>
-                                <output id="rangevalue">0</output>
-                            </div>
-
-                            <span class="currenttime">00:00</span>
-                            <span class="duration">00:00</span>
-
-                            <ul class="playlist">
-                                <li class="playlist_item">Current Track</li>
-                                <li class="playlist_item">Next Track</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="panel-footer scrollfixed" id="member-div">Insert members here</div>
-                </div>
-            </div>
+            <jsp:include page="resources/includes/musicpanel.jsp" />
         </div>
         <div class="col-sm-6 text-left" id="centre-panel">
             <div class="container-fluid" id="navbar-container">
@@ -116,25 +86,27 @@
                 <p>Lorem ipsum...</p>
             </div>
             <div id="finddiv" class="hiddendiv scrollfixed">
-                <div class="input-group col-md-12" id="custom-search-input">
-                    <input type="text" class="search-query form-control" placeholder="Search" />
-                    <span class="input-group-btn">
-                        <button class="btn btn-primary" type="button" id="searchbtn">
-                            <span class="glyphicon glyphicon-search"></span>
-                        </button>
-                    </span>
-                </div>
-                <div class="col-md-12" id="search-results">Insert search results here</div>
+                <jsp:include page="resources/includes/findmusic.jsp" />
             </div>
-            <div id="followdiv" class="hiddendiv scrollfixed"></div>
-            <div id="recdiv" class="hiddendiv scrollfixed"></div>
+            <div id="followdiv" class="hiddendiv scrollfixed">
+                <jsp:include page="resources/includes/following.jsp" />
+            </div>
+            <div id="recdiv" class="hiddendiv scrollfixed">
+                <jsp:include page="resources/includes/recommended.jsp" />
+            </div>
         </div>
         <div class="col-sm-3 sidenav" id="right-panel">
-            <div class="well">
-                <p>ADS</p>
-            </div>
-            <div class="well">
-                <p>ADS</p>
+            <div class="panel panel-default" id="members-panel">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#collapse2">Members</a>
+                    </h4>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse in">
+                    <div class="panel-body scrollfixed" id="member-div">
+                        Insert members here.
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -42,13 +42,11 @@ public class SearchController {
 			e.printStackTrace();
 		}
 		}
-		return "search";
+		return "main";
 	}
 	
 	@RequestMapping(method=RequestMethod.GET)
-	public String showView(Model model, HttpServletRequest request) throws SQLException{
-		UserDaoImpl userDaoImpl = new UserDaoImpl();
-		userDaoImpl.createUser("DPro");
-		return "search";
+	public String showView(Model model, HttpServletRequest request){
+		return "main";
 	}
 }
