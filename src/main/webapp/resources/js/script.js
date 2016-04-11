@@ -4,6 +4,8 @@
 $(document).ready(function () {
 
     $('.snd').snd('/resources/sound/1.mp3');
+    
+        
 
     /* Shows the home div */
     $('#homebtn').click(function (e) {
