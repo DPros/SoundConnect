@@ -4,7 +4,6 @@
 $(document).ready(function () {
 
     $('.snd').snd('/resources/sound/1.mp3');
-    var slider = $('#slider').CircularSlider();
 
     /* Shows the home div */
     $('#homebtn').click(function (e) {
