@@ -6,10 +6,38 @@ import java.util.Queue;
 
 public class Conference {
 	
-	long id;
-	String name;
-//	List<User>users;
-	Queue<Audio> tracks;
-	Date songStarted;
+	private long id;
+	private String name;
+	private List<User>users;
+	private Queue<Audio> tracks;
+	private Date songStarted;
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public List<User> getUsers() {
+		return users;
+	}
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
+	public Queue<Audio> getTracks() {
+		return tracks;
+	}
+	public void setTracks(Queue<Audio> tracks) {
+		this.tracks = tracks;
+	}
+	public Date getSongStarted() {
+		return songStarted;
+	}
+	public void setSongStarted(Date songStarted) {
+		this.songStarted = songStarted;
+	}
+	public long getId() {
+		return id;
+	}
 	
 }
