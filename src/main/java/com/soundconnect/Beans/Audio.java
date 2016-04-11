@@ -21,12 +21,12 @@ public class Audio {
 		this.artist = artist;
 		this.genre = genre;
 	}
-	long id;
-	URL source;
-	long length;
-	String title;
-	String artist;
-	long genre;
+	private long id;
+	private URL source;
+	private long length;
+	private String title;
+	private String artist;
+	private long genre;
 	/**
 	 * @return the id
 	 */
