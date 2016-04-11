@@ -86,18 +86,14 @@
                 <p>Lorem ipsum...</p>
             </div>
             <div id="finddiv" class="hiddendiv scrollfixed">
-                <div class="input-group col-md-12" id="custom-search-input">
-                    <input type="text" class="search-query form-control" placeholder="Search" />
-                    <span class="input-group-btn">
-                        <button class="btn btn-primary" type="button" id="searchbtn">
-                            <span class="glyphicon glyphicon-search"></span>
-                        </button>
-                    </span>
-                </div>
-                <div class="col-md-12" id="search-results">Insert search results here</div>
+                <jsp:include page="resources/includes/findmusic.jsp" />
             </div>
-            <div id="followdiv" class="hiddendiv scrollfixed"></div>
-            <div id="recdiv" class="hiddendiv scrollfixed"></div>
+            <div id="followdiv" class="hiddendiv scrollfixed">
+                <jsp:include page="resources/includes/following.jsp" />
+            </div>
+            <div id="recdiv" class="hiddendiv scrollfixed">
+                <jsp:include page="resources/includes/recommended.jsp" />
+            </div>
         </div>
         <div class="col-sm-3 sidenav" id="right-panel">
             <div class="panel panel-default" id="members-panel">
