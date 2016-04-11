@@ -19,8 +19,9 @@ public class UserDaoImpl implements UserDao{
 	
 	@Override
 	public User getUserById(long id) throws SQLException {
-		jdbcTemplate.query(getUser, new long[]{id}, new UserMapper());
-		resultSet.
+		return null;
+	//	jdbcTemplate.query(getUser, new long[]{id}, new UserMapper());
+	//	resultSet.
 	}
 
 	@Override
@@ -40,7 +41,7 @@ public class UserDaoImpl implements UserDao{
 		@Override
 		public User mapRow(ResultSet rs, int rowNum) throws SQLException {
 			User user = new User(rs.getLong("id"));
-			user.setConference(rs.getString("conference"));
+			//user.setConference(rs.getString("conference"));
 			
 			return null;
 		}

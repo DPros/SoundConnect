@@ -39,11 +39,11 @@ public class SearchController {
 			e.printStackTrace();
 		}
 		}
-		return "search";
+		return "main";
 	}
 	
 	@RequestMapping(method=RequestMethod.GET)
 	public String showView(Model model, HttpServletRequest request){
-		return "search";
+		return "main";
 	}
 }
