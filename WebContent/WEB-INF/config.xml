@@ -18,6 +18,10 @@
 
 <context:property-placeholder
 		location="properties/jdbc.properties" />
+<context:annotation-config />
+
+<bean 
+class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
 
 <bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">

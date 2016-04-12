@@ -6,7 +6,7 @@ import java.util.TreeMap;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.soundconnect.Beans.Conference;
-import com.soundconnect.dao.ConferenceDAO;
+import com.soundconnect.Dao.ConferenceDAO;
 
 public class ConferenceCacher {
 

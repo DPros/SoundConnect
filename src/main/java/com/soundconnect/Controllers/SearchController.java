@@ -3,7 +3,6 @@ package com.soundconnect.Controllers;
 import com.soundconnect.Beans.Audio;
 import com.soundconnect.Services.VKAudioService;
 import com.soundconnect.Services.VKAudioServiceImpl;
-import com.soundconnect.dao.UserDaoImpl;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -46,7 +45,7 @@ public class SearchController {
 	}
 	
 	@RequestMapping(method=RequestMethod.GET)
-	public String showView(Model model, HttpServletRequest request){
+	public String showView(Model model, HttpServletRequest request) throws SQLException{
 		return "main";
 	}
 }
