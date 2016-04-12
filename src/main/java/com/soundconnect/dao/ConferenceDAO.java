@@ -1,4 +1,4 @@
-package com.soundconnect.dao;
+package com.soundconnect.Dao;
 
 import com.soundconnect.Beans.Conference;
 

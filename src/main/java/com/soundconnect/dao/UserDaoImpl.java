@@ -1,9 +1,11 @@
-package com.soundconnect.dao;
+package com.soundconnect.Dao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
+import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -27,6 +29,9 @@ public class UserDaoImpl implements UserDao{
 	@Autowired
 	JdbcTemplate jdbcTemplate; 
 	
+	@Autowired
+	DataSource dataSource;
+	
 	@Override
 	public User getUserById(long id) throws SQLException {
 		return jdbcTemplate.query(getUser, new Object[]{id}, new UserMapper()).get(0);
@@ -42,7 +47,7 @@ public class UserDaoImpl implements UserDao{
 		PreparedStatement preparedStatement = null;
 		long id = 0;
 		try{
-			preparedStatement = jdbcTemplate.getDataSource()
+			preparedStatement = dataSource
 					.getConnection().prepareStatement(createUser, Statement.RETURN_GENERATED_KEYS);
 			preparedStatement.setString(1, name);
 			preparedStatement.executeQuery();
