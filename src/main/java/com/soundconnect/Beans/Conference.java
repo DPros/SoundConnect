@@ -13,6 +13,12 @@ public class Conference {
 	private Date songStarted;
 	private String password;
 	
+	public Conference(String name, String password){
+		this.name = name;
+		this.password = password;
+		//users = new HashSet();
+	}
+	
 	public String getName() {
 		return name;
 	}
