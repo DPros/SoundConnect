@@ -16,7 +16,7 @@
         <div class="panel-body">
             <div class="snd">
                 <div class="toggle">
-                    <button type="button" class="button btn-default toggle-play">Play</button>
+                    <!-- <button type="button" class="button btn-default toggle-play">Play</button> -->
                     <button type="button" class="mute button btn-default">Mute</button>
                 </div>
                 <div id="slider">
