@@ -12,7 +12,7 @@ public class Audio {
 	 * @param artist
 	 * @param genre
 	 */
-	public Audio(long id, URL source, long length, String title, String artist, long genre) {
+	public Audio(long id, URL source, Long length, String title, String artist, long genre) {
 		super();
 		this.id = id;
 		this.source = source;
@@ -31,7 +31,7 @@ public class Audio {
 	public void setSource(URL source) {
 		this.source = source;
 	}
-	public void setLength(long length) {
+	public void setLength(int length) {
 		this.length = length;
 	}
 	public void setTitle(String title) {

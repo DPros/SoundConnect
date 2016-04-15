@@ -24,18 +24,8 @@ public class SearchController {
 		if(request.getParameter("query")!=null){ 	//if query is defined show response
 		VKAudioService service = new VKAudioServiceImpl();
 		try {
-			StringBuilder audioresp = new StringBuilder();
 			List<Audio> audios = service.searchForAudio(URLEncoder.encode(request.getParameter("query"), "UTF-8"));
-			for(Audio au : audios){
-				audioresp.append("<a href=\"");
-				audioresp.append(au.getSource());
-				audioresp.append("\">");
-				audioresp.append(au.getArtist());
-				audioresp.append(" - ");
-				audioresp.append(au.getTitle());
-				audioresp.append("</a><br>");
-			}
-			model.addAttribute("audioresp", audioresp.toString());
+			model.addAttribute("audios", audios);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -45,7 +35,7 @@ public class SearchController {
 	}
 	
 	@RequestMapping(method=RequestMethod.GET)
-	public String showView(Model model, HttpServletRequest request) throws SQLException{
+	public String showView(Model model, HttpServletRequest request){
 		return "main";
 	}
 }
