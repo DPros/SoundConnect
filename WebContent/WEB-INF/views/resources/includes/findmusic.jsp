@@ -1,3 +1,5 @@
+<%@include file="../settings.jsp" %>
+
 <%--
   Created by IntelliJ IDEA.
   User: citizenzer0
@@ -5,7 +7,7 @@
   Time: 2:56 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+
 <div class="input-group col-md-12" id="custom-search-input">
 	<form action="search" method="post" >
 		<input type="search" class="search-query form-control"
@@ -16,7 +18,11 @@
 		</span>
 	</form>
 	<br>
-	<div id="resultDiv">${audioresp}</div>
+	<div id="resultDiv">
+	<c:forEach items="${audios}" var="audio">
+        <a href=\"${audio.source}\">${audio.artist} - ${audio.title }</a><br>
+      </c:forEach>
+	</div>
 </div>
 <div class="col-md-12" id="search-results">Insert search results
 	here</div>

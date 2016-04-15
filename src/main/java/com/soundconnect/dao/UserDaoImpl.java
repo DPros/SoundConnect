@@ -20,7 +20,7 @@ public class UserDaoImpl implements UserDao{
 
 	final String getUser = "SELECT * FROM users WHERE id=?";
 	final String deleteUser = "DELETE FROM users WHERE id=?";
-	final String createUser = "INSERT INTO users (name, conference) VALUES (?, ?)";
+	final String createUser = "INSERT INTO users (name) VALUES (?)";
 	final String updateUser = "UPDATE users SET name=?, conference=? WHERE id=?";
 	
 	@Autowired

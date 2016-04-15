@@ -11,6 +11,7 @@ public class Conference {
 	private List<User>users;
 	private Queue<Audio> tracks;
 	private Date songStarted;
+	private String password;
 	
 	public String getName() {
 		return name;
