@@ -28,15 +28,25 @@ public class SearchController {
 			List<Audio> audios = service.searchForAudio(URLEncoder.encode(searchText, "UTF-8"));
 			model.addAttribute("audios", audios);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		}
 		return "includes/findmusic";
 	}
 	
-//	@RequestMapping(method=RequestMethod.GET)
-//	public String showView(Model model, HttpServletRequest request){
-//		return "main";
-//	}
+	@RequestMapping("/add-to-user")
+	public String addAudioToUser(@RequestBody int aid, Model model, HttpServletRequest req){
+		//check whether we already have this audio in oour DB
+		//analyze & add if needed
+		System.out.println("ADDING AUDIO TO USER; AID="+aid);
+		return "includes/findmusic";
+	}
+	
+	@RequestMapping("/add-to-conference")
+	public String addAudioToConference(@RequestBody int aid, Model model, HttpServletRequest req){
+		//check whether we already have this audio in oour DB
+		//analyze & add if needed
+		System.out.println("ADDING AUDIO TO CONFERENCE; AID="+aid);
+		return "includes/findmusic";
+	}
 }

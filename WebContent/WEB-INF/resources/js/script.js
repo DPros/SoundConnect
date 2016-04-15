@@ -60,4 +60,56 @@ $(document).ready(function () {
 			}
 		});
 	});
+    
+    $('.audio-add-to-user').click(function(e){
+    	e.preventDefault();
+    	var aid = $(this).val();
+    	var address = 'add-to-user';
+    	$.ajax({
+    		type: "POST",
+    		url: address,
+    		data: aid,
+    		contentType: "application/json; charset=utf-8",
+    		success: function(data){
+    			//action like this
+    			alert('Audio added to your playlist');
+    		},
+    		error: function(xhr, status, error){
+    			alert('Something went wrong... Failed to add ');
+    		}
+    	});
+    });
+    
+    $('.audio-add-to-conference').click( function(e){
+    	e.preventDefault();
+    	var aid = $(this).val();
+    	var address = 'add-to-conference';
+    	$.ajax({
+    		type: "POST",
+    		url: address,
+    		data: aid,
+    		contentType: "application/json; charset=utf-8",
+    		success: function(data){
+    			//action like this
+    			alert('Audio added to current conference');
+    		},
+    		error: function(xhr, status, error){
+    			alert('Something went wrong... Failed to add ');
+    		}
+    	});
+    });    
 });
+
+function audioPreview(id) {
+	var myAudio = document.getElementById("player/"+id);
+	console.log(myAudio.id);
+	if (myAudio.paused) {
+		$('#stateicon').removeClass('fa fa-play');
+		$('#stateicon').addClass('fa fa-pause');
+		myAudio.play();
+	} else {
+		$('#stateicon').removeClass('fa fa-pause');
+		$('#stateicon').addClass('fa fa-play');
+		myAudio.pause();
+	}
+}
