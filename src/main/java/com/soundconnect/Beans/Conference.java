@@ -1,46 +1,53 @@
 package com.soundconnect.Beans;
 
-import java.util.Date;
+import java.sql.Array;
+import java.sql.Timestamp;
 import java.util.List;
-import java.util.Queue;
+import java.util.Set;
 
 public class Conference {
 	
+
 	private long id;
 	private String name;
-	private List<User>users;
-	private Queue<Audio> tracks;
-	private Date songStarted;
+	private Set<User>users;
+	private List<Audio> tracks;
+	private Timestamp songStarted;
 	private String password;
 	
-	public Conference(String name, String password){
+	public Conference(String name, String password, Set<User> users, List<Audio> audios, Timestamp songStarted){
 		this.name = name;
 		this.setPassword(password);
-		//users = new HashSet();
+		this.users = users;
+		tracks = audios;
+		this.songStarted = songStarted;
 	}
 	
+	public void setId(long id) {
+		this.id = id;
+	}
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
-	public List<User> getUsers() {
+	public Set<User> getUsers() {
 		return users;
 	}
-	public void setUsers(List<User> users) {
+	public void setUsers(Set<User> users) {
 		this.users = users;
 	}
-	public Queue<Audio> getTracks() {
+	public List<Audio> getTracks() {
 		return tracks;
 	}
-	public void setTracks(Queue<Audio> tracks) {
+	public void setTracks(List<Audio> tracks) {
 		this.tracks = tracks;
 	}
-	public Date getSongStarted() {
+	public Timestamp getSongStarted() {
 		return songStarted;
 	}
-	public void setSongStarted(Date songStarted) {
+	public void setSongStarted(Timestamp songStarted) {
 		this.songStarted = songStarted;
 	}
 	public long getId() {
@@ -49,6 +56,12 @@ public class Conference {
 
 	public String getPassword() {
 		return password;
+	}
+	
+	public Object[] getAudioIds(){
+		Object[] ids = new Long[tracks.size()];
+		for(int i=0;i<ids.length;i++)ids[i]=tracks.get(i).getId();
+		return ids;
 	}
 
 	public void setPassword(String password) {

@@ -27,4 +27,13 @@ public class User {
 	public long getId() {
 		return id;
 	}
+	
+	public boolean equals(User user){
+		return id==user.id;
+	}
+	
+	@Override
+	public int hashCode(){
+		return new Long(id).hashCode();
+	}
 }
