@@ -7,7 +7,7 @@
      http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
      
 <http use-expressions="true">
-		<intercept-url pattern="/" access="isAnonymous()" />
+		<intercept-url pattern="/" access="isAuthenticated()" />
 
 		<intercept-url pattern="/tasks/**" access="isAuthenticated()" />
 		<intercept-url pattern="/createComment" access="isAuthenticated()" />
