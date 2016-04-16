@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 import javax.sql.DataSource;
 
@@ -29,12 +30,11 @@ public class UserDaoImpl implements UserDao{
 	@Autowired
 	JdbcTemplate jdbcTemplate; 
 	
-	@Autowired
-	DataSource dataSource;
-	
 	@Override
 	public User getUserById(long id) throws SQLException {
-		return jdbcTemplate.query(getUser, new Object[]{id}, new UserMapper()).get(0);
+		List<User> res = jdbcTemplate.query(getUser, new Object[]{id}, new UserMapper());
+		if(!res.isEmpty())	return res.get(0);
+		return null;
 	}
 
 	@Override
@@ -47,8 +47,8 @@ public class UserDaoImpl implements UserDao{
 		PreparedStatement preparedStatement = null;
 		long id = 0;
 		try{
-			preparedStatement = dataSource
-					.getConnection().prepareStatement(createUser, Statement.RETURN_GENERATED_KEYS);
+			preparedStatement = jdbcTemplate.getDataSource().getConnection()
+					.prepareStatement(createUser, Statement.RETURN_GENERATED_KEYS);
 			preparedStatement.setString(1, name);
 			preparedStatement.executeQuery();
 			if(preparedStatement.getGeneratedKeys().next()){

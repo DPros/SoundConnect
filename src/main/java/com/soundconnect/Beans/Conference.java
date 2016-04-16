@@ -15,7 +15,7 @@ public class Conference {
 	
 	public Conference(String name, String password){
 		this.name = name;
-		this.password = password;
+		this.setPassword(password);
 		//users = new HashSet();
 	}
 	
@@ -46,5 +46,12 @@ public class Conference {
 	public long getId() {
 		return id;
 	}
-	
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 }
