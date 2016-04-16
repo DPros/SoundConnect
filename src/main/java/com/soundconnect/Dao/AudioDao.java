@@ -3,6 +3,8 @@ package com.soundconnect.Dao;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.springframework.dao.EmptyResultDataAccessException;
+
 import com.soundconnect.Beans.Audio;
 
 public interface AudioDao {
@@ -11,7 +13,7 @@ public interface AudioDao {
 	
 	List<Audio> getAudioByConference(long id);
 	
-	void deleteAudioById(long id);
+	void deleteAudioById(long id) throws EmptyResultDataAccessException;
 	
 	long createAudio(Audio audio) throws SQLException;
 	

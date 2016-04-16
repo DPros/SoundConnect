@@ -6,15 +6,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
-import javax.sql.DataSource;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.soundconnect.Beans.User;
-import com.soundconnect.Services.AudioService;
 import com.soundconnect.Services.ConferenceService;
 
 @Repository

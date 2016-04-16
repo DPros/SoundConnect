@@ -12,6 +12,8 @@ import com.soundconnect.Services.UserServiceImpl;
 import com.soundconnect.Services.VKAudioService;
 import com.soundconnect.Services.VKAudioServiceImpl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,7 +30,8 @@ import java.util.List;
 @Controller
 public class SearchController {
 
-	AudioService audioserv = new AudioServiceImpl();
+	@Autowired
+	AudioService audioserv;
 	
 	@RequestMapping("/search")
 //	@RequestMapping(method=RequestMethod.POST)
@@ -55,7 +58,7 @@ public class SearchController {
 		//update if needed
 		try{
 			audioserv.getAudioById(audio.getId());
-		}catch(NullPointerException e){
+		}catch(EmptyResultDataAccessException e){
 			try {
 				//analyze song before creating!!
 				audioserv.createAudio(audio);
