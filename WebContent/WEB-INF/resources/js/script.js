@@ -3,7 +3,7 @@
  */
 $(document).ready(function () {
 
-    $('.snd').snd('/resources/sound/1.mp3');
+    $('.snd').snd('/resources/sound/1.mp3', { autoplay: true });
     
         
 
