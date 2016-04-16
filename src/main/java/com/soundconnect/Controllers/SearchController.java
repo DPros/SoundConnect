@@ -100,7 +100,7 @@ public class SearchController {
 		ConferenceService confserv = new ConferenceServiceImpl();
 		try {
 			Conference conf = confserv.getConferenceById(Long.valueOf((String) req.getSession().getAttribute("userId")));
-			//add audio to conference here!!!
+			conf.addAudioToConference(audio);
 			confserv.updateConferenceAudios(conf);
 		} catch (NumberFormatException e) {
 		} catch (SQLException e) {

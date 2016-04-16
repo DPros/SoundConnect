@@ -23,6 +23,10 @@ public class Conference {
 		this.songStarted = songStarted;
 	}
 	
+	public void addAudioToConference(Audio audio){
+		tracks.add(audio);
+	}
+	
 	public void setId(long id) {
 		this.id = id;
 	}

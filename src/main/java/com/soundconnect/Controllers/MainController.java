@@ -15,4 +15,5 @@ public class MainController {
 	public String viewMain(Model model, HttpServletRequest request){
 		return "main";
 	}
+	
 }
