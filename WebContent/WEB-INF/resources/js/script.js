@@ -15,19 +15,9 @@ function clickPreviewPlay(id) {
 	audioPreview(id);
 }
 
-function clickAddAudioToUser() {
-	// TODO use the glyphicon-minus if the use already has the song
-	// TODO actually put the song somewhere
-	if($('#add-to-user-glyph').hasClass('glyphicon-plus'))
-	{
-		$('#add-to-user-glyph').removeClass('glyphicon-plus');
-		$('#add-to-user-glyph').addClass('glyphicon-minus');
-	}
-}
-
 $(document).ready(function () {
 	
-	$('.snd').snd('resources/sound/1.mp3', { autoplay: true });
+	$('.snd').snd('/resources/sound/1.mp3', { autoplay: true });
 
     /* Shows the home div */
     $('#homebtn').click(function (e) {
@@ -85,13 +75,14 @@ $(document).ready(function () {
     
     $('.audio-add-to-user').click(function(e){
     	e.preventDefault();
-    	var aid = $(this).val();
+    	var au = $(this).val();
     	var address = 'add-to-user';
     	$.ajax({
     		type: "POST",
     		url: address,
-    		data: aid,
+    		data: au,
     		contentType: "application/json; charset=utf-8",
+    		dataType: 'json',
     		success: function(data){
     			//action like this
     			alert('Audio added to your playlist');
@@ -100,17 +91,23 @@ $(document).ready(function () {
     			alert('Something went wrong... Failed to add ');
     		}
     	});
+		if($('#add-to-user-glyph').hasClass('glyphicon-plus'))
+		{
+			$('#add-to-user-glyph').removeClass('glyphicon-plus');
+			$('#add-to-user-glyph').addClass('glyphicon-minus');
+		}
     });
     
     $('.audio-add-to-conference').click( function(e){
     	e.preventDefault();
-    	var aid = $(this).val();
+    	var au = $(this).val();
     	var address = 'add-to-conference';
     	$.ajax({
     		type: "POST",
     		url: address,
-    		data: aid,
+    		data: au,
     		contentType: "application/json; charset=utf-8",
+    		dataType: 'json',
     		success: function(data){
     			//action like this
     			alert('Audio added to current conference');

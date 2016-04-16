@@ -13,22 +13,23 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="resources/js/script.js"></script>
 
+
 <c:forEach items="${audios}" var="audio">
 	<div>
 		<!-- <a href="${audio.source}">${audio.artist} - ${audio.title }</a>
 		 -->
-		<audio id="player/${audio.id}">
+		<audio id="player/${audio.id}" preload="none">
 			<source src="${audio.source}" type="audio/mp3" />
 		</audio>		
 		<a href="javascript:void(0)" class="btn btn-link" id="previewbtn" data-toggle="tooltip" title="Preview" onclick="clickPreviewPlay(${audio.id})">
 			<span class="glyphicon glyphicon-play" id="play-glyph"></span>
 		</a>
-		
+
 		<p>${audio.artist}- ${audio.title }</p>
-		<button value="${audio.id}" class="audio-add-to-user btn btn-link" data-toggle="tooltip" title="Add to your playlist" onclick="clickAddAudioToUser()">
+		<button value='{"id":${audio.id},"source":"${audio.source}","length":${audio.length},"title":"${audio.title}","artist":"${audio.artist}","genre":${audio.genre}}' class="audio-add-to-user btn btn-link" data-toggle="tooltip" title="Add to your playlist">
 			<span class="glyphicon glyphicon-plus" id="add-to-user-glyph"></span>
 		</button>
-		<button value="${audio.id}" class="audio-add-to-conference btn btn-link" data-toggle="tooltip" title="Send to the conference">
+		<button value='{"id":${audio.id},"source":"${audio.source}","length":${audio.length},"title":"${audio.title}","artist":"${audio.artist}","genre":${audio.genre}}' class="audio-add-to-conference btn btn-link" data-toggle="tooltip" title="Send to the conference">
 			<span class="glyphicon glyphicon-send" id="add-to-conf-glyph"></span>
 		</button>
 	</div>

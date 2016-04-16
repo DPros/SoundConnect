@@ -8,12 +8,13 @@ import org.springframework.stereotype.Service;
 
 import com.soundconnect.Beans.Audio;
 import com.soundconnect.Dao.AudioDao;
+import com.soundconnect.Dao.AudioDaoImpl;
 
 @Service
 public class AudioServiceImpl implements AudioService{
 
 	@Autowired
-	AudioDao audioDao;
+	AudioDao audioDao = new AudioDaoImpl();
 	
 	@Override
 	public List<Audio> getAudioByUser(long id){
