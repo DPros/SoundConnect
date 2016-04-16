@@ -4,21 +4,28 @@
 function clickPreviewPlay(id) {
 	if($('#play-glyph').hasClass('glyphicon-play'))
 	{
-		//$('#play-glyph').html('<span class="glyphicon glyphicon-pause"></span>');
 		$('#play-glyph').removeClass('glyphicon-play');
 		$('#play-glyph').addClass('glyphicon-pause');
 	}
 	else
 	{
-		//$('#play-glyph').html('<span class="glyphicon glyphicon-play"></span>');
 		$('#play-glyph').addClass('glyphicon-play');
 		$('#play-glyph').removeClass('glyphicon-pause');
 	}
 	audioPreview(id);
 }
 
+function clickAddAudioToUser() {
+	// TODO use the glyphicon-minus if the use already has the song
+	// TODO actually put the song somewhere
+	if($('#add-to-user-glyph').hasClass('glyphicon-plus'))
+	{
+		$('#add-to-user-glyph').removeClass('glyphicon-plus');
+		$('#add-to-user-glyph').addClass('glyphicon-minus');
+	}
+}
+
 $(document).ready(function () {
-    
 
 
 	$('.snd').snd('/resources/sound/1.mp3', { autoplay: true });

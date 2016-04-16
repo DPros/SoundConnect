@@ -25,7 +25,9 @@
 		</a>
 		
 		<p>${audio.artist}- ${audio.title }</p>
-		<button value="${audio.id}" class="audio-add-to-user">+</button>
+		<button value="${audio.id}" class="audio-add-to-user btn btn-link" id="audio-add-to-user" onclick="clickAddAudioToUser()">
+			<span class="glyphicon glyphicon-plus" id="add-to-user-glyph"></span>
+		</button>
 		<button value="${audio.id}" class="audio-add-to-conference">add	to conf</button>
 	</div>
 	<br>
