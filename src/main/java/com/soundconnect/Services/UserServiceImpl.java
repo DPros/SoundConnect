@@ -39,4 +39,9 @@ public class UserServiceImpl implements UserService{
 		userDao.deleteAudio(audioId, userId);
 	}
 
+	@Override
+	public User getUserById(long id) throws SQLException {
+		return userDao.getUserById(id);
+	}
+
 }

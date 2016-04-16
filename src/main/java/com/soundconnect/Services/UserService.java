@@ -15,4 +15,6 @@ public interface UserService {
 	void addAudio(long audioId, long userId) throws SQLException;
 	
 	void deleteAudio(long audioId, long userId) throws SQLException;
+	
+	User getUserById(long id) throws SQLException;
 }

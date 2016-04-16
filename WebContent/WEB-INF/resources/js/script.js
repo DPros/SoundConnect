@@ -1,11 +1,23 @@
 /**
  * Created by Zeddie on 4/2/2016.
  */
-$(document).ready(function () {
+function clickPreviewPlay(id) {
+	if($('#play-glyph\\/'+id).hasClass('glyphicon-play'))
+	{
+		$('#play-glyph\\/'+id).removeClass('glyphicon-play');
+		$('#play-glyph\\/'+id).addClass('glyphicon-pause');
+	}
+	else
+	{
+		$('#play-glyph\\/'+id).addClass('glyphicon-play');
+		$('#play-glyph\\/'+id).removeClass('glyphicon-pause');
+	}
+	audioPreview(id);
+}
 
-    $('.snd').snd('/resources/sound/1.mp3');
-    
-        
+$(document).ready(function () {
+	
+	$('.snd').snd('/resources/sound/1.mp3', { autoplay: true });
 
     /* Shows the home div */
     $('#homebtn').click(function (e) {
@@ -63,32 +75,45 @@ $(document).ready(function () {
     
     $('.audio-add-to-user').click(function(e){
     	e.preventDefault();
-    	var aid = $(this).val();
+
+    	var au = $(this).val();
     	var address = 'add-to-user';
+		var success = false;
     	$.ajax({
     		type: "POST",
     		url: address,
-    		data: aid,
+    		data: au,
     		contentType: "application/json; charset=utf-8",
+    		dataType: 'json',
     		success: function(data){
-    			//action like this
+    			// TODO remove this alert after testing, the glyphicon change is enough to notify the user of success
     			alert('Audio added to your playlist');
+				success = true;
     		},
     		error: function(xhr, status, error){
     			alert('Something went wrong... Failed to add ');
     		}
     	});
-    });
+
+		if(success && $('#add-to-user-glyph').hasClass('glyphicon-plus'))
+		{
+			$('#add-to-user-glyph').removeClass('glyphicon-plus');
+			$('#add-to-user-glyph').addClass('glyphicon-minus');
+		}
+
+
+	});
     
     $('.audio-add-to-conference').click( function(e){
     	e.preventDefault();
-    	var aid = $(this).val();
+    	var au = $(this).val();
     	var address = 'add-to-conference';
     	$.ajax({
     		type: "POST",
     		url: address,
-    		data: aid,
+    		data: au,
     		contentType: "application/json; charset=utf-8",
+    		dataType: 'json',
     		success: function(data){
     			//action like this
     			alert('Audio added to current conference');

@@ -10,10 +10,12 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.soundconnect.Beans.Conference;
 import com.soundconnect.Dao.ConferenceDAO;
+import com.soundconnect.Dao.ConferenceDaoImpl;
 
 @Service
 @EnableScheduling
@@ -22,7 +24,7 @@ public class ConferenceServiceImpl implements ConferenceService{
 	Map<Long, Conference> cache = new HashMap<Long, Conference>();
 	
 	@Autowired
-	ConferenceDAO conferenceDAO;
+	ConferenceDAO conferenceDAO = new ConferenceDaoImpl();
 	
 	@Override
 	public Conference getConferenceById(long id) {
@@ -49,4 +51,11 @@ public class ConferenceServiceImpl implements ConferenceService{
 			if(entry.getValue().getSongStarted().before(dayAgo))iterator.remove();
 		}
 	}
+
+	@Override
+	public void updateConferenceAudios(Conference conference) throws DataAccessException, SQLException {
+		conferenceDAO.updateConferenceAudios(conference);
+		cache.put(conference.getId(), conference);
+	}
+
 }
