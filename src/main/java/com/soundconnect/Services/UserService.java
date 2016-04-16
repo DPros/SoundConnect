@@ -9,4 +9,6 @@ public interface UserService {
 	User createUser(String name) throws SQLException;
 	
 	void updateUser(User user) throws SQLException;
+	
+	User getUserById(long id) throws SQLException;
 }

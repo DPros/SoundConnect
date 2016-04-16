@@ -24,4 +24,9 @@ public class UserServiceImpl implements UserService{
 		userDao.updateUser(user);
 	}
 
+	@Override
+	public User getUserById(long id) throws SQLException {
+		return userDao.getUserById(id);
+	}
+
 }

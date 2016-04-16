@@ -12,4 +12,5 @@ public class AuthController {
 		model.addAttribute("message", "This is data from Controller");
 		return "auth";  
 	}  
+	
 } 

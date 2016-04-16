@@ -1,6 +1,7 @@
 /**
  * Created by Zeddie on 4/2/2016.
  */
+
 $(document).ready(function () {
 
     $('.snd').snd('/resources/sound/1.mp3');
@@ -63,13 +64,14 @@ $(document).ready(function () {
     
     $('.audio-add-to-user').click(function(e){
     	e.preventDefault();
-    	var aid = $(this).val();
+    	var au = $(this).val();
     	var address = 'add-to-user';
     	$.ajax({
     		type: "POST",
     		url: address,
-    		data: aid,
+    		data: au,
     		contentType: "application/json; charset=utf-8",
+    		dataType: 'json',
     		success: function(data){
     			//action like this
     			alert('Audio added to your playlist');
@@ -82,13 +84,14 @@ $(document).ready(function () {
     
     $('.audio-add-to-conference').click( function(e){
     	e.preventDefault();
-    	var aid = $(this).val();
+    	var au = $(this).val();
     	var address = 'add-to-conference';
     	$.ajax({
     		type: "POST",
     		url: address,
-    		data: aid,
+    		data: au,
     		contentType: "application/json; charset=utf-8",
+    		dataType: 'json',
     		success: function(data){
     			//action like this
     			alert('Audio added to current conference');

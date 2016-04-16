@@ -13,7 +13,6 @@ public class Audio {
 	 * @param genre
 	 */
 	public Audio(long id, URL source, Long length, String title, String artist, long genre) {
-		super();
 		this.id = id;
 		this.source = source;
 		this.length = length;
@@ -21,6 +20,7 @@ public class Audio {
 		this.artist = artist;
 		this.genre = genre;
 	}
+	public Audio(){}
 	private long id;
 	private URL source;
 	private long length;
