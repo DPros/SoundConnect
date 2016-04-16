@@ -1,15 +1,38 @@
 package com.soundconnect.Beans;
 
+import java.util.Set;
+
 public class User {
 
 	private long id;
 	private String name;
 	private Conference conference;
+	private Set<Audio>audio;
 
-	public User(long id, String name, Conference conference){
+	public Set<Audio> getAudio() {
+		return audio;
+	}
+	
+	public Object[] getAudioIds(){
+		Long[]ids = new Long[audio.size()];
+		int i=0;
+		for(Audio a:audio)ids[i++]=a.getId();
+		return ids;
+	}
+
+	public void setAudio(Set<Audio> audio) {
+		this.audio = audio;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public User(long id, String name, Conference conference, Set<Audio>audios){
 		this.id = id;
 		this.name = name;
 		this.conference = conference;
+		audio = audios;
 	}
 	
 	public String getName() {

@@ -5,6 +5,7 @@
 	xmlns:mvc="http://www.springframework.org/schema/mvc" 
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:task="http://www.springframework.org/schema/task"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc 
 	http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
 		http://www.springframework.org/schema/beans 
@@ -14,11 +15,15 @@
 		http://www.springframework.org/schema/aop 
 		http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
 		http://www.springframework.org/schema/tx 
-		http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
+		http://www.springframework.org/schema/tx/spring-tx-4.2.xsd 
+		http://www.springframework.org/schema/task  
+		http://www.springframework.org/schema/task/spring-task-3.0.xsd">
 
   <context:property-placeholder
 		location="/WEB-INF/properties/jdbc.properties" />
 <context:annotation-config />
+
+<task:annotation-driven/>
 
 <bean 
 class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
