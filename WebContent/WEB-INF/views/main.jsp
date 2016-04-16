@@ -30,7 +30,7 @@
 <div class="container-fluid text-center">
     <div class="row content">
         <div class="col-sm-3 sidenav" id="left-panel">
-            <jsp:include page="resources/includes/musicpanel.jsp" />
+            <jsp:include page="includes/musicpanel.jsp" />
         </div>
         <div class="col-sm-6 text-left" id="centre-panel">
             <div class="container-fluid" id="navbar-container">
@@ -86,13 +86,26 @@
                 <p>Lorem ipsum...</p>
             </div>
             <div id="finddiv" class="hiddendiv scrollfixed">
-                <jsp:include page="resources/includes/findmusic.jsp" />
+				<div class="input-group col-md-12" id="custom-search-input">
+					<form action="search" method="post" id="audio-search-form">
+						<input type="search" class="search-query form-control" 
+							placeholder="Search" name="query" /> <span class="input-group-btn">
+							<button type="submit" class="btn btn-primary" id="searchbtn">
+								<span class="glyphicon glyphicon-search"></span>
+							</button>
+						</span>
+					</form>
+					<br>
+					<div id="audio-search-results">
+					
+					</div>
+				</div>            	 
             </div>
             <div id="followdiv" class="hiddendiv scrollfixed">
-                <jsp:include page="resources/includes/following.jsp" />
+                <jsp:include page="includes/following.jsp" />
             </div>
             <div id="recdiv" class="hiddendiv scrollfixed">
-                <jsp:include page="resources/includes/recommended.jsp" />
+                <jsp:include page="includes/recommended.jsp" />
             </div>
         </div>
         <div class="col-sm-3 sidenav" id="right-panel">

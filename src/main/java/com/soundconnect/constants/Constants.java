@@ -1,5 +1,5 @@
 package com.soundconnect.constants;
 
 public class Constants {
-	public static final String ACCESS_TOKEN = "6da45e0928da82844ab5af059e3ad4c4115efaf927ed9f8fcf4b47da4ef8d4eb0ab59642e42a13d0e19d5";
+	public static final String ACCESS_TOKEN = "376bfaf5cd1ca26faccaacec69995d66b2132e4d942afb348e959a32ec74a5414cbdb21cecf0882503539";
 }
