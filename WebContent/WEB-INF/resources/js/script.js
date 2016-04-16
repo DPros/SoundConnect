@@ -26,9 +26,8 @@ function clickAddAudioToUser() {
 }
 
 $(document).ready(function () {
-
-
-	$('.snd').snd('/resources/sound/1.mp3', { autoplay: true });
+	
+	$('.snd').snd('resources/sound/1.mp3', { autoplay: true });
 
     /* Shows the home div */
     $('#homebtn').click(function (e) {
