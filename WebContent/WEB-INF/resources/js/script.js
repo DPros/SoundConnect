@@ -1,11 +1,27 @@
 /**
  * Created by Zeddie on 4/2/2016.
  */
-$(document).ready(function () {
+function clickPreviewPlay(id) {
+	if($('#play-glyph').hasClass('glyphicon-play'))
+	{
+		//$('#play-glyph').html('<span class="glyphicon glyphicon-pause"></span>');
+		$('#play-glyph').removeClass('glyphicon-play');
+		$('#play-glyph').addClass('glyphicon-pause');
+	}
+	else
+	{
+		//$('#play-glyph').html('<span class="glyphicon glyphicon-play"></span>');
+		$('#play-glyph').addClass('glyphicon-play');
+		$('#play-glyph').removeClass('glyphicon-pause');
+	}
+	audioPreview(id);
+}
 
-    $('.snd').snd('/resources/sound/1.mp3', { autoplay: true });
+$(document).ready(function () {
     
-        
+
+
+	$('.snd').snd('/resources/sound/1.mp3', { autoplay: true });
 
     /* Shows the home div */
     $('#homebtn').click(function (e) {
