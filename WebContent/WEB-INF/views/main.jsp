@@ -90,7 +90,7 @@
 					<form action="search" method="post" id="audio-search-form">
 						<input type="search" class="search-query form-control" 
 							placeholder="Search" name="query" /> <span class="input-group-btn">
-							<button type="submit" class="btn btn-primary" id="searchbtn">
+							<button type="submit" class="btn btn-link" id="searchbtn">
 								<span class="glyphicon glyphicon-search"></span>
 							</button>
 						</span>
