@@ -75,6 +75,13 @@ $(document).ready(function () {
     
     $('.audio-add-to-user').click(function(e){
     	e.preventDefault();
+
+		if($('#add-to-user-glyph').hasClass('glyphicon-plus'))
+		{
+			$('#add-to-user-glyph').removeClass('glyphicon-plus');
+			$('#add-to-user-glyph').addClass('glyphicon-minus');
+		}
+		
     	var au = $(this).val();
     	var address = 'add-to-user';
     	$.ajax({
@@ -91,11 +98,7 @@ $(document).ready(function () {
     			alert('Something went wrong... Failed to add ');
     		}
     	});
-		if($('#add-to-user-glyph').hasClass('glyphicon-plus'))
-		{
-			$('#add-to-user-glyph').removeClass('glyphicon-plus');
-			$('#add-to-user-glyph').addClass('glyphicon-minus');
-		}
+
     });
     
     $('.audio-add-to-conference').click( function(e){
