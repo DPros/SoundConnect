@@ -2,15 +2,15 @@
  * Created by Zeddie on 4/2/2016.
  */
 function clickPreviewPlay(id) {
-	if($('#play-glyph').hasClass('glyphicon-play'))
+	if($('#play-glyph\\/'+id).hasClass('glyphicon-play'))
 	{
-		$('#play-glyph').removeClass('glyphicon-play');
-		$('#play-glyph').addClass('glyphicon-pause');
+		$('#play-glyph\\/'+id).removeClass('glyphicon-play');
+		$('#play-glyph\\/'+id).addClass('glyphicon-pause');
 	}
 	else
 	{
-		$('#play-glyph').addClass('glyphicon-play');
-		$('#play-glyph').removeClass('glyphicon-pause');
+		$('#play-glyph\\/'+id).addClass('glyphicon-play');
+		$('#play-glyph\\/'+id).removeClass('glyphicon-pause');
 	}
 	audioPreview(id);
 }
