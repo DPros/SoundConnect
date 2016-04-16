@@ -25,10 +25,12 @@
 		</a>
 		
 		<p>${audio.artist}- ${audio.title }</p>
-		<button value="${audio.id}" class="audio-add-to-user btn btn-link" id="audio-add-to-user" onclick="clickAddAudioToUser()">
+		<button value="${audio.id}" class="audio-add-to-user btn btn-link" data-toggle="tooltip" title="Add to your playlist" onclick="clickAddAudioToUser()">
 			<span class="glyphicon glyphicon-plus" id="add-to-user-glyph"></span>
 		</button>
-		<button value="${audio.id}" class="audio-add-to-conference">add	to conf</button>
+		<button value="${audio.id}" class="audio-add-to-conference btn btn-link" data-toggle="tooltip" title="Send to the conference">
+			<span class="glyphicon glyphicon-send" id="add-to-conf-glyph"></span>
+		</button>
 	</div>
 	<br>
 </c:forEach>
