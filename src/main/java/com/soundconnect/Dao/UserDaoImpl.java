@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -22,7 +23,7 @@ public class UserDaoImpl implements UserDao{
 	final String createUser = "INSERT INTO users (name) VALUES (?)";
 	final String updateUserName = "UPDATE users SET name=? WHERE id=?";
 	final String updateUserConference = "UPDATE users SET conference=? WHERE id=?";
-	final String addAudio = "UPDATE users SET audios=(array_append(SELECT audio FROM users WHERE id=?), ?) WHERE id=?";
+	final String addAudio = "UPDATE users SET audios=(array_append(audios, ?)) WHERE id=?";
 	final String deleteAudio = "UPDATE users SET audios=array_remove(audios, ?) WHERE id=?";
 	
 	@Autowired
@@ -33,9 +34,11 @@ public class UserDaoImpl implements UserDao{
 	
 	@Override
 	public User getUserById(long id) throws SQLException {
-		List<User> res = jdbcTemplate.query(getUser, new Object[]{id}, new UserMapper());
-		if(!res.isEmpty())	return res.get(0);
-		return null;
+		try{
+			return jdbcTemplate.queryForObject(getUser, new Object[]{id}, new UserMapper());
+		}catch(EmptyResultDataAccessException e){
+			return null;
+		}
 	}
 
 	@Override

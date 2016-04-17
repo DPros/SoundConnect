@@ -10,6 +10,7 @@ import java.util.Queue;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -33,7 +34,11 @@ public class ConferenceDaoImpl implements ConferenceDAO{
 	
 	@Override
 	public Conference getConferenceById(long id) {
-		return jdbcTemplate.queryForObject(getConference, new Object[]{id}, new ConferenceMapper());
+		try{
+			return jdbcTemplate.queryForObject(getConference, new Object[]{id}, new ConferenceMapper());
+		}catch (EmptyResultDataAccessException e){
+			return null;
+		}
 	}
 
 	@Override

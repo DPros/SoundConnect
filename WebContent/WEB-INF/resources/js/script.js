@@ -116,7 +116,10 @@ $(document).ready(function () {
     		dataType: 'json',
     		success: function(data){
     			// TODO remove this alert after testing, the glyphicon change is enough to notify the user of success
-    			alert('Audio added to your playlist');
+    			if(!data)
+    				alert('Something went wrong... Failed to add ');
+    			else
+    				alert('Audio added to your playlist');
 				success = true;
     		},
     		error: function(xhr, status, error){
@@ -144,8 +147,11 @@ $(document).ready(function () {
     		contentType: "application/json; charset=utf-8",
     		dataType: 'json',
     		success: function(data){
-    			//action like this
-    			alert('Audio added to current conference');
+    			//action like this	
+    			if(!data)
+    				alert('Something went wrong... Failed to add ');
+    			else
+    				alert('Audio added to current conference');
     		},
     		error: function(xhr, status, error){
     			alert('Something went wrong... Failed to add ');

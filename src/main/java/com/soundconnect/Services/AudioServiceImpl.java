@@ -28,7 +28,8 @@ public class AudioServiceImpl implements AudioService{
 
 	@Override
 	public Audio getAudioById(long id) {
-		return audioDao.getAudioById(id);
+		Audio a = audioDao.getAudioById(id); 
+		return a;
 	}
 
 	@Override
