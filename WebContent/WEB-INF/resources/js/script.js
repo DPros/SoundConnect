@@ -89,6 +89,7 @@ $(document).ready(function () {
         $('#recdiv').removeClass('visiblediv').addClass('hiddendiv');
         $('#finddiv').removeClass('visiblediv').addClass('hiddendiv');
         $('#followdiv').removeClass('visiblediv').addClass('hiddendiv');
+		$('#mymusicdiv').removeClass('visiblediv').addClass('hiddendiv');
         $('#homediv').removeClass('hiddendiv').addClass('visiblediv');
     });
 
@@ -98,6 +99,7 @@ $(document).ready(function () {
         $('#recdiv').removeClass('visiblediv').addClass('hiddendiv');
         $('#homediv').removeClass('visiblediv').addClass('hiddendiv');
         $('#followdiv').removeClass('visiblediv').addClass('hiddendiv');
+		$('#mymusicdiv').removeClass('visiblediv').addClass('hiddendiv');
         $('#finddiv').removeClass('hiddendiv').addClass('visiblediv');
     });
 
@@ -107,6 +109,7 @@ $(document).ready(function () {
         $('#recdiv').removeClass('visiblediv').addClass('hiddendiv');
         $('#homediv').removeClass('visiblediv').addClass('hiddendiv');
         $('#finddiv').removeClass('visiblediv').addClass('hiddendiv');
+		$('#mymusicdiv').removeClass('visiblediv').addClass('hiddendiv');
         $('#followdiv').removeClass('hiddendiv').addClass('visiblediv');
     });
 
@@ -116,8 +119,19 @@ $(document).ready(function () {
         $('#homediv').removeClass('visiblediv').addClass('hiddendiv');
         $('#finddiv').removeClass('visiblediv').addClass('hiddendiv');
         $('#followdiv').removeClass('visiblediv').addClass('hiddendiv');
+		$('#mymusicdiv').removeClass('visiblediv').addClass('hiddendiv');
         $('#recdiv').removeClass('hiddendiv').addClass('visiblediv');
     });
+
+	/* Shows the my music div */
+	$('#mymusicbtn').click(function (e) {
+		e.preventDefault();
+		$('#homediv').removeClass('visiblediv').addClass('hiddendiv');
+		$('#finddiv').removeClass('visiblediv').addClass('hiddendiv');
+		$('#followdiv').removeClass('visiblediv').addClass('hiddendiv');
+		$('#recdiv').removeClass('visiblediv').addClass('hiddendiv');
+		$('#mymusicdiv').removeClass('hiddendiv').addClass('visiblediv');
+	});
     
     $('#audio-search-form').on('submit',function(e){
     	e.preventDefault();

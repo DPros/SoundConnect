@@ -53,6 +53,7 @@
                                 <li><button type="button" class="btn btn-link" id="findbtn">Find Music</button></li>
                                 <li><button type="button" class="btn btn-link" id="followbtn">Following</button></li>
                                 <li><button type="button" class="btn btn-link" id="recbtn">Recommended</button></li>
+                                <li><button type="button" class="btn btn-link" id="mymusicbtn">My Music</button></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Log out</a></li>
@@ -109,6 +110,9 @@
             </div>
             <div id="recdiv" class="hiddendiv scrollfixed">
                 <jsp:include page="includes/recommended.jsp" />
+            </div>
+            <div id="mymusicdiv" class="hiddendiv scrollfixed">
+                It Works!
             </div>
         </div>
         <div class="col-sm-3 sidenav" id="right-panel">
