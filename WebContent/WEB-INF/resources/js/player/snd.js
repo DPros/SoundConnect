@@ -128,7 +128,11 @@
         return this.each(function() {
             var t = $(this);
             var a = new Audio();
-            if (typeof functionAfterAudioEnded === 'function') a.addEventListener('ended', functionAfterAudioEnded());
+            if (typeof functionAfterAudioEnded === 'function')
+            {
+                alert('listener added!');
+                a.addEventListener('ended', functionAfterAudioEnded);
+            }
             var i = new Snd(t, a, s, o);
         });
     };
