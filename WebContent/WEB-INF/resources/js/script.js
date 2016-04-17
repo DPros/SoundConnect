@@ -40,7 +40,7 @@ $(document).ready(function () {
 		value: 50,
 		max: 100,
 		slide: function(e) {
-			console.log('slider working')
+			console.log('slider working');
 			var value = $('.volume-bar').slider('value');
 			myAudio.volume = value / 100;
 		}
