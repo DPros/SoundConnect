@@ -216,7 +216,7 @@ $(document).ready(function () {
     			if(!data)
     				alert('Something went wrong... Failed to add ');
     			else
-    				alert('Audio added to your playlist');
+    				alert('Audio deleted from your playlist');
 				success = true;
     		},
     		error: function(xhr, status, error){
