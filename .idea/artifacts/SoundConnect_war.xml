@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="SoundConnect:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="SoundConnect.war">
+      <element id="artifact" artifact-name="SoundConnect:war exploded" />
+    </root>
+  </artifact>
+</component>
