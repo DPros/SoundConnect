@@ -71,7 +71,11 @@ public class AudioDaoImpl implements AudioDao{
 	
 	@Override
 	public Audio getAudioById(long id) throws EmptyResultDataAccessException{
-		return jdbcTemplate.queryForObject(getAudioById, new Object[]{id}, new AudioMapper());
+		try{
+			return jdbcTemplate.queryForObject(getAudioById, new Object[]{id}, new AudioMapper());
+		}catch (EmptyResultDataAccessException e){
+			return null;
+		}
 	}
 
 	private class AudioMapper implements RowMapper<Audio>{
