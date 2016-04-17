@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;    
   
 @Controller  
@@ -30,6 +29,16 @@ public class AuthController {
 		model.addAttribute("session", "Current session info:<br>userId: "+req.getSession().getAttribute("userId")+"<br>confId: "+req.getSession().getAttribute("confId"));
 		return "auth";
 	}
+	
+	@RequestMapping(value="/login", method = RequestMethod.GET)
+    public String loginPage(Model model){
+        return "login";
+    }
+	
+	@RequestMapping(value="/403", method = RequestMethod.GET)
+    public String error403(Model model){
+        return "error403";
+    }
 	
 	@RequestMapping("/logout")
 	public RedirectView logOut(HttpServletRequest req, SessionStatus status) throws ServletException{

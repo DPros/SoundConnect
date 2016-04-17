@@ -16,4 +16,8 @@ public class MainController {
 		return "main";
 	}
 	
+	@RequestMapping(path="/index")
+	public String viewIndex(Model model, HttpServletRequest request){
+		return "index";
+	}
 }
