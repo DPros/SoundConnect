@@ -22,7 +22,7 @@ public class AudioDaoImpl implements AudioDao{
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 	
-	final String getAudioByUser = "SELECT * FROM audios WHERE id IN (SELECT audios FROM users WHERE id=?)";
+	final String getAudioByUser = "SELECT * FROM audios WHERE ARRAY[id] && (SELECT audios FROM users WHERE id=?)";
 	final String getAudioByConference = "SELECT * FROM audios WHERE id IN (SELECT audios FROM conferences WHERE id=?)";
 	final String deleteAudio = "DELETE FROM audios WHERE id=?";
 	final String createAudio = "INSERT INTO audios (id, url, length, title , artist, genre) VALUES (?, ?, ?, ?, ?, ?)";

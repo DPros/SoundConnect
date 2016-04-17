@@ -53,8 +53,8 @@ $(document).ready(function () {
 		var confAudio;
 		// stubs for testing
 		var data = { src: 'sound/1.mp3' };
-		$('.snd').snd(data.src, { autoplay: true }, onAudioEnded);
-		/*$.ajax({
+		/*$('.snd').snd(data.src, { autoplay: true }, onAudioEnded);
+		$.ajax({
 			type: "GET",
 			url: address,
 			data: confAudio, // TODO is this the variable where the result of the request is stored?
@@ -132,7 +132,7 @@ $(document).ready(function () {
 		$('#recdiv').removeClass('visiblediv').addClass('hiddendiv');
 		$('#mymusicdiv').removeClass('hiddendiv').addClass('visiblediv');
 
-		var address = 'user-music'; // where to post
+		var address = 'list-music'; // where to post
 		var userid = 0; //STUB
 		$.ajax({
 			type: "POST",
@@ -140,10 +140,10 @@ $(document).ready(function () {
 			data: userid,
 			contentType: "application/json; charset=utf-8",
 			success: function (data) {
-				$('#my-music').html(data);
+				$('#my-music-list').html(data);
 			},
 			error: function(xhr, status, error) {
-				alert("Please try again");
+				alert("Failed to load data =( Please try again");
 			}
 		});
 	});
@@ -201,8 +201,34 @@ $(document).ready(function () {
 	});
 
 	$('.audio-remove-from-user').click(function(e){
-		// TODO
+		e.preventDefault();
+    	var au = $(this).val();
+    	var address = 'remove-from-user';
+		var success = false;
+    	$.ajax({
+    		type: "POST",
+    		url: address,
+    		data: au,
+    		contentType: "application/json; charset=utf-8",
+    		dataType: 'json',
+    		success: function(data){
+    			// TODO remove this alert after testing, the glyphicon change is enough to notify the user of success
+    			if(!data)
+    				alert('Something went wrong... Failed to add ');
+    			else
+    				alert('Audio deleted from your playlist');
+				success = true;
+    		},
+    		error: function(xhr, status, error){
+    			alert('Something went wrong... Failed to add ');
+    		}
+    	});
 
+		if(success && $('#add-to-user-glyph').hasClass('glyphicon-minus'))
+		{
+			$('#add-to-user-glyph').removeClass('glyphicon-minus');
+			$('#add-to-user-glyph').addClass('glyphicon-plus');
+		}
 	});
     
     $('.audio-add-to-conference').click( function(e){
