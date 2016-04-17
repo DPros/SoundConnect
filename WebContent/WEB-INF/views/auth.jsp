@@ -18,9 +18,9 @@
 <script language="javascript">
 function authInfo(response) {
   if (response.session) {
-    alert('user: '+response.session.mid);
+    console.log('user: '+response.session.mid);
   } else {
-    alert('Not auth: please sign in');
+    console.log('Not auth: please sign in');
   }
 }
 VK.Auth.getLoginStatus(authInfo);
