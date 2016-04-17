@@ -133,10 +133,11 @@ $(document).ready(function () {
 		$('#mymusicdiv').removeClass('hiddendiv').addClass('visiblediv');
 
 		var address = 'user-music'; // where to post
+		var userid = 0; //STUB
 		$.ajax({
 			type: "POST",
 			url: address,
-			data: searchtext,
+			data: userid,
 			contentType: "application/json; charset=utf-8",
 			success: function (data) {
 				$('#my-music').html(data);
