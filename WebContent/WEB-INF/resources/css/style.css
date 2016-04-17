@@ -204,9 +204,10 @@ footer {
     padding-right: 4px \9;
     padding-left: 3px;
     padding-left: 4px \9;
+    padding-bottom: 5px;
     /* IE7-8 doesn't have border-radius, so don't indent the padding */
 
-    margin-bottom: 10px;
+    margin-bottom: 40px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
