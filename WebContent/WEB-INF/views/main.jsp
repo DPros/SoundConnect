@@ -112,7 +112,9 @@
                 <jsp:include page="includes/recommended.jsp" />
             </div>
             <div id="mymusicdiv" class="hiddendiv scrollfixed">
-                It Works!
+                <div id="my-music">
+
+                </div>
             </div>
         </div>
         <div class="col-sm-3 sidenav" id="right-panel">

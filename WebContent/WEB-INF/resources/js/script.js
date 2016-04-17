@@ -131,6 +131,20 @@ $(document).ready(function () {
 		$('#followdiv').removeClass('visiblediv').addClass('hiddendiv');
 		$('#recdiv').removeClass('visiblediv').addClass('hiddendiv');
 		$('#mymusicdiv').removeClass('hiddendiv').addClass('visiblediv');
+
+		var address = 'user-music'; // where to post
+		$.ajax({
+			type: "POST",
+			url: address,
+			data: searchtext,
+			contentType: "application/json; charset=utf-8",
+			success: function (data) {
+				$('#my-music').html(data);
+			},
+			error: function(xhr, status, error) {
+				alert("Please try again");
+			}
+		});
 	});
     
     $('#audio-search-form').on('submit',function(e){
@@ -144,7 +158,7 @@ $(document).ready(function () {
 		  contentType: "application/json; charset=utf-8",
 			success: function (data) {
 				$('#audio-search-results').html(data);
-          },
+          	},
 			error: function(xhr, status, error) {
 					alert("Please try again");
 			}
@@ -182,6 +196,11 @@ $(document).ready(function () {
 			$('#add-to-user-glyph').addClass('glyphicon-minus');
 		}
 
+
+	});
+
+	$('.audio-remove-from-user').click(function(e){
+		// TODO
 
 	});
     
