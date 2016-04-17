@@ -27,7 +27,12 @@
 			</a>
 		</div>
 		<div class="col-sm-8">
-			<p class="track-data">${audio.artist}- ${audio.title }</p>
+			<p class="row inner-row track-data">${audio.artist}- ${audio.title }</p>
+			<div class="row inner-row" id="slider">
+				<input class="time bar" id="rangeinput" type="range" value="0" onchange="rangevalue.value=value"/>
+				<span class="highlight"></span>
+				<output id="rangevalue">0</output>
+			</div>
 		</div>
 		<div class="col-sm-1">
 			<button value='{"id":${audio.id},"source":"${audio.source}","length":${audio.length},"title":"${audio.title}","artist":"${audio.artist}","genre":${audio.genre}}' class="audio-add-to-user btn btn-link" data-toggle="tooltip" title="Add to your playlist">
