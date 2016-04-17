@@ -209,6 +209,7 @@
 				</div>
 				<div id="mymusicdiv" class="hiddendiv scrollfixed">
 					<jsp:include page="includes/mymusic.jsp" />
+					<div id="my-music-list"></div>
 				</div>
 			</div>
 			<div class="col-sm-3 sidenav" id="right-panel">

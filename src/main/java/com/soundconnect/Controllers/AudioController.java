@@ -2,17 +2,12 @@ package com.soundconnect.Controllers;
 
 import com.soundconnect.Beans.Audio;
 import com.soundconnect.Beans.Conference;
-import com.soundconnect.Beans.User;
 import com.soundconnect.Services.AudioService;
 import com.soundconnect.Services.ConferenceService;
 import com.soundconnect.Services.ConferenceServiceImpl;
 import com.soundconnect.Services.UserService;
-import com.soundconnect.Services.UserServiceImpl;
 import com.soundconnect.Services.VKAudioService;
-import com.soundconnect.Services.VKAudioServiceImpl;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -54,7 +49,7 @@ public class AudioController {
 	
 	@RequestMapping("/list-music")
 	public String listMusic(Model model, HttpServletRequest request){
-		model.addAttribute("audios", audioserv.getAudioByUser(Long.valueOf((String) request.getSession().getAttribute("userId"))));
+		model.addAttribute("myaudios", audioserv.getAudioByUser(Long.valueOf((String) request.getSession().getAttribute("userId"))));
 		return "includes/mymusic";
 	}
 

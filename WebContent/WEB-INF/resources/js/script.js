@@ -140,7 +140,7 @@ $(document).ready(function () {
 			data: userid,
 			contentType: "application/json; charset=utf-8",
 			success: function (data) {
-				$('#my-music').html(data);
+				$('#my-music-list').html(data);
 			},
 			error: function(xhr, status, error) {
 				alert("Failed to load data =( Please try again");
@@ -201,8 +201,34 @@ $(document).ready(function () {
 	});
 
 	$('.audio-remove-from-user').click(function(e){
-		// TODO
+		e.preventDefault();
+    	var au = $(this).val();
+    	var address = 'remove-from-user';
+		var success = false;
+    	$.ajax({
+    		type: "POST",
+    		url: address,
+    		data: au,
+    		contentType: "application/json; charset=utf-8",
+    		dataType: 'json',
+    		success: function(data){
+    			// TODO remove this alert after testing, the glyphicon change is enough to notify the user of success
+    			if(!data)
+    				alert('Something went wrong... Failed to add ');
+    			else
+    				alert('Audio added to your playlist');
+				success = true;
+    		},
+    		error: function(xhr, status, error){
+    			alert('Something went wrong... Failed to add ');
+    		}
+    	});
 
+		if(success && $('#add-to-user-glyph').hasClass('glyphicon-minus'))
+		{
+			$('#add-to-user-glyph').removeClass('glyphicon-minus');
+			$('#add-to-user-glyph').addClass('glyphicon-plus');
+		}
 	});
     
     $('.audio-add-to-conference').click( function(e){

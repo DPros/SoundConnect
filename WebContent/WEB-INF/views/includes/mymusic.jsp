@@ -16,7 +16,7 @@
 <script src="js/script.js"></script>
 
 
-<c:forEach items="${audios}" var="audio">
+<c:forEach items="${myaudios}" var="audio">
     <div class="row search-results" id="search-results/${audio.id}">
         <!-- <a href="${audio.source}">${audio.artist} - ${audio.title }</a>
 		 -->

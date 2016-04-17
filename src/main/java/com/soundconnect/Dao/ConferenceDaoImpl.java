@@ -5,9 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Queue;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -78,7 +75,6 @@ public class ConferenceDaoImpl implements ConferenceDAO{
 	}
 	
 	private class ConferenceMapper implements RowMapper<Conference>{
-
 		@Override
 		public Conference mapRow(ResultSet rs, int rowNum) throws SQLException {
 			Conference conference = new Conference(rs.getString("name"), 
