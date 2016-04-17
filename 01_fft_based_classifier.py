@@ -63,7 +63,7 @@ def train_model(clf_factory, X, Y, name, plot=False):
             y_label_test = np.asarray(y_test == label, dtype=int)
             proba = clf.predict_proba(X_test)
             print(proba)
-            proba_label = proba[:, label-1]
+            proba_label = proba[:, label]
 
             precision, recall, pr_thresholds = precision_recall_curve(
                 y_label_test, proba_label)
@@ -92,7 +92,7 @@ def train_model(clf_factory, X, Y, name, plot=False):
     all_pr_scores = np.asarray(pr_scores.values()).flatten()
    
           
-    summary = (np.mean(scores), np.std(scores),np.mean(all_pr_scores)), np.std(all_pr_scores)
+    #summary = (np.mean(scores), np.std(scores),np.mean(all_pr_scores)), np.std(all_pr_scores)
    
 
     return np.mean(train_errors), np.mean(test_errors), np.asarray(cms)

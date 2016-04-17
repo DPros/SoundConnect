@@ -4,7 +4,7 @@ import numpy as np
 
 import scipy.io.wavfile
 
-#these variables point to my local data. Change values accordingly (point to your copy of data) to replicate results
+
 CHART_DIR = os.path.join(".", "charts") 
 FFT_DIR = "D:\Project\FFT_BASE"   #model of data
 GENRE_DIR = "D:\\History_Project\\genres"   #100 files for each genre
