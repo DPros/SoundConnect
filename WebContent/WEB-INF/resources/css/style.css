@@ -20,8 +20,8 @@
 .volume {
     padding-top: 0px;
     padding-bottom: 10px;
-    margin-top: 3px;
-    padding-right: 10px;
+    margin-top: 5px;
+    padding-right: 15px;
     padding-left: 0px;
 }
 
@@ -52,7 +52,7 @@
     -moz-box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.9), 0px 1px 1px 0px rgba(255, 255, 255, 0.13);
     box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.9), 0px 1px 1px 0px rgba(255, 255, 255, 0.13);*/
 }
-#slider .bar {
+#slider .time-bar {
     width: 97%;
     height: 5px;
     background: #333;
@@ -67,6 +67,25 @@
     background: -ms-linear-gradient(left, rgba(29, 46, 56, 0) 0%, #354f64 50%, rgba(87, 134, 168, 0) 100%);
     background: linear-gradient(left, rgba(29, 46, 56, 0) 0%, #354f64 50%, rgba(87, 134, 168, 0) 100%);
     filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='rgba(29, 46, 56, 0)', endColorstr='rgba(87, 134, 168, 0)', GradientType=1);
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    border-radius: 40px;
+}
+#slider .volume-bar {
+    width: 97%;
+    height: 5px;
+    background: #333;
+    position: relative;
+    top: 5px;
+    left: 4px;
+    background: #1d2e38;
+    background: -moz-linear-gradient(left, rgba(29, 46, 56, 0) 0%, #354f64 50%, #354f64 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(29, 46, 56, 0.3)), color-stop(50%, #354f64), color-stop(100%, #354f64));
+    background: -webkit-linear-gradient(left, rgba(29, 46, 56, 0) 0%, #354f64 50%, #354f64 100%);
+    background: -o-linear-gradient(left, rgba(29, 46, 56, 0) 0%, #354f64 50%, #354f64 100%);
+    background: -ms-linear-gradient(left, rgba(29, 46, 56, 0) 0%, #354f64 50%, #354f64 100%);
+    background: linear-gradient(left, rgba(29, 46, 56, 0) 0%, #354f64 50%, #354f64 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='rgba(29, 46, 56, 0)', endColorstr='#354f64', GradientType=1);
     -webkit-border-radius: 40px;
     -moz-border-radius: 40px;
     border-radius: 40px;
