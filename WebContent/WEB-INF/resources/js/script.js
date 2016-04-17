@@ -1,6 +1,18 @@
 /**
  * Created by Zeddie on 4/2/2016.
  */
+var myAudio;
+
+function audioPreview (id) {
+	myAudio = document.getElementById("player/"+id);
+	console.log(myAudio.id);
+	if (myAudio.paused) {
+		myAudio.play();
+	} else {
+		myAudio.pause();
+	}
+}
+
 function clickPreviewPlay(id) {
 	if($('#play-glyph\\/'+id).hasClass('glyphicon-play'))
 	{
@@ -22,19 +34,19 @@ function clickPreviewPlay(id) {
 
 $(document).ready(function () {
 
-
-	$('.snd').snd('/resources/sound/1.mp3', { autoplay: true });
-
 	$('.volume-bar').slider({
 		range: "%",
-		value: 50,
 		min: 0,
+		value: 50,
 		max: 100,
-		slide: function(e, ui) {
+		slide: function(e) {
+			console.log('slider working')
 			var value = $('.volume-bar').slider('value');
-			//$()
+			myAudio.volume = value / 100;
 		}
 	});
+
+	$('.snd').snd('/resources/sound/1.mp3', { autoplay: true });
 
     /* Shows the home div */
     $('#homebtn').click(function (e) {
@@ -141,17 +153,3 @@ $(document).ready(function () {
     	});
     });    
 });
-
-function audioPreview(id) {
-	var myAudio = document.getElementById("player/"+id);
-	console.log(myAudio.id);
-	if (myAudio.paused) {
-		$('#stateicon').removeClass('fa fa-play');
-		$('#stateicon').addClass('fa fa-pause');
-		myAudio.play();
-	} else {
-		$('#stateicon').removeClass('fa fa-pause');
-		$('#stateicon').addClass('fa fa-play');
-		myAudio.pause();
-	}
-}

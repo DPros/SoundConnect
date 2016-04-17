@@ -35,7 +35,7 @@
 		<div class="col-sm-8">
 			<p class="row inner-row track-data">${audio.artist}- ${audio.title }</p>
 			<div class="row inner-row" id="slider">
-				<input class="volume-bar" id="rangeinput" type="range" value="0"/>
+				<input class="volume-bar" id="rangeinput" type="range" />
 				<span class="highlight"></span>
 			</div>
 		</div>
