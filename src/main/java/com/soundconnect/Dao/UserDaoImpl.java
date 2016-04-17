@@ -23,7 +23,7 @@ public class UserDaoImpl implements UserDao{
 	final String createUser = "INSERT INTO users (name) VALUES (?)";
 	final String updateUserName = "UPDATE users SET name=? WHERE id=?";
 	final String updateUserConference = "UPDATE users SET conference=? WHERE id=?";
-	final String addAudio = "UPDATE users SET audios=(array_append(SELECT audio FROM users WHERE id=?), ?) WHERE id=?";
+	final String addAudio = "UPDATE users SET audios=(array_append(audios, ?)) WHERE id=?";
 	final String deleteAudio = "UPDATE users SET audios=array_remove(audios, ?) WHERE id=?";
 	
 	@Autowired
@@ -78,9 +78,9 @@ public class UserDaoImpl implements UserDao{
 		jdbcTemplate.update(updateUserConference, conferenceId, userId);
 	}
 	
-	@Override 
+	@Override
 	public void addAudio(long audioId, long userId) throws SQLException {
-	jdbcTemplate.update(addAudio, userId, audioId, userId); 
+		jdbcTemplate.update(addAudio, audioId, userId);
 	}
 	
 	@Override
