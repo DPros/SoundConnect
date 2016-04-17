@@ -5,8 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Queue;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -28,9 +26,6 @@ public class ConferenceDaoImpl implements ConferenceDAO{
 	
 	@Autowired
 	JdbcTemplate jdbcTemplate;
-	
-	@Autowired
-	AudioDao audioDao;
 	
 	@Override
 	public Conference getConferenceById(long id) {
@@ -83,8 +78,7 @@ public class ConferenceDaoImpl implements ConferenceDAO{
 		public Conference mapRow(ResultSet rs, int rowNum) throws SQLException {
 			Conference conference = new Conference(rs.getString("name"), 
 					rs.getString("password"), new HashSet<User>(), 
-					audioDao.getAudioByConference(rs.getLong("id")), 
-					rs.getTimestamp("audioStarted"));
+					null, rs.getTimestamp("audioStarted"));
 			return conference;
 		}
 	}

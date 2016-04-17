@@ -4,7 +4,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -12,18 +14,19 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import com.soundconnect.Beans.Conference;
 import com.soundconnect.Beans.User;
 import com.soundconnect.Services.ConferenceService;
 
 @Repository
 public class UserDaoImpl implements UserDao{
 
-	final String getUser = "SELECT * FROM users WHERE id=?";
+	final String getUser = "SELECT users.id uid, users.name uname, users.conference uconference, conference.name cname, conference.password cpassword, conference.audioStarted cstarted FROM users, conferences LEFT JOIN conferences ON users.conference=conferences.id WHERE id=?";
 	final String deleteUser = "DELETE FROM users WHERE id=?";
 	final String createUser = "INSERT INTO users (name) VALUES (?)";
 	final String updateUserName = "UPDATE users SET name=? WHERE id=?";
 	final String updateUserConference = "UPDATE users SET conference=? WHERE id=?";
-	final String addAudio = "UPDATE users SET audios=(array_append(audios, ?)) WHERE id=?";
+	final String addAudio = "UPDATE users SET audios=(audios || ?) WHERE id=?";
 	final String deleteAudio = "UPDATE users SET audios=array_remove(audios, ?) WHERE id=?";
 	
 	@Autowired
@@ -92,11 +95,10 @@ public class UserDaoImpl implements UserDao{
 
 		@Override
 		public User mapRow(ResultSet rs, int rowNum) throws SQLException {
-			User user = new User(rs.getLong("id"), rs.getString("name"), 
-					conferenceService.getConferenceById(rs.getLong("conference")), 
+			User user = new User(rs.getLong("uid"), rs.getString("uname"), 
+					new Conference(rs.getLong("cid"), rs.getString("cname"), rs.getString("cpassword"), new HashSet<User>(), null, rs.getTimestamp("cstarted")), 
 					null);
 			return user;
 		}
-		
 	}
 }

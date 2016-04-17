@@ -1,6 +1,5 @@
 package com.soundconnect.Beans;
 
-import java.sql.Array;
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.Set;
@@ -15,8 +14,9 @@ public class Conference {
 	private Timestamp songStarted;
 	private String password;
 	
-	public Conference(String name, String password, Set<User> users, List<Audio> audios, Timestamp songStarted){
+	public Conference(long id, String name, String password, Set<User> users, List<Audio> audios, Timestamp songStarted){
 		this.name = name;
+		this.id = id;
 		this.setPassword(password);
 		this.users = users;
 		tracks = audios;
