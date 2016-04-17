@@ -54,27 +54,23 @@ public class SearchController {
 			System.out.println("null pointer audio request");
 			return false;
 		}
-		//check whether we already have this audio in our DB
-		//update if needed
-		try{
-			audioserv.getAudioById(audio.getId());
-		}catch(EmptyResultDataAccessException e){
-			try {
-				//analyze song before creating!!
-				audioserv.createAudio(audio);
-			} catch (SQLException e1) {
-				return false;
-			}
-		}
+		if(audioserv.getAudioById(audio.getId())==null); 
+		try { 
+		//analyze song before creating!! 
+		audioserv.createAudio(audio); 
+		} catch (SQLException e1) { 
+		return false; 
+		} 
 		UserService userserv = new UserServiceImpl();
 		try {
-			User user = userserv.getUserById(Long.valueOf((String) req.getSession().getAttribute("userId")));
 			//add audio to user here!!!
-			userserv.addAudio(audio.getId(), user.getId());
+			userserv.addAudio(audio.getId(), Long.valueOf((String) req.getSession().getAttribute("userId")));
 		} catch (NumberFormatException e) {
 		} catch (SQLException e) {
 			return false;
 		}
+		System.out.println("Current session info:\nuserId: "+req.getSession().getAttribute("userId")+"\nconfId: "+req.getSession().getAttribute("confId"));
+
 		System.out.println("ADDING AUDIO TO USER; AID="+audio.getId());
 		return true;
 	}
@@ -88,16 +84,13 @@ public class SearchController {
 		}
 		//check whether we already have this audio in our DB
 		//update if needed
-		try{
-			audioserv.getAudioById(audio.getId());
-		}catch(NullPointerException e){
-			try {
-				//analyze song before creating!!
-				audioserv.createAudio(audio);
-			} catch (SQLException e1) {
-				return false;
-			}
-		}
+		if(audioserv.getAudioById(audio.getId())==null); 
+		try { 
+		//analyze song before creating!! 
+		audioserv.createAudio(audio); 
+		} catch (SQLException e1) { 
+		return false; 
+		} 
 		ConferenceService confserv = new ConferenceServiceImpl();
 		try {
 			Conference conf = confserv.getConferenceById(Long.valueOf((String) req.getSession().getAttribute("confId")));
