@@ -78,9 +78,9 @@ public class UserDaoImpl implements UserDao{
 		jdbcTemplate.update(updateUserConference, conferenceId, userId);
 	}
 	
-	@Override
+	@Override 
 	public void addAudio(long audioId, long userId) throws SQLException {
-		jdbcTemplate.update(addAudio, audioId, userId);
+	jdbcTemplate.update(addAudio, userId, audioId, userId); 
 	}
 	
 	@Override
