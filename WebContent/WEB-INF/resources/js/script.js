@@ -12,12 +12,29 @@ function clickPreviewPlay(id) {
 		$('#play-glyph\\/'+id).addClass('glyphicon-play');
 		$('#play-glyph\\/'+id).removeClass('glyphicon-pause');
 	}
+	if(!($('#search-results\\/'+id).hasClass('current-track')))
+	{
+		$('#search-results\\/'+id).addClass('current-track');
+	}
+	else $('#search-results\\/'+id).removeClass('current-track');
 	audioPreview(id);
 }
 
 $(document).ready(function () {
-	
+
+
 	$('.snd').snd('/resources/sound/1.mp3', { autoplay: true });
+
+	$('.volume-bar').slider({
+		range: "%",
+		value: 50,
+		min: 0,
+		max: 100,
+		slide: function(e, ui) {
+			var value = $('.volume-bar').slider('value');
+			//$()
+		}
+	});
 
     /* Shows the home div */
     $('#homebtn').click(function (e) {

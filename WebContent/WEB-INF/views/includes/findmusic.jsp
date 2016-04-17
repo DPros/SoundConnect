@@ -9,13 +9,16 @@
 --%>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="js/script.js"></script>
 
 
 <c:forEach items="${audios}" var="audio">
-	<div class="row search-results">
+	<div class="row search-results" id="search-results/${audio.id}">
 		<!-- <a href="${audio.source}">${audio.artist} - ${audio.title }</a>
 		 -->
 		<div class="col-sm-2">
@@ -32,9 +35,8 @@
 		<div class="col-sm-8">
 			<p class="row inner-row track-data">${audio.artist}- ${audio.title }</p>
 			<div class="row inner-row" id="slider">
-				<input class="volume-bar" id="rangeinput" type="range" value="0" onchange="rangevalue.value=value"/>
+				<input class="volume-bar" id="rangeinput" type="range" value="0"/>
 				<span class="highlight"></span>
-				<output id="rangevalue">0</output>
 			</div>
 		</div>
 		<div class="col-sm-1">
