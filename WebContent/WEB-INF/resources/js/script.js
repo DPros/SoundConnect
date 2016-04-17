@@ -52,9 +52,9 @@ $(document).ready(function () {
 		var address = 'get-from-conference'; // TODO what's the actual address?
 		var confAudio;
 		// stubs for testing
-		//var data = { src: 'resources/sound/1.mp3' };
-		//$('.snd').snd(data.src, { autoplay: true }, onAudioEnded);
-		$.ajax({
+		var data = { src: 'sound/1.mp3' };
+		$('.snd').snd(data.src, { autoplay: true }, onAudioEnded);
+		/*$.ajax({
 			type: "GET",
 			url: address,
 			data: confAudio, // TODO is this the variable where the result of the request is stored?
@@ -71,7 +71,7 @@ $(document).ready(function () {
 			error: function(xhr, status, error){
 				alert('Something went wrong... Failed to retrieve audio');
 			}
-		});
+		});*/
 	};
 
 	// call to the function when the document is first loaded, may need to be replaced with window.loaded

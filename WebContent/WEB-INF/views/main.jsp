@@ -112,18 +112,7 @@
             </div>
         </div>
         <div class="col-sm-3 sidenav" id="right-panel">
-            <div class="panel panel-default" id="members-panel">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" href="#collapse2">Members</a>
-                    </h4>
-                </div>
-                <div id="collapse2" class="panel-collapse collapse in">
-                    <div class="panel-body scrollfixed" id="member-div">
-                        Insert members here.
-                    </div>
-                </div>
-            </div>
+            <jsp:include page="includes/members.jsp" />
         </div>
     </div>
 </div>
