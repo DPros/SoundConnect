@@ -2,6 +2,7 @@
  * Created by Zeddie on 4/2/2016.
  */
 var myAudio;
+var onAudioEnded;
 
 function audioPreview (id) {
 	myAudio = document.getElementById("player/"+id);
@@ -46,7 +47,36 @@ $(document).ready(function () {
 		}
 	});
 
-	$('.snd').snd('/resources/sound/1.mp3', { autoplay: true });
+	onAudioEnded = function() {
+		alert('onAudioEnded called!');
+		var address = 'get-from-conference'; // TODO what's the actual address?
+		var confAudio;
+		var data = { src: 'resources/sound/1.mp3' };
+		$('.snd').snd(data.src, { autoplay: true }, onAudioEnded);
+		/*$.ajax({
+			type: "GET",
+			url: address,
+			data: confAudio, // TODO is this the variable where the result of the request is stored?
+			contentType: "application/json; charset=utf-8",
+			dataType: 'json', // TODO get next song json
+			success: function(data){
+				if(!data)
+					alert('Something went wrong... Failed to retrieve audio');
+				else {
+					alert('Audio track retrieved');
+					$('.snd').snd(data.src, { autoplay: true }, onAudioEnded);
+				}
+			},
+			error: function(xhr, status, error){
+				alert('Something went wrong... Failed to retrieve audio');
+			}
+		});*/
+	};
+
+	// call to the function when the document is first loaded, may need to be replaced with window.loaded
+	onAudioEnded();
+
+//	$('.snd').snd('/resources/sound/1.mp3', { autoplay: true });
 
     /* Shows the home div */
     $('#homebtn').click(function (e) {

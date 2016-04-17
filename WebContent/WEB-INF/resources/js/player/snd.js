@@ -124,10 +124,11 @@
     };
     
     // Multiple instances
-    $.fn.snd = function(s, o) {  
+    $.fn.snd = function(s, o, functionAfterAudioEnded) {
         return this.each(function() {
             var t = $(this);
             var a = new Audio();
+            if (typeof functionAfterAudioEnded === 'function') a.addEventListener('ended', functionAfterAudioEnded());
             var i = new Snd(t, a, s, o);
         });
     };
