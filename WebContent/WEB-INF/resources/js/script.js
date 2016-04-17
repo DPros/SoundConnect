@@ -53,8 +53,8 @@ $(document).ready(function () {
 		var confAudio;
 		// stubs for testing
 		var data = { src: 'sound/1.mp3' };
-		$('.snd').snd(data.src, { autoplay: true }, onAudioEnded);
-		/*$.ajax({
+		/*$('.snd').snd(data.src, { autoplay: true }, onAudioEnded);
+		$.ajax({
 			type: "GET",
 			url: address,
 			data: confAudio, // TODO is this the variable where the result of the request is stored?
@@ -132,7 +132,7 @@ $(document).ready(function () {
 		$('#recdiv').removeClass('visiblediv').addClass('hiddendiv');
 		$('#mymusicdiv').removeClass('hiddendiv').addClass('visiblediv');
 
-		var address = 'user-music'; // where to post
+		var address = 'list-music'; // where to post
 		var userid = 0; //STUB
 		$.ajax({
 			type: "POST",
@@ -143,7 +143,7 @@ $(document).ready(function () {
 				$('#my-music').html(data);
 			},
 			error: function(xhr, status, error) {
-				alert("Please try again");
+				alert("Failed to load data =( Please try again");
 			}
 		});
 	});

@@ -28,7 +28,7 @@ import java.util.List;
 
 @Controller
 @SessionAttributes({ "userId", "confId" })
-public class SearchController {
+public class AudioController {
 
 	@Autowired
 	AudioService audioserv;
@@ -50,6 +50,12 @@ public class SearchController {
 			}
 		}
 		return "includes/findmusic";
+	}
+	
+	@RequestMapping("/list-music")
+	public String listMusic(Model model, HttpServletRequest request){
+		model.addAttribute("audios", audioserv.getAudioByUser(Long.valueOf((String) request.getSession().getAttribute("userId"))));
+		return "includes/mymusic";
 	}
 
 	@RequestMapping("/add-to-user")
@@ -107,6 +113,26 @@ public class SearchController {
 			return false;
 		}
 		System.out.println("ADDING AUDIO TO CONFERENCE; AID=" + audio.getId());
+		return true;
+	}
+	
+	@RequestMapping("/remove-from-user")
+	public @ResponseBody Boolean removeAudioFromUser(@RequestBody Audio audio, Model model, HttpServletRequest req){
+		if (audio == null) {
+			System.out.println("null pointer audio request");
+			return false;
+		}
+		try {
+			// add audio to user here!!!
+			userserv.deleteAudio(audio.getId(), Long.valueOf((String) req.getSession().getAttribute("userId")));
+		} catch (NumberFormatException e) {
+		} catch (SQLException e) {
+			return false;
+		}
+		System.out.println("Current session info:\nuserId: " + req.getSession().getAttribute("userId") + "\nconfId: "
+				+ req.getSession().getAttribute("confId"));
+
+		System.out.println("DELETING AUDIO FROM USER; AID=" + audio.getId());
 		return true;
 	}
 }
