@@ -27,7 +27,17 @@ VK.Auth.getLoginStatus(authInfo);
 VK.UI.button('login_button');
 </script>
 
-${message}
+<form method="POST" >
+<h3>Session creator beta</h3>
+<h5>(for testing)</h5>
+<input type="text" name="userId" value="Enter user id" onfocus="if (this.value=='Enter user id') this.value='';"/>
+<input type="text" name="confId" value="Enter conference id" onfocus="if (this.value=='Enter conference id') this.value='';"/>
+<input type="submit" value="Create session!" />
+</form>
+
+${session}
+<br>
+<a href="/SoundConnect/logout"> LOGOUT! </a>
 
 </body>  
 </html>  

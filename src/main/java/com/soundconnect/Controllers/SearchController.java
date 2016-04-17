@@ -4,7 +4,6 @@ import com.soundconnect.Beans.Audio;
 import com.soundconnect.Beans.Conference;
 import com.soundconnect.Beans.User;
 import com.soundconnect.Services.AudioService;
-import com.soundconnect.Services.AudioServiceImpl;
 import com.soundconnect.Services.ConferenceService;
 import com.soundconnect.Services.ConferenceServiceImpl;
 import com.soundconnect.Services.UserService;
@@ -18,8 +17,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
@@ -28,6 +27,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 @Controller
+@SessionAttributes({"userId", "confId"})
 public class SearchController {
 
 	@Autowired
@@ -81,6 +81,7 @@ public class SearchController {
 	
 	@RequestMapping("/add-to-conference")
 	public @ResponseBody Boolean addAudioToConference(@RequestBody Audio audio, Model model, HttpServletRequest req){
+		System.out.println("Current session info:\nuserId: "+req.getSession().getAttribute("userId")+"\nconfId: "+req.getSession().getAttribute("confId"));
 		if(audio==null){
 			System.out.println("null pointer audio request");
 			return false;
@@ -99,7 +100,7 @@ public class SearchController {
 		}
 		ConferenceService confserv = new ConferenceServiceImpl();
 		try {
-			Conference conf = confserv.getConferenceById(Long.valueOf((String) req.getSession().getAttribute("userId")));
+			Conference conf = confserv.getConferenceById(Long.valueOf((String) req.getSession().getAttribute("confId")));
 			conf.addAudioToConference(audio);
 			confserv.updateConferenceAudios(conf);
 		} catch (NumberFormatException e) {
