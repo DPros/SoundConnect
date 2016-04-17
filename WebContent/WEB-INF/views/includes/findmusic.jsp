@@ -25,6 +25,9 @@
 			<a href="javascript:void(0)" class="btn btn-link" id="previewbtn" data-toggle="tooltip" title="Preview" onclick="clickPreviewPlay(${audio.id})">
 				<span class="glyphicon glyphicon-play" id="play-glyph/${audio.id}"></span>
 			</a>
+			<div class="volume">
+				<span class="btn btn-lg btn-link glyphicon glyphicon-volume-down" id="volume-glyph/${audio.id}"></span>
+			</div>
 		</div>
 		<div class="col-sm-8">
 			<p class="row inner-row track-data">${audio.artist}- ${audio.title }</p>
