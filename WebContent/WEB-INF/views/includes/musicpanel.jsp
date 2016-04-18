@@ -11,8 +11,8 @@
     <div class="panel-heading">
         <h4 class="panel-title">
             <a id="collapse-conf" data-toggle="collapse" href="#collapse1">
-                Conference
-                <span class="glyphicon glyphicon-eye-open" id="conf-glyph"></span>
+                <span class="btn btn-link">Conference</span>
+                <span class="glyphicon glyphicon-eye-open btn btn-link" id="conf-glyph"></span>
             </a>
         </h4>
     </div>
@@ -21,7 +21,9 @@
             <div class="snd">
                 <div class="toggle">
                     <!--<button type="button" class="button btn-default toggle-play">Play</button>-->
-                    <button type="button" class="mute button btn-default">Mute</button>
+                    <button type="button" class="mute button btn-default">
+                        <span class="glyphicon glyphicon-volume-off btn btn-link"></span>
+                    </button>
                 </div>
                 <div id="slider">
                     <input class="time-bar" id="rangeinput" type="range" value="0" onchange="rangevalue.value=value"/>
