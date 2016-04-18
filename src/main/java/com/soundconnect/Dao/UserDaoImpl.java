@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashSet;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -21,17 +22,23 @@ public class UserDaoImpl implements UserDao{
 
 	final String getUser = "SELECT * FROM users WHERE id=?";
 	final String deleteUser = "DELETE FROM users WHERE id=?";
-	final String createUser = "INSERT INTO users (name) VALUES (?)";
+	final String createUser = "INSERT INTO users (name, username, password) VALUES (?, ?, ?)";
 	final String updateUserName = "UPDATE users SET name=? WHERE id=?";
 	final String updateUserConference = "UPDATE users SET conference=? WHERE id=?";
 	final String addAudio = "UPDATE users SET audios=(audios || ?) WHERE id=?";
 	final String deleteAudio = "UPDATE users SET audios=array_erase(audios, ?) WHERE id=?";
+	final String getFollowings = "SELECT * FROM users WHERE id IN(SELECT following FROM users WHERE id=?)";
 	
 	@Autowired
 	ConferenceService conferenceService;
 	
 	@Autowired
 	JdbcTemplate jdbcTemplate; 
+	
+	@Override
+	public List<User> getFollowings(long userId){
+		return jdbcTemplate.query(getFollowings, new Object[]{userId}, new UserMapper());
+	}
 	
 	@Override
 	public User getUserById(long id) throws SQLException {
@@ -48,13 +55,15 @@ public class UserDaoImpl implements UserDao{
 	}
 
 	@Override
-	public long createUser(String name) throws SQLException {
+	public long createUser(User user) throws SQLException {
 		PreparedStatement preparedStatement = null;
 		long id = 0;
 		try{
 			preparedStatement = jdbcTemplate.getDataSource().getConnection()
 					.prepareStatement(createUser, Statement.RETURN_GENERATED_KEYS);
-			preparedStatement.setString(1, name);
+			preparedStatement.setString(1, user.getName());
+			preparedStatement.setString(2, user.getUsername());
+			preparedStatement.setString(3, user.getPassword());
 			preparedStatement.executeQuery();
 			if(preparedStatement.getGeneratedKeys().next()){
 				id = preparedStatement.getGeneratedKeys().getLong(1);
@@ -94,7 +103,7 @@ public class UserDaoImpl implements UserDao{
 		@Override
 		public User mapRow(ResultSet rs, int rowNum) throws SQLException {
 			User user = new User(rs.getLong("uid"), rs.getString("uname"), 
-					rs.getLong("conferernce"), null);
+					rs.getLong("conference"), null, null, rs.getString("username"), rs.getShort("role"));
 			return user;
 		}
 	}

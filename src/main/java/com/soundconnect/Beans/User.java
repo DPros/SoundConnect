@@ -8,6 +8,10 @@ public class User {
 	private String name;
 	private long conference;
 	private Set<Audio>audio;
+	private Set<User>followings;
+	private String username;
+	private String password;
+	private Short role;
 
 	public Set<Audio> getAudio() {
 		return audio;
@@ -28,13 +32,48 @@ public class User {
 		this.id = id;
 	}
 
-	public User(long id, String name, long conference, Set<Audio>audios){
+	public User(long id, String name, long conference, Set<Audio>audios, Set<User>followings, String username, Short role){
 		this.id = id;
+		this.followings = followings;
+		this.username = username;
+		this.role = role;
 		this.name = name;
 		this.conference = conference;
 		audio = audios;
 	}
 	
+	public Set<User> getFollowings() {
+		return followings;
+	}
+
+	public void setFollowings(Set<User> followings) {
+		this.followings = followings;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public Short getRole() {
+		return role;
+	}
+
+	public void setRole(Short role) {
+		this.role = role;
+	}
+
 	public String getName() {
 		return name;
 	}
