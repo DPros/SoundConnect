@@ -5,6 +5,7 @@ import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,9 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
+import com.soundconnect.Beans.Audio;
 import com.soundconnect.Beans.Conference;
+import com.soundconnect.Dao.AudioDao;
 import com.soundconnect.Dao.ConferenceDAO;
 import com.soundconnect.Dao.ConferenceDaoImpl;
 
@@ -24,7 +27,10 @@ public class ConferenceServiceImpl implements ConferenceService{
 	Map<Long, Conference> cache = new HashMap<Long, Conference>();
 	
 	@Autowired
-	ConferenceDAO conferenceDAO = new ConferenceDaoImpl();
+	ConferenceDAO conferenceDAO;
+	
+	@Autowired
+	AudioDao audioDao;
 	
 	@Override
 	public Conference getConferenceById(long id) {
@@ -58,4 +64,9 @@ public class ConferenceServiceImpl implements ConferenceService{
 		cache.put(conference.getId(), conference);
 	}
 
+	@Override
+	public List<Audio> getConferenceAudio(Conference conference) {
+		if(conference.getTracks()==null)conference.setTracks(audioDao.getAudioByConference(conference.getId()));
+		return conference.getTracks();
+	}
 }

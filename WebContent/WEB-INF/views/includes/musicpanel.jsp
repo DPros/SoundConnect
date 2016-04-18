@@ -5,11 +5,15 @@
   Time: 12:59 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<script src="js/script.js"></script>
+
 <div class="panel panel-default" id="party-panel">
     <div class="panel-heading">
         <h4 class="panel-title">
-            <a data-toggle="collapse" href="#collapse1">Conference</a>
+            <a id="collapse-conf" data-toggle="collapse" href="#collapse1">
+                <span class="btn btn-link">Conference</span>
+                <span class="glyphicon glyphicon-eye-open btn btn-link" id="conf-glyph"></span>
+            </a>
         </h4>
     </div>
     <div id="collapse1" class="panel-collapse collapse in">
@@ -17,10 +21,12 @@
             <div class="snd">
                 <div class="toggle">
                     <!--<button type="button" class="button btn-default toggle-play">Play</button>-->
-                    <button type="button" class="mute button btn-default">Mute</button>
+                    <button type="button" class="mute button btn-default">
+                        <span class="glyphicon glyphicon-volume-off btn btn-link"></span>
+                    </button>
                 </div>
                 <div id="slider">
-                    <input class="time-bar" id="rangeinput" type="range" value="0" onchange="rangevalue.value=value"/>
+                    <input class="time-bar" id="rangeinput" type="range" value="0" onchange="rangevalue.value=value" />
                     <span class="highlight"></span>
                     <output id="rangevalue">0</output>
                 </div>

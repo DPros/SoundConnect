@@ -6,7 +6,7 @@ import com.soundconnect.Beans.User;
 
 public interface UserService {
 
-	User createUser(String name) throws SQLException;
+	void createUser(User user) throws SQLException;
 	
 	void updateUserName(String name, long id) throws SQLException;
 	

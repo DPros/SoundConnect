@@ -24,10 +24,12 @@
             duration :  function() {  
                          t.find('.time').attr('max', a.duration);
                          t.find('.duration').html(audio.calc(a.duration));
-                         t.find('.currenttime').html('00:00'); },
+                         t.find('.currenttime').html('00:00');
+                         t.find('#rangeinput').val(0);},
             time     :  function() {  
                          t.find('.time').val(a.currentTime); 
                          t.find('.currenttime').html(audio.calc(a.currentTime));
+                         t.find('#rangeinput').val(a.currentTime);
                          if($.isArray(s) && t.find('.time').val() == Math.floor(t.find('.time').attr('max')) && s.length - 1 != playlist.current) playlist.next(); 
                          if($.isArray(s) && t.find('.time').val() == Math.floor(t.find('.time').attr('max')) && s.length - 1 == playlist.current) {
                              audio.playing = false;
@@ -124,10 +126,14 @@
     };
     
     // Multiple instances
-    $.fn.snd = function(s, o) {  
+    $.fn.snd = function(s, o, functionAfterAudioEnded) {
         return this.each(function() {
             var t = $(this);
             var a = new Audio();
+            if (typeof functionAfterAudioEnded === 'function')
+            {
+                a.addEventListener('ended', functionAfterAudioEnded);
+            }
             var i = new Snd(t, a, s, o);
         });
     };
