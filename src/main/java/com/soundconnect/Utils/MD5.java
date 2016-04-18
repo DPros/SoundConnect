@@ -40,7 +40,7 @@ public class MD5 {
     public static void main(String[] args) {
 
         MD5 md5 = new MD5();
-        System.out.println(md5.getHash("user"));
+        System.out.println(md5.getHash("12345"));
         System.out.println(md5.getHash("user").length());
         for (int i=0;i<100;i++){
         	System.out.println(md5.getRandomHash());
