@@ -20,10 +20,10 @@ public class PlayerController {
 
 	@RequestMapping(path = "/content")
 	public String getPlaying(Model model, HttpServletRequest request) {
-		long conferenceId = Long.parseLong((String) request.getAttribute("confId"));
-		Conference conference = conferenceService.getConferenceById(conferenceId);
-		conference.getTracks();
-		model.addAttribute("conference", conference);
-		return "player";
+//		long conferenceId = Long.parseLong((String) request.getAttribute("confId"));
+//		Conference conference = conferenceService.getConferenceById(conferenceId);
+//		conference.getTracks();
+//		model.addAttribute("conference", conference);
+		return "main";
 	}
 }
