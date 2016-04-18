@@ -76,7 +76,7 @@ public class ConferenceDaoImpl implements ConferenceDAO{
 
 		@Override
 		public Conference mapRow(ResultSet rs, int rowNum) throws SQLException {
-			Conference conference = new Conference(rs.getString("name"), 
+			Conference conference = new Conference(rs.getLong("id"), rs.getString("name"), 
 					rs.getString("password"), new HashSet<User>(), 
 					null, rs.getTimestamp("audioStarted"));
 			return conference;

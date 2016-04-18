@@ -6,7 +6,7 @@ public class User {
 
 	private long id;
 	private String name;
-	private Conference conference;
+	private long conference;
 	private Set<Audio>audio;
 
 	public Set<Audio> getAudio() {
@@ -28,7 +28,7 @@ public class User {
 		this.id = id;
 	}
 
-	public User(long id, String name, Conference conference, Set<Audio>audios){
+	public User(long id, String name, long conference, Set<Audio>audios){
 		this.id = id;
 		this.name = name;
 		this.conference = conference;
@@ -41,10 +41,10 @@ public class User {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Conference getConference() {
+	public long getConference() {
 		return conference;
 	}
-	public void setConference(Conference conference) {
+	public void setConference(long conference) {
 		this.conference = conference;
 	}
 	public long getId() {

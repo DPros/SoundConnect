@@ -49,29 +49,22 @@ $(document).ready(function () {
 	});
 
 	onAudioEnded = function() {
-		var address = 'get-from-conference'; // TODO what's the actual address?
-		var confAudio;
-		// stubs for testing
-		var data = { src: 'sound/1.mp3' };
-		/*$('.snd').snd(data.src, { autoplay: true }, onAudioEnded);
-		$.ajax({
-			type: "GET",
-			url: address,
-			data: confAudio, // TODO is this the variable where the result of the request is stored?
-			contentType: "application/json; charset=utf-8",
-			dataType: 'json', // TODO get next song json
-			success: function(data){
-				if(!data)
-					alert('Something went wrong... Failed to retrieve audio');
-				else {
-					alert('Audio track retrieved');
-					$('.snd').snd(data.src, { autoplay: true }, onAudioEnded);
-				}
-			},
-			error: function(xhr, status, error){
-				alert('Something went wrong... Failed to retrieve audio');
-			}
-		});*/
+//		var address = 'player/content'; // TODO what's the actual address?
+//		$.ajax({
+//			type: "POST",
+//			url: address,
+//			success: function(data){
+//				if(!data)
+//					alert('Something went wrong... Failed to retrieve audio');
+//				else {
+//					alert('Audio track retrieved');
+//					$('.snd').snd(data.src, { autoplay: true }, onAudioEnded);
+//				}
+//			},
+//			error: function(xhr, status, error){
+//				alert('Something went wrong... Failed to retrieve audio');
+//			}
+//		});
 	};
 
 	// call to the function when the document is first loaded, may need to be replaced with window.loaded
