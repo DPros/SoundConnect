@@ -58,6 +58,17 @@ $(document).ready(function () {
 		}
 	});
 
+	$('#collapse-members').click(function (e) {
+		if ($('#members-glyph').hasClass('glyphicon-eye-open')) {
+			$('#members-glyph').removeClass('glyphicon-eye-open');
+			$('#members-glyph').addClass('glyphicon-eye-close');
+		}
+		else if ($('#members-glyph').hasClass('glyphicon-eye-close')) {
+			$('#members-glyph').removeClass('glyphicon-eye-close');
+			$('#members-glyph').addClass('glyphicon-eye-open');
+		}
+	});
+
 	onAudioEnded = function () {
 		var address = 'get-from-conference'; // TODO what's the actual address?
 		var confAudio;

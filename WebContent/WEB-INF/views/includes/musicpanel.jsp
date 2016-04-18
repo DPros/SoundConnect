@@ -7,7 +7,6 @@
 --%>
 <script src="js/script.js"></script>
 
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="panel panel-default" id="party-panel">
     <div class="panel-heading">
         <h4 class="panel-title">
