@@ -185,14 +185,11 @@ audio {
 }
 
 
-#homediv {
-    margin-left: -30px;
-}
-
 #finddiv, #homediv, #followdiv, #recdiv, #member-div, #mymusicdiv {
     position: absolute;
     padding: 25px;
-    margin-left: -30px;
+    /*margin-left: -30px;*/
+    width: 100%;
 }
 
 .visiblediv {
