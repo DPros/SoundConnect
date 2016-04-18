@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5582a5b3-2715-4da9-84c2-05865c4bc9e6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/resources/js/script.js" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/resources/js/script.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/views/includes/mymusic.jsp" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/views/includes/mymusic.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/views/includes/musicpanel.jsp" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/views/includes/musicpanel.jsp" />
     </list>
     <ignored path="SoundConnect.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,17 +26,27 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="musicpanel.jsp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="musicpanel.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/views/includes/musicpanel.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="22" column="115" selection-start-line="22" selection-start-column="93" selection-end-line="22" selection-end-column="115" />
+            <state relative-caret-position="-36">
+              <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mymusic.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/views/includes/mymusic.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36">
+              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/views/main.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1464">
@@ -49,8 +59,8 @@
       <file leaf-file-name="script.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/resources/js/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="58" column="9" selection-start-line="58" selection-start-column="9" selection-end-line="58" selection-end-column="9" />
+            <state relative-caret-position="112">
+              <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -102,13 +112,13 @@
         <option value="$PROJECT_DIR$/src/main/webapp/resources/includes/musicpanel.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/soundconnect/Controllers/SearchController.java" />
         <option value="$PROJECT_DIR$/WebContent/index.jsp" />
-        <option value="$PROJECT_DIR$/WebContent/WEB-INF/views/includes/musicpanel.jsp" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/views/includes/findmusic.jsp" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/resources/css/style.css" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/views/main.jsp" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/resources/js/player/snd.js" />
-        <option value="$PROJECT_DIR$/WebContent/WEB-INF/resources/js/script.js" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/views/includes/mymusic.jsp" />
+        <option value="$PROJECT_DIR$/WebContent/WEB-INF/resources/js/script.js" />
+        <option value="$PROJECT_DIR$/WebContent/WEB-INF/views/includes/musicpanel.jsp" />
       </list>
     </option>
   </component>
@@ -700,12 +710,12 @@
       <workItem from="1460886956533" duration="16498000" />
       <workItem from="1460979825209" duration="2769000" />
       <workItem from="1460993201422" duration="464000" />
-      <workItem from="1460994241818" duration="2148000" />
+      <workItem from="1460994241818" duration="2686000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78013000" />
+    <option name="totallyTimeSpent" value="78551000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="0" width="1372" height="745" extended-state="6" />
@@ -1034,34 +1044,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/views/includes/musicpanel.jsp">
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/views/main.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="22" column="115" selection-start-line="22" selection-start-column="93" selection-end-line="22" selection-end-column="115" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/resources/js/script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="58" column="9" selection-start-line="58" selection-start-column="9" selection-end-line="58" selection-end-column="9" />
+        <state relative-caret-position="1464">
+          <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/views/includes/mymusic.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="16" column="57" selection-start-line="16" selection-start-column="57" selection-end-line="16" selection-end-column="57" />
+        <state relative-caret-position="36">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/views/main.jsp">
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/resources/js/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1464">
-          <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+        <state relative-caret-position="112">
+          <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/views/includes/musicpanel.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-36">
+          <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
           <folding />
         </state>
       </provider>
