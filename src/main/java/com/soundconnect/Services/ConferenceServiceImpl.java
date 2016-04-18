@@ -1,8 +1,6 @@
 package com.soundconnect.Services;
 
 import java.sql.SQLException;
-import java.sql.Timestamp;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -19,6 +17,7 @@ import com.soundconnect.Beans.Conference;
 import com.soundconnect.Dao.AudioDao;
 import com.soundconnect.Dao.ConferenceDAO;
 import com.soundconnect.Dao.ConferenceDaoImpl;
+import com.soundconnect.Utils.Calendar;
 
 @Service
 @EnableScheduling
@@ -50,11 +49,10 @@ public class ConferenceServiceImpl implements ConferenceService{
 	
 	@Scheduled(cron="0 0 1 * * *")
 	public void collectGarbage(){
-		Timestamp dayAgo = new Timestamp(Calendar.getInstance().getTimeInMillis()-86400000);
 		Iterator<Map.Entry<Long, Conference>> iterator = cache.entrySet().iterator();
 		while(iterator.hasNext()){
 			Map.Entry<Long, Conference> entry = iterator.next();
-			if(entry.getValue().getSongStarted().before(dayAgo))iterator.remove();
+			if(entry.getValue().getSongStarted() < Calendar.getCurrentTime()-86400000)iterator.remove();
 		}
 	}
 
