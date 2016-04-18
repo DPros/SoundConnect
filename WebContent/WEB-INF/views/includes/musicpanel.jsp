@@ -26,7 +26,7 @@
                     </button>
                 </div>
                 <div id="slider">
-                    <input class="time-bar" id="rangeinput" type="range" value="0" onchange="rangevalue.value=value"/>
+                    <input class="time-bar" id="rangeinput" type="range" value="0" onchange="rangevalue.value=value" />
                     <span class="highlight"></span>
                     <output id="rangevalue">0</output>
                 </div>
