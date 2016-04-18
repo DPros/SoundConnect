@@ -6,13 +6,6 @@
   Time: 7:01 PM
   To change this template use File | Settings | File Templates.
 --%>
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="js/script.js"></script>
 
 
@@ -22,7 +15,7 @@
 		 -->
         <div class="col-sm-2">
             <audio id="player/${audio.id}" preload="none">
-                <source src="${audio.source}" type="audio/mp3" />
+     <          <source src="${audio.source}" type="audio/mp3" />
             </audio>
             <a href="javascript:void(0)" class="btn btn-link" id="previewbtn" data-toggle="tooltip" title="Preview" onclick="clickPreviewPlay(${audio.id})">
                 <span class="glyphicon glyphicon-play" id="play-glyph/${audio.id}"></span>

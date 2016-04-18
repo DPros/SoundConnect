@@ -4,7 +4,6 @@ import com.soundconnect.Beans.Audio;
 import com.soundconnect.Beans.Conference;
 import com.soundconnect.Services.AudioService;
 import com.soundconnect.Services.ConferenceService;
-import com.soundconnect.Services.ConferenceServiceImpl;
 import com.soundconnect.Services.UserService;
 import com.soundconnect.Services.VKAudioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +30,8 @@ public class AudioController {
 	VKAudioService service;
 	@Autowired
 	UserService userserv;
+	@Autowired
+	ConferenceService confserv;
 
 	@RequestMapping("/search")
 	// @RequestMapping(method=RequestMethod.POST)
@@ -97,7 +98,6 @@ public class AudioController {
 			} catch (SQLException e1) {
 				return false;
 			}
-		ConferenceService confserv = new ConferenceServiceImpl();
 		try {
 			Conference conf = confserv
 					.getConferenceById(Long.valueOf((String) req.getSession().getAttribute("confId")));

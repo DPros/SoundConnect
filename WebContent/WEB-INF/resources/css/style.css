@@ -166,6 +166,7 @@ input[type="range"]:active ~ #rangevalue {
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     border-radius: 20px;
+    border-color: rgba(0, 0, 0, 0);
 }
 
 #centre-panel, #left-panel, #right-panel {
@@ -185,14 +186,11 @@ audio {
 }
 
 
-#homediv {
-    margin-left: -30px;
-}
-
 #finddiv, #homediv, #followdiv, #recdiv, #member-div, #mymusicdiv {
     position: absolute;
     padding: 25px;
-    margin-left: -30px;
+    /*margin-left: -30px;*/
+    width: 100%;
 }
 
 .visiblediv {
