@@ -93,8 +93,8 @@ public class UserDaoImpl implements UserDao{
 
 		@Override
 		public User mapRow(ResultSet rs, int rowNum) throws SQLException {
-			User user = new User(rs.getLong("uid"), rs.getString("uname"), 
-					rs.getLong("conferernce"), null);
+			User user = new User(rs.getLong("id"), rs.getString("name"), 
+					rs.getLong("conference"), null);
 			return user;
 		}
 	}

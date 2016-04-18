@@ -6,6 +6,7 @@
   Time: 7:01 PM
   To change this template use File | Settings | File Templates.
 --%>
+<script src="js/script.js"></script>
 
 
 <c:forEach items="${myaudios}" var="audio">

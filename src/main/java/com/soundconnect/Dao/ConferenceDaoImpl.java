@@ -21,7 +21,7 @@ public class ConferenceDaoImpl implements ConferenceDAO{
 
 	final String getConference = "SELECT * FROM conferences WHERE id=?";
 	final String deleteConference = "DELETE FROM conferences WHERE id=?";
-	final String createConference = "INSERT INTO conferences (name, audios, audioStarted, password) VALUES (?, ?, ?, ?, ?)";
+	final String createConference = "INSERT INTO conferences (name, audios, audioStarted, password) VALUES (?, ?, ?, ?)";
 	final String updateConferenceAudios = "UPDATE conferences SET audios=? WHERE id=?";
 	
 	@Autowired
