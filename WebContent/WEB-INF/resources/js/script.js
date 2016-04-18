@@ -3,7 +3,6 @@
  */
 var myAudio;
 var onAudioEnded;
-var firstAudioReq = false;
 
 function audioPreview (id) {
 	myAudio = document.getElementById("player/"+id);
@@ -48,13 +47,13 @@ $(document).ready(function () {
 		}
 	});
 
-	onAudioEnded = function() {
+	onAudioEnded = function () {
 		var address = 'get-from-conference'; // TODO what's the actual address?
 		var confAudio;
 		// stubs for testing
-		var data = { src: 'sound/1.mp3' };
-		/*$('.snd').snd(data.src, { autoplay: true }, onAudioEnded);
-		$.ajax({
+		var data = { src: 'sound/2.mp3' };
+		$('.snd').snd(data.src, { autoplay: true }, onAudioEnded);
+		/*$.ajax({
 			type: "GET",
 			url: address,
 			data: confAudio, // TODO is this the variable where the result of the request is stored?
@@ -75,11 +74,9 @@ $(document).ready(function () {
 	};
 
 	// call to the function when the document is first loaded, may need to be replaced with window.loaded
-	if (!firstAudioReq)
-	{
-		onAudioEnded();
-		firstAudioReq = true;
-	}
+	//if (!firstAudioReq)
+	//{
+	//}
 
 //	$('.snd').snd('/resources/sound/1.mp3', { autoplay: true });
 
@@ -253,4 +250,9 @@ $(document).ready(function () {
     		}
     	});
     });    
+});
+
+$(window).load(function() {
+	onAudioEnded();
+	alert('new non-recursive call to onAudioEnded');
 });
