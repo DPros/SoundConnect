@@ -130,7 +130,7 @@
             var a = new Audio();
             if (typeof functionAfterAudioEnded === 'function')
             {
-                alert('listener added!');
+               // alert('listener added!');
                 a.addEventListener('ended', functionAfterAudioEnded);
             }
             var i = new Snd(t, a, s, o);
