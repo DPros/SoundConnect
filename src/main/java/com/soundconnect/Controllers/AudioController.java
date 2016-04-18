@@ -4,11 +4,8 @@ import com.soundconnect.Beans.Audio;
 import com.soundconnect.Beans.Conference;
 import com.soundconnect.Services.AudioService;
 import com.soundconnect.Services.ConferenceService;
-import com.soundconnect.Services.ConferenceServiceImpl;
 import com.soundconnect.Services.UserService;
 import com.soundconnect.Services.VKAudioService;
-
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,12 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.net.URLEncoder;
 import java.sql.SQLException;
-import java.sql.Timestamp;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
 
 @Controller
 @SessionAttributes({ "userId", "confId" })
