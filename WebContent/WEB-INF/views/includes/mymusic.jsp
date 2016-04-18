@@ -1,47 +1,39 @@
-<%@include file="../settings.jsp"%>
 <%--
   Created by IntelliJ IDEA.
   User: citizenzer0
-  Date: 4/17/16
-  Time: 7:01 PM
+  Date: 4/11/16
+  Time: 12:59 PM
   To change this template use File | Settings | File Templates.
 --%>
-<script src="js/script.js"></script>
-
-
-<c:forEach items="${myaudios}" var="audio">
-    <div class="row search-results" id="search-results/${audio.id}">
-        <!-- <a href="${audio.source}">${audio.artist} - ${audio.title }</a>
-		 -->
-        <div class="col-sm-2">
-            <audio id="player/${audio.id}" preload="none">
-                <source src="${audio.source}" type="audio/mp3" />
-            </audio>
-            <a href="javascript:void(0)" class="btn btn-link" id="previewbtn" data-toggle="tooltip" title="Preview" onclick="clickPreviewPlay(${audio.id})">
-                <span class="glyphicon glyphicon-play" id="play-glyph/${audio.id}"></span>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<div class="panel panel-default" id="party-panel">
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <a id="collapse-conf" data-toggle="collapse" href="#collapse1">
+                <span iclass="glyphicon glyphicon-eye-open" id="conf-glyph">Conference</span>
             </a>
-            <div class="volume">
-                <span class="btn btn-lg btn-link glyphicon glyphicon-volume-down" id="volume-glyph/${audio.id}"></span>
+        </h4>
+    </div>
+    <div id="collapse1" class="panel-collapse collapse in">
+        <div class="panel-body">
+            <div class="snd">
+                <div class="toggle">
+                    <!--<button type="button" class="button btn-default toggle-play">Play</button>-->
+                    <button type="button" class="mute button btn-default">Mute</button>
+                </div>
+                <div id="slider">
+                    <input class="time-bar" id="rangeinput" type="range" value="0" onchange="rangevalue.value=value"/>
+                    <span class="highlight"></span>
+                    <output id="rangevalue">0</output>
+                </div>
+
+                <span class="currenttime">00:00</span>/
+                <span class="duration">00:00</span>
             </div>
+
         </div>
-        <div class="col-sm-8">
-            <p class="row inner-row track-data">${audio.artist}- ${audio.title }</p>
-            <div class="row inner-row" id="slider">
-                <input class="volume-bar" id="rangeinput" type="range" />
-                <span class="highlight"></span>
-            </div>
-        </div>
-        <div class="col-sm-1">
-            <button value='{"id":${audio.id},"source":"${audio.source}","length":${audio.length},"title":"${audio.title}","artist":"${audio.artist}","genre":${audio.genre}}' class="audio-remove-from-user btn btn-link" data-toggle="tooltip" title="Remove from your playlist">
-                <span class="glyphicon glyphicon-minus" id="remove-from-user-glyph"></span>
-            </button>
-        </div>
-        <div class="col-sm-1">
-            <button value='{"id":${audio.id},"source":"${audio.source}","length":${audio.length},"title":"${audio.title}","artist":"${audio.artist}","genre":${audio.genre}}' class="audio-add-to-conference btn btn-link" data-toggle="tooltip" title="Send to the conference">
-                <span class="glyphicon glyphicon-send" id="add-to-conf-glyph"></span>
-            </button>
+        <div class="panel-footer scrollfixed" id="music-div">
+            Insert track names here.
         </div>
     </div>
-    <br>
-</c:forEach>
-
+</div>

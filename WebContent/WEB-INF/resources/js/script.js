@@ -47,6 +47,17 @@ $(document).ready(function () {
 		}
 	});
 
+	$('#collapse-conf').click(function (e) {
+		if ($('#conf-glyph').hasClass('glyphicon-eye-open')) {
+			$('#conf-glyph').removeClass('glyphicon-eye-open');
+			$('#conf-glyph').addClass('glyphicon-eye-close');
+		}
+		else if ($('#conf-glyph').hasClass('glyphicon-eye-close')) {
+			$('#conf-glyph').removeClass('glyphicon-eye-close');
+			$('#conf-glyph').addClass('glyphicon-eye-open');
+		}
+	});
+
 	onAudioEnded = function () {
 		var address = 'get-from-conference'; // TODO what's the actual address?
 		var confAudio;
