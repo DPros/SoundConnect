@@ -194,10 +194,10 @@ audio {
 
 #member-div {
     padding: 0px 0px 5px 0px;
-    height: 90.5%;
+    height: 90%;
 }
 
-#finddiv, #homediv, #followdiv, #recdiv, #member-div, #mymusicdiv {
+#finddiv, #homediv, #followdiv, #recdiv, #member-div, #mymusicdiv, #profilediv {
     position: absolute;
     padding: 25px;
     /*margin-left: -30px;*/
