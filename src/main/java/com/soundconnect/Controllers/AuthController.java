@@ -85,7 +85,6 @@ public class AuthController {
 		@RequestParam(value = "logout", required = false) String logout, SecurityContextHolderAwareRequestWrapper req, HttpServletRequest request) {
 
 	  ModelAndView model = new ModelAndView();
-	  req.getSession().setAttribute("username", req.getParameter("username"));
 	  if (error != null) {
 		model.addObject("error", "Invalid username and password!");
 	  }

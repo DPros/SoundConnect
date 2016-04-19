@@ -13,7 +13,7 @@
 		 -->
         <div class="col-sm-2">
             <audio id="player/${audio.id}" preload="none">
-     <          <source src="${audio.source}" type="audio/mp3" />
+               <source src="${audio.source}" type="audio/mp3" />
             </audio>
             <a href="javascript:void(0)" class="btn btn-link" id="previewbtn" data-toggle="tooltip" title="Preview" onclick="clickPreviewPlay(${audio.id})">
                 <span class="glyphicon glyphicon-play" id="play-glyph/${audio.id}"></span>
