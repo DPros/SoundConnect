@@ -175,16 +175,15 @@ input[type="range"]:active ~ #rangevalue {
 }
 
 .snd .button {
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    border-radius: 20px;
-    border-color: rgba(0, 0, 0, 0);
+    border: none;
+    background-color: transparent;
 }
 
 #centre-panel, #left-panel, #right-panel {
     position: relative;
     height: 100%;
     border-radius: 0px;
+    border: none;
     background-image: none;
     margin: 0px;
     padding: 0px;
