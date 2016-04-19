@@ -37,16 +37,13 @@
 <body>
 	<div class="container-fluid text-center">
 		<div class="row content">
-			<div class="col-sm-3 sidenav" id="left-panel">
-				<jsp:include page="includes/musicpanel.jsp" />
-			</div>
-			<div class="col-sm-6 text-left" id="centre-panel">
+			<div class="row">
 				<div class="container-fluid" id="navbar-container">
 					<nav class="navbar navbar-default navbar-fixed-top">
 						<div class="container-fluid">
 							<div class="navbar-header">
 								<button type="button" class="navbar-toggle"
-									data-toggle="collapse" data-target="#myNavbar">
+										data-toggle="collapse" data-target="#myNavbar">
 									<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 										class="icon-bar"></span>
 								</button>
@@ -55,14 +52,14 @@
 							<div class="collapse navbar-collapse" id="myNavbar">
 								<ul class="nav navbar-nav">
 									<li class="active"><button type="button"
-											class="btn btn-link" id="homebtn">Home</button></li>
+															   class="btn btn-link" id="homebtn">Home</button></li>
 									<li><button type="button" class="btn btn-link"
-											id="findbtn">Find Music</button></li>
+												id="findbtn">Find Music</button></li>
 									<li><button type="button" class="btn btn-link"
-											id="followbtn">Following</button></li>
+												id="followbtn">Following</button></li>
 									<li><button type="button" class="btn btn-link" id="recbtn">Recommended</button></li>
 									<li><button type="button" class="btn btn-link"
-											id="mymusicbtn">My Music</button></li>
+												id="mymusicbtn">My Music</button></li>
 								</ul>
 								<ul class="nav navbar-nav navbar-right">
 									<li><a href="#"><span
@@ -72,6 +69,11 @@
 						</div>
 					</nav>
 				</div>
+			</div>
+			<div class="col-sm-3 sidenav" id="left-panel">
+				<jsp:include page="includes/musicpanel.jsp" />
+			</div>
+			<div class="col-sm-6 text-left" id="centre-panel">
 				<div id="homediv" class="visiblediv scrollfixed">
 					<h1>Welcome</h1>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.

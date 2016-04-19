@@ -148,7 +148,7 @@ $(document).ready(function () {
 	});
 
 	onAudioEnded = function () {
-		var address = 'player/content'; // TODO what's the actual address?
+		var address = 'player/content';
 		$.ajax({
 			type: "POST",
 			url: address,
@@ -263,5 +263,4 @@ $(document).ready(function () {
 
 $(window).load(function() {
 	onAudioEnded();
-	//alert('new non-recursive call to onAudioEnded');
 });

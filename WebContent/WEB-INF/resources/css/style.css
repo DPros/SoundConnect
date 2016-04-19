@@ -260,8 +260,8 @@ footer {
 /* Remove the navbar's default margin-bottom and rounded borders */
 .navbar {
     margin-bottom: 0;
-    margin-left: -35px;
-    margin-right: -15px;
+    /*margin-left: -35px;*/
+    /*margin-right: -15px;*/
     border-radius: 0;
     position: relative;
 }
@@ -271,7 +271,7 @@ footer {
 
 /* Set gray background color and 100% height */
 .sidenav {
-    padding-top: 50px;
+    padding-top: 0px;
   /*  background-color: #f1f1f1;*/
     height: 100%;
 }
