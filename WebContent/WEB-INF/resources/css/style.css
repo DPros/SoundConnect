@@ -246,16 +246,34 @@ audio {
 
 #custom-search-input .search-query {
     padding-right: 3px;
-    padding-right: 4px \9;
-    padding-left: 3px;
-    padding-left: 4px \9;
+    padding-right: 10px; \9
+    padding-left: 6px;
+    padding-left: 10px \9;
     padding-bottom: 5px;
     /* IE7-8 doesn't have border-radius, so don't indent the padding */
-
+    background-color: #02022A;
+    border-color: #F925F9;
+    color: #F925F9;
     margin-bottom: 40px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+
+::-webkit-input-placeholder {
+    color: #F925F9;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+    color: #F925F9;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+    color: #F925F9;
+}
+
+:-ms-input-placeholder {
+    color: #F925F9;
 }
 
 #searchbtn {
@@ -271,7 +289,7 @@ audio {
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
-    color: #003366;
+    color: #F925F9;
 }
 
 .search-query:focus + button {
@@ -293,7 +311,7 @@ audio {
     border-bottom-width: thick;
 }
 
-.sidenav, .panel-heading, .panel-body, .panel-footer {
+#homediv, #followdiv, #finddiv, #recdiv, #followdiv, #profilediv, #mymusicdiv, .sidenav, .panel-heading, .panel-body, .panel-footer {
     background-color: #02022A;
     background-image: none;
    /* color: #050523;*/
