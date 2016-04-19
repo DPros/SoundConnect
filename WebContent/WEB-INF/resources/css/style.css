@@ -293,7 +293,7 @@ audio {
     border-bottom-width: thick;
 }
 
-.sidenav, .panel-heading, .panel-footer {
+.sidenav, .panel-heading, .panel-body, .panel-footer {
     background-color: #02022A;
     background-image: none;
    /* color: #050523;*/
@@ -303,6 +303,11 @@ audio {
 .panel-heading {
     color: #02022A;
     padding: 0;
+    margin-bottom: 0;
+}
+
+.panel-body {
+    margin-top: 0;
 }
 
 .panel-title {
@@ -316,7 +321,7 @@ audio {
     padding: 0;
     background-color: #02022A;
     background-image: none;
-    /* color: #050523;*/
+   /*  color: #02022A;*/
     /*border-color: #050523;*/
 }
 .btn-link {
