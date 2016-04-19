@@ -172,7 +172,9 @@ input[type="range"]:active ~ #rangevalue {
 #centre-panel, #left-panel, #right-panel {
     position: relative;
     height: 130%;
-    margin: 0 auto;
+    border-radius: 0px;
+    margin: 0px;
+    padding: 0px;
 }
 
 #left-panel, #right-panel {
@@ -194,12 +196,12 @@ audio {
 
 #member-div {
     padding: 0px 0px 5px 0px;
-    height: 90%;
+    height: 90.5%;
 }
 
 #finddiv, #homediv, #followdiv, #recdiv, #member-div, #mymusicdiv, #profilediv {
     position: absolute;
-    padding: 25px;
+    padding: 30px;
     /*margin-left: -30px;*/
     width: 100%;
 }
