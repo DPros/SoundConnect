@@ -72,7 +72,7 @@ public class UserDaoImpl implements UserDao{
 			preparedStatement.setString(1, user.getName());
 			preparedStatement.setString(2, user.getUsername());
 			preparedStatement.setString(3, user.getPassword());
-			preparedStatement.executeQuery();
+			preparedStatement.executeUpdate();
 			if(preparedStatement.getGeneratedKeys().next()){
 				id = preparedStatement.getGeneratedKeys().getLong(1);
 			}

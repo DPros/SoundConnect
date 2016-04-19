@@ -76,7 +76,7 @@ public class AuthController {
 
 	}
 
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = "/login", method ={ RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView login(@RequestParam(value = "error", required = false) String error,
 			@RequestParam(value = "logout", required = false) String logout,
 			SecurityContextHolderAwareRequestWrapper req, HttpServletRequest request) {
@@ -88,8 +88,8 @@ public class AuthController {
 		if (logout != null) {
 			model.addObject("msg", "You've been logged out successfully.");
 		}
+		
 		model.setViewName("login");
-
 		return model;
 
 	}
