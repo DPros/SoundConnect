@@ -276,12 +276,16 @@ audio {
     /*margin-right: -15px;*/
     border-radius: 0;
     position: relative;
-    color: #003366;
+    color: #05235E;
 }
 
 .navbar-default {
     background-color: #09162F;
-    border-color: #09162F;
+    border-color: #4AE9E4 #09162F;
+}
+
+.btn-link {
+    color: #4AE9E4;
 }
 
 #mainNavbar {
