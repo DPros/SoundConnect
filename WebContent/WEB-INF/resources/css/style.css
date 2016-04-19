@@ -190,7 +190,6 @@ input[type="range"]:active ~ #rangevalue {
 }
 
 #left-panel, #right-panel {
-    border-radius: 0px;
     margin: 0px;
     padding: 0px;
   /*  width: 25%;*/
@@ -215,6 +214,7 @@ audio {
 #finddiv, #homediv, #followdiv, #recdiv, #member-div, #mymusicdiv, #profilediv {
     position: absolute;
     padding: 30px;
+    border: none;
     /*margin-left: -30px;*/
     width: 100%;
 }
@@ -293,7 +293,7 @@ audio {
     border-bottom-width: thick;
 }
 
-.panel, .sidenav, .panel-default, .panel-heading, .panel-footer, .panel-title, #collapse-conf {
+.sidenav, .panel-heading, .panel-footer {
     background-color: #02022A;
     background-image: none;
    /* color: #050523;*/
@@ -301,10 +301,24 @@ audio {
 }
 
 .panel-heading {
-    background-image: none;
     color: #02022A;
+    padding: 0;
 }
 
+.panel-title {
+    border-color: #02022A;
+    background-color: #02022A;
+    margin: 0;
+}
+
+.panel-default {
+    border: none;
+    padding: 0;
+    background-color: #02022A;
+    background-image: none;
+    /* color: #050523;*/
+    /*border-color: #050523;*/
+}
 .btn-link {
     color: #4AE9E4;
 }
@@ -341,8 +355,6 @@ audio {
     margin: 0px;
   /*  background-color: #f1f1f1;*/
     height: 100%;
-    overflow-x: hidden;
-    overflow-y: hidden;
 }
 
 
