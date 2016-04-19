@@ -1,9 +1,6 @@
 package com.soundconnect.Controllers;
 
-import java.security.Principal;
 import java.sql.SQLException;
-import java.util.Enumeration;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 

@@ -50,7 +50,7 @@ public class AudioController {
 	
 	@RequestMapping("/list-music")
 	public String listMusic(Model model, HttpServletRequest request){
-		model.addAttribute("myaudios", audioserv.getAudioByUser((Long) request.getSession().getAttribute("userId")));
+		model.addAttribute("myaudios", audioserv.getAudioByUser(Long.valueOf((String) request.getSession().getAttribute("userId"))));
 		return "includes/mymusic";
 	}
 
@@ -69,7 +69,7 @@ public class AudioController {
 			}
 		try {
 			// add audio to user here!!!
-			userserv.addAudio(audio.getId(), (Long) req.getSession().getAttribute("userId"));
+			userserv.addAudio(audio.getId(), Long.valueOf((String) req.getSession().getAttribute("userId")));
 		} catch (NumberFormatException e) {
 		} catch (SQLException e) {
 			return false;
@@ -100,7 +100,7 @@ public class AudioController {
 			}
 		try {
 			Conference conf = confserv
-					.getConferenceById((Long) req.getSession().getAttribute("confId"));
+					.getConferenceById(Long.valueOf((String) req.getSession().getAttribute("confId")));
 			conf.addAudioToConference(audio);
 			confserv.updateConferenceAudios(conf);
 		} catch (NumberFormatException e) {
@@ -119,7 +119,7 @@ public class AudioController {
 		}
 		try {
 			// add audio to user here!!!
-			userserv.deleteAudio(audio.getId(), (Long) req.getSession().getAttribute("userId"));
+			userserv.deleteAudio(audio.getId(), Long.valueOf((String) req.getSession().getAttribute("userId")));
 		} catch (NumberFormatException e) {
 		} catch (SQLException e) {
 			return false;
