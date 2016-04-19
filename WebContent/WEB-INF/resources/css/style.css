@@ -177,16 +177,21 @@ input[type="range"]:active ~ #rangevalue {
     padding: 0px;
 }
 
+.panel-heading, .panel-body {
+    border-color: rgba(0, 0, 0, 0);
+}
+
 #left-panel, #right-panel {
     border-radius: 0px;
     margin: 0px;
     padding: 0px;
-    width: 25%;
+  /*  width: 25%;*/
 }
 
 .panel {
     position: relative;
     height: 100%;
+    border-color: rgba(0, 0, 0, 0);
 }
 
 audio {
@@ -195,7 +200,7 @@ audio {
 }
 
 #member-div {
-    padding: 0px 0px 5px 0px;
+    padding: 0px 0px 0px 0px;
     height: 90.5%;
 }
 
@@ -222,12 +227,6 @@ audio {
 
 #search-results {
     padding-top: 25px;
-}
-
-footer {
-    position: relative;
-    height: 100px;
-    top: 200px;
 }
 
 #custom-search-input {
@@ -297,7 +296,8 @@ footer {
 
 /* Set gray background color and 100% height */
 .sidenav {
-    padding-top: 0px;
+    padding: 0px;
+    margin: 0px;
   /*  background-color: #f1f1f1;*/
     height: 100%;
 }
