@@ -30,7 +30,7 @@ public class AuthController {
 	private UserService userv;
 
 	@RequestMapping(value = "/auth", method = RequestMethod.GET)
-	public String hello(SecurityContextHolderAwareRequestWrapper req, Model model) {
+	public String hello(HttpServletRequest req, Model model) {
 		model.addAttribute("message", "This is data from Controller");
 		model.addAttribute("session", "Current session info:<br>userId: " + req.getSession().getAttribute("userId")
 				+ "<br>confId: " + req.getSession().getAttribute("confId"));
@@ -38,7 +38,7 @@ public class AuthController {
 	}
 
 	@RequestMapping(value = "/auth", method = RequestMethod.POST)
-	public String createSession(SecurityContextHolderAwareRequestWrapper req, Model model) {
+	public String createSession(HttpServletRequest req, Model model) {
 		req.getSession().setAttribute("userId", req.getParameter("userId"));
 		req.getSession().setAttribute("confId", req.getParameter("confId"));
 		model.addAttribute("session", "Current session info:<br>userId: " + req.getSession().getAttribute("userId")
