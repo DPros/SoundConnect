@@ -41,7 +41,7 @@
 				<div class="container-fluid" id="navbar-container">
 					<nav class="navbar navbar-default navbar-fixed-top">
 						<div class="container-fluid">
-							<div class="navbar-header col-sm-3">
+							<div class="navbar-header">
 								<button type="button" class="navbar-toggle"
 										data-toggle="collapse" data-target="#myNavbar">
 									<span class="icon-bar"></span> <span class="icon-bar"></span> <span
@@ -49,8 +49,9 @@
 								</button>
 								<a class="navbar-brand" href="#">Logo</a>
 							</div>
+							<div class="col-sm-6"></div>
 							<div class="collapse navbar-collapse" id="myNavbar">
-								<ul class="nav navbar-nav col-sm-6">
+								<ul class="nav navbar-nav col-sm-6" id="mainNavbar">
 									<li class="active"><button type="button"
 															   class="btn btn-link" id="homebtn">Home</button></li>
 									<li><button type="button" class="btn btn-link"

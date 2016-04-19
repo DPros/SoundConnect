@@ -273,6 +273,14 @@ footer {
     position: relative;
 }
 
+#mainNavbar {
+    padding-left: 40px;
+    display: inline-block;
+    float: none;
+    padding-top: 5px;
+    text-align: center;
+}
+
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
 .row.content {height: 450px}
 
