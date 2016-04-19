@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5582a5b3-2715-4da9-84c2-05865c4bc9e6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/resources/css/style.css" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/resources/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/views/main.jsp" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/views/main.jsp" />
     </list>
     <ignored path="SoundConnect.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,17 +26,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.jsp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/views/main.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="39" column="27" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
+            <state relative-caret-position="180">
+              <caret line="52" column="66" selection-start-line="52" selection-start-column="66" selection-end-line="52" selection-end-column="66" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/resources/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="190">
@@ -128,8 +129,8 @@
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/views/includes/musicpanel.jsp" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/resources/js/player/snd.js" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/resources/js/script.js" />
-        <option value="$PROJECT_DIR$/WebContent/WEB-INF/views/main.jsp" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/resources/css/style.css" />
+        <option value="$PROJECT_DIR$/WebContent/WEB-INF/views/main.jsp" />
       </list>
     </option>
   </component>
@@ -722,12 +723,12 @@
       <workItem from="1460993201422" duration="464000" />
       <workItem from="1460994241818" duration="8372000" />
       <workItem from="1461052521860" duration="940000" />
-      <workItem from="1461053636242" duration="4867000" />
+      <workItem from="1461053636242" duration="5275000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90044000" />
+    <option name="totallyTimeSpent" value="90452000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="742" extended-state="0" />
@@ -1081,14 +1082,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/views/main.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="39" column="27" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/resources/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
@@ -1105,6 +1098,14 @@
             <element signature="e#4523#5611#0" expanded="false" />
             <element signature="e#6029#6073#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/views/main.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="52" column="66" selection-start-line="52" selection-start-column="66" selection-end-line="52" selection-end-column="66" />
+          <folding />
         </state>
       </provider>
     </entry>
