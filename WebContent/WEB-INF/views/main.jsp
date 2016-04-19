@@ -61,7 +61,7 @@
 									<li class="central-menu"><button type="button" class="btn btn-link" id="recbtn">Recommended</button></li>
 									<li class="central-menu"><button type="button" class="btn btn-link"
 												id="profilebtn">Profile</button></li>
-									<li class="central menu"><button type="button" class="btn btn-link"
+									<li class="central-menu"><button type="button" class="btn btn-link"
 												id="mymusicbtn">My Music</button></li>
 								</ul>
 								<ul class="nav navbar-nav navbar-right">

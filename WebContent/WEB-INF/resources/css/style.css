@@ -288,8 +288,12 @@ audio {
     color: #4AE9E4;
 }
 
+.central-menu > .btn-link {
+    color: #F925F9;
+}
+
 #mainNavbar {
-    padding-left: 30px;
+    padding-left: 40px;
     display: inline-block;
     float: none;
     padding-top: 5px;
@@ -297,8 +301,8 @@ audio {
 }
 
 .central-menu {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
