@@ -19,8 +19,6 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="js/player/snd.js"></script>
 <script src="js/script.js"></script>
-<script src="js/findmusic.js"></script>
-
 
 <style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
 .en-markup-crop-options {
