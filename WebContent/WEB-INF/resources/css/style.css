@@ -1,5 +1,13 @@
 html,body{margin:0;padding:0}
 
+.container {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: #1d2e38;
+
+}
+
 .track-data {
     width: 100%;
     padding-top: 10px;
@@ -11,6 +19,8 @@ html,body{margin:0;padding:0}
 .inner-row {
     padding: 0px;
     margin: 10px 0px 0px 0px;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 #previewbtn {
@@ -173,8 +183,9 @@ input[type="range"]:active ~ #rangevalue {
 
 #centre-panel, #left-panel, #right-panel {
     position: relative;
-    height: 130%;
+    height: 100%;
     border-radius: 0px;
+    background-image: none;
     margin: 0px;
     padding: 0px;
 }
@@ -283,15 +294,16 @@ audio {
     border-bottom-width: thick;
 }
 
-.panel, .sidenav, .panel-default, .panel-heading, .panel-footer, .panel-title {
-    background-color: #050523;
+.panel, .sidenav, .panel-default, .panel-heading, .panel-footer, .panel-title, #collapse-conf {
+    background-color: #02022A;
+    background-image: none;
    /* color: #050523;*/
     border-color: #050523;
 }
 
 .panel-heading {
     background-image: none;
-    color: #050523;
+    color: #02022A;
 }
 
 .btn-link {
@@ -316,7 +328,13 @@ audio {
 }
 
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-.row.content {height: 450px}
+.row.content {
+    height: 679px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    border: 0;
+    border-color: #02022A;
+}
 
 /* Set gray background color and 100% height */
 .sidenav {
@@ -324,14 +342,10 @@ audio {
     margin: 0px;
   /*  background-color: #f1f1f1;*/
     height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
-/* Set black background color, white text and some padding */
-footer {
-    background-color: #555;
-    color: white;
-    padding: 15px;
-}
 
 /* On small screens, set height to 'auto' for sidenav and grid */
 @media screen and (max-width: 767px) {
