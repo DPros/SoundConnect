@@ -1,4 +1,3 @@
-<script src="js/findmusic.js"></script>
 
 $('.audio-add-to-user').click(function(e){
     	e.preventDefault();

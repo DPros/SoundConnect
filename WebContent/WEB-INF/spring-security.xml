@@ -14,6 +14,14 @@
 		
 		<intercept-url pattern="/admin**" access="hasRole('1')" />
 		<intercept-url pattern="/home**" access="hasRole('1')" />
+		<intercept-url pattern="/search" access="hasRole('1')" />
+		<intercept-url pattern="/add-to-user" access="hasRole('1')" />
+		<intercept-url pattern="/add-to-conf" access="hasRole('1')" />
+		<intercept-url pattern="/remove-from-conference" access="hasRole('1')" />
+		<intercept-url pattern="/list-music" access="hasRole('1')" />
+		
+		
+		
 		
 		<!-- access denied page -->
 		<access-denied-handler error-page="/403" />

@@ -7,7 +7,6 @@
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">
-<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>-->
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <link rel="stylesheet"
@@ -18,6 +17,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="js/player/snd.js"></script>
 <script src="js/script.js"></script>
+<script src="js/findmusic.js"></script>
 
 <style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
 .en-markup-crop-options {
@@ -65,7 +65,7 @@
 											id="mymusicbtn">My Music</button></li>
 								</ul>
 								<ul class="nav navbar-nav navbar-right">
-									<li><a href="#"><span
+									<li><a href="login?logout"><span
 											class="glyphicon glyphicon-log-in"></span> Log out</a></li>
 								</ul>
 							</div>
