@@ -9,6 +9,8 @@ public interface UserDao {
 	
 	User getUserById(long id) throws SQLException;
 	
+	User getUserByUName(String name) throws SQLException;
+	
 	void deleteUserById(long id);
 	
 	long createUser(User user) throws SQLException;

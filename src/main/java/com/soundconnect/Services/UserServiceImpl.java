@@ -44,4 +44,9 @@ public class UserServiceImpl implements UserService{
 		return userDao.getUserById(id);
 	}
 
+	@Override
+	public User getUserByUName(String name) throws SQLException {
+		return userDao.getUserByUName(name);
+	}
+
 }

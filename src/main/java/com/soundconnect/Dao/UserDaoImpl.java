@@ -26,16 +26,26 @@ public class UserDaoImpl implements UserDao{
 	final String addAudio = "UPDATE users SET audios=(audios || ?) WHERE id=?";
 	final String deleteAudio = "UPDATE users SET audios=array_erase(audios, ?) WHERE id=?";
 	final String getFollowings = "SELECT * FROM users WHERE id IN(SELECT following FROM users WHERE id=?)";
+	private String getUserByUName = "SELECT * FROM users WHERE username=?"; 
 	
 	@Autowired
 	ConferenceService conferenceService;
 	
 	@Autowired
-	JdbcTemplate jdbcTemplate; 
+	JdbcTemplate jdbcTemplate;
 	
 	@Override
 	public List<User> getFollowings(long userId){
 		return jdbcTemplate.query(getFollowings, new Object[]{userId}, new UserMapper());
+	}
+	
+	@Override
+	public User getUserByUName(String name) throws SQLException {
+		try{
+			return jdbcTemplate.queryForObject(getUserByUName, new Object[]{name}, new UserMapper());
+		}catch(EmptyResultDataAccessException e){
+			return null;
+		}
 	}
 	
 	@Override
@@ -100,9 +110,10 @@ public class UserDaoImpl implements UserDao{
 
 		@Override
 		public User mapRow(ResultSet rs, int rowNum) throws SQLException {
-			User user = new User(rs.getLong("uid"), rs.getString("uname"), 
+			User user = new User(rs.getLong("id"), rs.getString("name"), 
 					rs.getLong("conference"), null, null, rs.getString("username"), rs.getShort("role"));
 			return user;
 		}
 	}
+
 }
