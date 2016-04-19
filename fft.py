@@ -32,6 +32,16 @@ def create_fft(fn):
 
     fft_features = abs(scipy.fft(X)[:1000])
     write_fft(fft_features, fn)
+    
+def create_fft(fn,out_dir):
+    """
+    Create FFT features from the specified file, fn. 
+    (receives, and also passes to write_fft(), an absolute path to fn)
+    """
+    sample_rate, X = scipy.io.wavfile.read(fn)
+
+    fft_features = abs(scipy.fft(X)[:1000])
+    write_fft(fft_features, fn,out_dir)
 
 def store_fft_all(genre_list=GENRE_LIST, base_dir=GENRE_DIR, out_dir=FFT_DIR):
     for label, genre in enumerate(genre_list):
@@ -66,6 +76,23 @@ def read_fft(genre_list=GENRE_LIST, base_dir=GENRE_DIR):
             y.append(label)
 
     return np.array(X), np.array(y)
+def read_fft2( base_dir=GENRE_DIR):
+    """
+    Reads the FFT features and labels into numpy arrays and returns them
+    """
+    X = []
+    
+    genre_dir = os.path.join(base_dir, "*.fft.npy")
+    file_list = glob.glob(genre_dir)
+    assert(file_list), genre_dir
+    for fn in file_list:
+        fft_features = np.load(fn)
+
+        X.append(fft_features[:2000])
+        
+
+    return np.array(X)
+    
 
 
 if __name__ == "__main__":
