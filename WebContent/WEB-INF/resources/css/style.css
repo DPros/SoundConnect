@@ -263,7 +263,7 @@ audio {
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
-    color:#D9230F;
+    color: #003366;
 }
 
 .search-query:focus + button {
@@ -276,6 +276,12 @@ audio {
     /*margin-right: -15px;*/
     border-radius: 0;
     position: relative;
+    color: #003366;
+}
+
+.navbar-default {
+    background-color: #003366;
+    border-color: #003366;
 }
 
 #mainNavbar {
