@@ -177,7 +177,7 @@ input[type="range"]:active ~ #rangevalue {
 
 .panel {
     position: relative;
-    height: 93%;
+    height: 100%;
 }
 
 audio {
