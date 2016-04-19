@@ -175,6 +175,13 @@ input[type="range"]:active ~ #rangevalue {
     margin: 0 auto;
 }
 
+#left-panel, #right-panel {
+    border-radius: 0px;
+    margin: 0px;
+    padding: 0px;
+    width: 25%;
+}
+
 .panel {
     position: relative;
     height: 100%;
