@@ -7,9 +7,13 @@
 	http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 
     <!-- enable use-expressions -->
+    <http pattern="/js/**" security="none"/>
+    <http pattern="/css/**" security="none"/>
+    <http pattern="/sound/**" security="none"/>
 	<http auto-config="true" use-expressions="true">
 		
 		<intercept-url pattern="/admin**" access="hasRole('1')" />
+		<intercept-url pattern="/home**" access="hasRole('1')" />
 		
 		<!-- access denied page -->
 		<access-denied-handler error-page="/403" />
@@ -17,16 +21,20 @@
 		<form-login 
 		    login-page="/login" 
 		    default-target-url="/welcome" 
+		    authentication-success-handler-ref="AuthenticationSuccessHandler"
 			authentication-failure-url="/login?error" 
 			username-parameter="username"
 			password-parameter="password" />
 		<logout logout-success-url="/login?logout"  />
 		<!-- enable csrf protection -->
-		<csrf/>
+		<!-- <csrf/>  -->
 		<logout logout-url="/logout" logout-success-url="/"
 			delete-cookies="JSESSIONID" invalidate-session="true" />
 	</http>
 	
+	<beans:bean id="AuthenticationSuccessHandler"
+        class="com.soundconnect.security.UrlAuthenticationSuccessHandler" />
+        
 	<!-- Select users and user_roles from database -->
 	<authentication-manager>
 	  <authentication-provider>

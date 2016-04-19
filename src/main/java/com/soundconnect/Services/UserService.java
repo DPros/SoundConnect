@@ -17,4 +17,6 @@ public interface UserService {
 	void deleteAudio(long audioId, long userId) throws SQLException;
 	
 	User getUserById(long id) throws SQLException;
+	
+	User getUserByUName(String name) throws SQLException;
 }
