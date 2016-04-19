@@ -192,6 +192,10 @@ audio {
     width: 100%;
 }
 
+#member-div {
+    padding: 0px 0px 5px 0px;
+    height: 90.5%;
+}
 
 #finddiv, #homediv, #followdiv, #recdiv, #member-div, #mymusicdiv {
     position: absolute;
@@ -274,11 +278,16 @@ footer {
 }
 
 #mainNavbar {
-    padding-left: 40px;
+    padding-left: 30px;
     display: inline-block;
     float: none;
     padding-top: 5px;
     text-align: center;
+}
+
+.central-menu {
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */

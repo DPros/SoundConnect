@@ -52,14 +52,16 @@
 							<div class="col-sm-6"></div>
 							<div class="collapse navbar-collapse" id="myNavbar">
 								<ul class="nav navbar-nav col-sm-6" id="mainNavbar">
-									<li class="active"><button type="button"
+									<li class="active central-menu"><button type="button"
 															   class="btn btn-link" id="homebtn">Home</button></li>
-									<li><button type="button" class="btn btn-link"
+									<li class="central-menu"><button type="button" class="btn btn-link"
 												id="findbtn">Find Music</button></li>
-									<li><button type="button" class="btn btn-link"
+									<li class="central-menu"><button type="button" class="btn btn-link"
 												id="followbtn">Following</button></li>
-									<li><button type="button" class="btn btn-link" id="recbtn">Recommended</button></li>
-									<li><button type="button" class="btn btn-link"
+									<li class="central-menu"><button type="button" class="btn btn-link" id="recbtn">Recommended</button></li>
+									<li class="central-menu"><button type="button" class="btn btn-link"
+												id="profilebtn">Profile</button></li>
+									<li class="central menu"><button type="button" class="btn btn-link"
 												id="mymusicbtn">My Music</button></li>
 								</ul>
 								<ul class="nav navbar-nav navbar-right">
@@ -209,6 +211,9 @@
 				</div>
 				<div id="recdiv" class="hiddendiv scrollfixed">
 					<jsp:include page="includes/recommended.jsp" />
+				</div>
+				<div id="profilediv" class="hiddendiv scrollfixed">
+					<jsp:include page="includes/profile.jsp" />
 				</div>
 				<div id="mymusicdiv" class="hiddendiv scrollfixed">
 					<jsp:include page="includes/mymusic.jsp" />
