@@ -5,7 +5,6 @@
   Time: 12:59 PM
   To change this template use File | Settings | File Templates.
 --%>
-<script src="js/script.js"></script>
 
 <div class="panel panel-default" id="party-panel">
     <div class="panel-heading">

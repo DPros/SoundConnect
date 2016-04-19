@@ -1,9 +1,10 @@
 package com.soundconnect.Beans;
 
-import java.sql.Timestamp;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
+
+import com.soundconnect.Utils.Calendar;
 
 public class Conference {
 
@@ -11,11 +12,11 @@ public class Conference {
 	private String name;
 	private Set<User> users;
 	private List<Audio> tracks;
-	private Timestamp songStarted;
+	private long songStarted;
 	private String password;
 
 	public Conference(long id, String name, String password, Set<User> users, List<Audio> audios,
-			Timestamp songStarted) {
+			long songStarted) {
 		this.name = name;
 		this.id = id;
 		this.setPassword(password);
@@ -52,6 +53,11 @@ public class Conference {
 	}
 
 	public List<Audio> getTracks() {
+		if(tracks.isEmpty())return null;
+		if(songStarted < Calendar.getCurrentTime() - tracks.get(0).getLength()){
+			if(songStarted!=0)tracks.remove(0);
+			songStarted = Calendar.getCurrentTime();
+		}
 		return tracks;
 	}
 
@@ -59,11 +65,11 @@ public class Conference {
 		this.tracks = tracks;
 	}
 
-	public Timestamp getSongStarted() {
+	public long getSongStarted() {
 		return songStarted;
 	}
 
-	public void setSongStarted(Timestamp songStarted) {
+	public void setSongStarted(long songStarted) {
 		this.songStarted = songStarted;
 	}
 

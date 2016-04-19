@@ -50,7 +50,7 @@ public class ConferenceDaoImpl implements ConferenceDAO{
 					.prepareStatement(createConference, Statement.RETURN_GENERATED_KEYS);
 			preparedStatement.setString(1, conference.getName());
 			preparedStatement.setArray(2, jdbcTemplate.getDataSource().getConnection().createArrayOf("bigint", conference.getAudioIds()));
-			preparedStatement.setTimestamp(3, conference.getSongStarted());
+			preparedStatement.setLong(3, conference.getSongStarted());
 			preparedStatement.setString(4, conference.getPassword());
 			preparedStatement.executeQuery();
 			if(preparedStatement.getGeneratedKeys().next()){
@@ -78,7 +78,7 @@ public class ConferenceDaoImpl implements ConferenceDAO{
 		public Conference mapRow(ResultSet rs, int rowNum) throws SQLException {
 			Conference conference = new Conference(rs.getLong("id"), rs.getString("name"), 
 					rs.getString("password"), new HashSet<User>(), 
-					null, rs.getTimestamp("audioStarted"));
+					null, rs.getLong("audioStarted"));
 			return conference;
 		}
 	}

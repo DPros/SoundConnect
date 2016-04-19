@@ -5,7 +5,6 @@
   Time: 3:00 PM
   To change this template use File | Settings | File Templates.
 --%>
-<!--<script src="js/script.js"></script>-->
 
 <div class="panel panel-default" id="members-panel">
     <div class="panel-heading">

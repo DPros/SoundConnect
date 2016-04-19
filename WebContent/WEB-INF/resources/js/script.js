@@ -3,6 +3,84 @@
  */
 var myAudio;
 var onAudioEnded;
+var audioAddToUser = function(au){
+	var address = 'add-to-user';
+	var success = false;
+	$.ajax({
+		type: "POST",
+		url: address,
+		data: au,
+		contentType: "application/json; charset=utf-8",
+		dataType: 'json',
+		success: function(data){
+			// TODO remove this alert after testing, the glyphicon change is enough to notify the user of success
+			if(!data)
+				alert('Something went wrong... Failed to add ');
+			else
+				alert('Audio added to your playlist');
+			success = true;
+		},
+		error: function(xhr, status, error){
+			alert('Something went wrong... Failed to add ');
+		}
+	});
+
+	if(success && $('#add-to-user-glyph').hasClass('glyphicon-plus'))
+	{
+		$('#add-to-user-glyph').removeClass('glyphicon-plus');
+		$('#add-to-user-glyph').addClass('glyphicon-minus');
+	}
+};
+
+var audioRemoveFromUser = function(au){
+	var address = 'remove-from-user';
+	var success = false;
+	$.ajax({
+		type: "POST",
+		url: address,
+		data: au,
+		contentType: "application/json; charset=utf-8",
+		dataType: 'json',
+		success: function(data){
+			// TODO remove this alert after testing, the glyphicon change is enough to notify the user of success
+			if(!data)
+				alert('Something went wrong... Failed to add ');
+			else
+				alert('Audio deleted from your playlist');
+			success = true;
+		},
+		error: function(xhr, status, error){
+			alert('Something went wrong... Failed to add ');
+		}
+	});
+
+	if(success && $('#add-to-user-glyph').hasClass('glyphicon-minus'))
+	{
+		$('#add-to-user-glyph').removeClass('glyphicon-minus');
+		$('#add-to-user-glyph').addClass('glyphicon-plus');
+	}
+};
+
+var AudioAddToConference = function(au){
+	var address = 'add-to-conference';
+	$.ajax({
+		type: "POST",
+		url: address,
+		data: au,
+		contentType: "application/json; charset=utf-8",
+		dataType: 'json',
+		success: function(data){
+			//action like this	
+			if(!data)
+				alert('Something went wrong... Failed to add ');
+			else
+				alert('Audio added to current conference');
+		},
+		error: function(xhr, status, error){
+			alert('Something went wrong... Failed to add ');
+		}
+	});
+};
 
 function audioPreview (id) {
 	myAudio = document.getElementById("player/"+id);
@@ -70,18 +148,14 @@ $(document).ready(function () {
 	});
 
 	onAudioEnded = function () {
-		var address = 'get-from-conference'; // TODO what's the actual address?
-		var confAudio;
-		// stubs for testing
-		var data = {src: 'sound/2.mp3'};
-		$('.snd').snd(data.src, {autoplay: true}, onAudioEnded);
-		/*$.ajax({
-			type: "GET",
+		var address = 'player/content'; // TODO what's the actual address?
+		$.ajax({
+			type: "POST",
 			url: address,
-			data: confAudio, // TODO is this the variable where the result of the request is stored?
-			contentType: "application/json; charset=utf-8",
-			dataType: 'json', // TODO get next song json
 			success: function (data) {
+				alert(data);
+				$('#music-div').html(data);
+//				$('.snd').snd(data.src, {autoplay: true}, onAudioEnded);
 				if (!data)
 					alert('Something went wrong... Failed to retrieve audio');
 				else {
@@ -92,7 +166,7 @@ $(document).ready(function () {
 			error: function (xhr, status, error) {
 				alert('Something went wrong... Failed to retrieve audio');
 			}
-		});*/
+		});
 	}
 
 
@@ -184,95 +258,7 @@ $(document).ready(function () {
 					alert("Please try again");
 			}
 		});
-	});
-    
-    $('.audio-add-to-user').click(function(e){
-    	e.preventDefault();
-
-    	var au = $(this).val();
-    	var address = 'add-to-user';
-		var success = false;
-    	$.ajax({
-    		type: "POST",
-    		url: address,
-    		data: au,
-    		contentType: "application/json; charset=utf-8",
-    		dataType: 'json',
-    		success: function(data){
-    			// TODO remove this alert after testing, the glyphicon change is enough to notify the user of success
-    			if(!data)
-    				alert('Something went wrong... Failed to add ');
-    			else
-    				alert('Audio added to your playlist');
-				success = true;
-    		},
-    		error: function(xhr, status, error){
-    			alert('Something went wrong... Failed to add ');
-    		}
-    	});
-
-		if(success && $('#add-to-user-glyph').hasClass('glyphicon-plus'))
-		{
-			$('#add-to-user-glyph').removeClass('glyphicon-plus');
-			$('#add-to-user-glyph').addClass('glyphicon-minus');
-		}
-
-
-	});
-
-	$('.audio-remove-from-user').click(function(e){
-		e.preventDefault();
-    	var au = $(this).val();
-    	var address = 'remove-from-user';
-		var success = false;
-    	$.ajax({
-    		type: "POST",
-    		url: address,
-    		data: au,
-    		contentType: "application/json; charset=utf-8",
-    		dataType: 'json',
-    		success: function(data){
-    			// TODO remove this alert after testing, the glyphicon change is enough to notify the user of success
-    			if(!data)
-    				alert('Something went wrong... Failed to add ');
-    			else
-    				alert('Audio deleted from your playlist');
-				success = true;
-    		},
-    		error: function(xhr, status, error){
-    			alert('Something went wrong... Failed to add ');
-    		}
-    	});
-
-		if(success && $('#add-to-user-glyph').hasClass('glyphicon-minus'))
-		{
-			$('#add-to-user-glyph').removeClass('glyphicon-minus');
-			$('#add-to-user-glyph').addClass('glyphicon-plus');
-		}
-	});
-    
-    $('.audio-add-to-conference').click( function(e){
-    	e.preventDefault();
-    	var au = $(this).val();
-    	var address = 'add-to-conference';
-    	$.ajax({
-    		type: "POST",
-    		url: address,
-    		data: au,
-    		contentType: "application/json; charset=utf-8",
-    		dataType: 'json',
-    		success: function(data){
-    			//action like this	
-    			if(!data)
-    				alert('Something went wrong... Failed to add ');
-    			else
-    				alert('Audio added to current conference');
-    		},
-    		error: function(xhr, status, error){
-    			alert('Something went wrong... Failed to add ');
-    		}
-    	});
-    });    
+	});    
 });
 
 $(window).load(function() {
