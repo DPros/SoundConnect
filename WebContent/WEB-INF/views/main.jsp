@@ -65,8 +65,8 @@
 												id="mymusicbtn">My Music</button></li>
 								</ul>
 								<ul class="nav navbar-nav navbar-right">
-									<li><a href="#"><span
-											class="glyphicon glyphicon-log-in"></span> Log out</a></li>
+									<li><a href="#" id="logout"><span
+											class="glyphicon glyphicon-log-out"></span> Log out</a></li>
 								</ul>
 							</div>
 						</div>

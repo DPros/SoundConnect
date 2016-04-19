@@ -280,7 +280,12 @@ audio {
 }
 
 .navbar-default {
-    background-color: #09162F;
+    background-color: #00004D;
+    border-color: #4AE9E4 #09162F;
+}
+
+.panel {
+    background-color: #050523;
     border-color: #4AE9E4 #09162F;
 }
 
@@ -288,7 +293,7 @@ audio {
     color: #4AE9E4;
 }
 
-.central-menu > .btn-link {
+.central-menu > .btn-link, .glyphicon-log-out, #logout {
     color: #F925F9;
 }
 
