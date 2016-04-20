@@ -21,19 +21,19 @@ html,body {
     width: 100%;
     padding-top: 0px;
     margin-left: 2px;
-    margin-top: 10px;
+    margin-top: 0px;
     font-size: 15px;
 }
 
 .inner-row {
     padding: 0px;
-    margin: 10px 0px 0px 0px;
+    margin: 5px 0px 0px 0px;
     overflow-x: hidden;
     overflow-y: hidden;
 }
 
 #previewbtn {
-    padding-top: 5px;
+   /* padding-top: 5px;*/
     padding-right: 15px;
     margin-right: 15px;
 }
@@ -41,7 +41,7 @@ html,body {
 .volume {
     padding-top: 0px;
     padding-bottom: 10px;
-    margin-top: 5px;
+    margin-top: 0px;
     padding-right: 15px;
     padding-left: 0px;
 }
@@ -108,16 +108,16 @@ html,body {
     top: 5px;
     left: 4px;
     background: #050540;
-    background: -moz-linear-gradient(left, #050540 0%, #354f64 50%, #354f64 100%);
-    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #050540), color-stop(50%, #354f64), color-stop(100%, #354f64));
-    background: -webkit-linear-gradient(left, #050540 0%, #354f64 50%, #354f64 100%);
-    background: -o-linear-gradient(left, #050540 0%, #354f64 50%, #354f64 100%);
-    background: -ms-linear-gradient(left, #050540 0%, #354f64 50%, #354f64 100%);
-    background: linear-gradient(left, #050540 0%, #354f64 50%, #354f64 100%);
+    background: -moz-linear-gradient(left, #050540 0%, #354f64 50%, #4AE9E4 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #050540), color-stop(50%, #354f64), color-stop(100%, #4AE9E4));
+    background: -webkit-linear-gradient(left, #050540 0%, #354f64 50%, #4AE9E4 100%);
+    background: -o-linear-gradient(left, #050540 0%, #354f64 50%, #4AE9E4 100%);
+    background: -ms-linear-gradient(left, #050540 0%, #354f64 50%, #4AE9E4 100%);
+    background: linear-gradient(left, #050540 0%, #354f64 50%, #4AE9E4 100%);
     filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#050540', endColorstr='#354f64', GradientType=1);
-    -webkit-border-radius: 40px;
-    -moz-border-radius: 40px;
-    border-radius: 40px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
 }
 /*  #slider .highlight {
     height: 2px;
@@ -216,6 +216,7 @@ input[type="range"]:active ~ #rangevalue {
     position: relative;
     height: 100%;
     border: 0;
+    margin-top: 25px;
 }
 
 audio {
