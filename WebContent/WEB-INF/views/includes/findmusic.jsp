@@ -18,7 +18,14 @@
 			<div class="volume">
 				<span class="btn btn-lg btn-link glyphicon glyphicon-volume-down" id="volume-glyph/${audio.id}"></span>
 			</div>
-		</div>		
+		</div>
+		<div class="col-sm-8">
+			<p class="row inner-row track-data">${audio.artist}- ${audio.title }</p>
+			<div class="row inner-row" id="slider">
+				<input class="volume-bar" id="rangeinput" type="range" />
+				<span class="highlight"></span>
+			</div>
+		</div>
 		<div class="col-sm-1">
 			<button class="audio-add-to-user btn btn-link" data-toggle="tooltip" onclick=audioAddToUser('{"id":${audio.id},"source":"${audio.source}","length":${audio.length},"title":"${audio.title}","artist":"${audio.artist}","genre":${audio.genre}}') title="Add to your playlist">
 				<span class="glyphicon glyphicon-plus" id="add-to-user-glyph"></span>
