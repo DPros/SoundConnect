@@ -5,6 +5,6 @@
   Time: 1:37 PM
   To change this template use File | Settings | File Templates.
 --%>
-<div>
-    It Works!
+<div class="scrollfixed">
+    <p class="text-primary">It Works!</p>
 </div>
