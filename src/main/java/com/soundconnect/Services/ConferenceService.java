@@ -17,4 +17,6 @@ public interface ConferenceService {
 	void updateConferenceAudios(Conference conference)throws DataAccessException, SQLException ;
 	
 	List<Audio> getConferenceAudio(Conference conference);
+	
+	Conference playConference(long id) throws DataAccessException, SQLException;
 }

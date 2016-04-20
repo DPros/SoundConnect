@@ -1,6 +1,5 @@
 package com.soundconnect.Beans;
 
-import java.net.URL;
 
 public class Audio {
 
@@ -12,9 +11,9 @@ public class Audio {
 	 * @param artist
 	 * @param genre
 	 */
-	public Audio(long id, long source, Long length, String title, String artist, long genre) {
+	public Audio(long id, long owner, Long length, String title, String artist, long genre) {
 		this.id = id;
-		this.source = source;
+		this.ownerId = owner;
 		this.length = length;
 		this.title = title;
 		this.artist = artist;
@@ -22,14 +21,14 @@ public class Audio {
 	}
 	public Audio(){}
 	private long id;
-	private long source;
+	private long ownerId;
 	private long length;
 	private String title;
 	private String artist;
 	private long genre;
 
-	public void setSource(long source) {
-		this.source = source;
+	public void setOwnerId(long source) {
+		this.ownerId = source;
 	}
 	public void setLength(int length) {
 		this.length = length;
@@ -52,8 +51,8 @@ public class Audio {
 	/**
 	 * @return the source
 	 */
-	public long getSource() {
-		return source;
+	public long getOwnerId() {
+		return ownerId;
 	}
 	/**
 	 * @return the length

@@ -23,9 +23,9 @@ public class AudioDaoImpl implements AudioDao{
 	JdbcTemplate jdbcTemplate;
 	
 	final String getAudioByUser = "SELECT * FROM audios WHERE ARRAY[id] && (SELECT audios FROM users WHERE id=?)";
-	final String getAudioByConference = "SELECT * FROM audios WHERE id IN (SELECT audios FROM conferences WHERE id=?)";
+	final String getAudioByConference = "SELECT * FROM audios WHERE ARRAY[id] && (SELECT audios FROM conferences WHERE id=?)";
 	final String deleteAudio = "DELETE FROM audios WHERE id=?";
-	final String createAudio = "INSERT INTO audios (id, url, length, title , artist, genre) VALUES (?, ?, ?, ?, ?, ?)";
+	final String createAudio = "INSERT INTO audios (id, owner_id, length, title , artist, genre) VALUES (?, ?, ?, ?, ?, ?)";
 	final String getAudioById = "SELECT * FROM audios WHERE id=?";
 	
 	@Override
@@ -51,7 +51,7 @@ public class AudioDaoImpl implements AudioDao{
 			preparedStatement = jdbcTemplate.getDataSource().getConnection()
 					.prepareStatement(createAudio, Statement.RETURN_GENERATED_KEYS);
 			preparedStatement.setLong(1, audio.getId());
-			preparedStatement.setLong(2, audio.getSource());
+			preparedStatement.setLong(2, audio.getOwnerId());
 			preparedStatement.setLong(3, audio.getLength());
 			preparedStatement.setString(4, audio.getTitle());
 			preparedStatement.setString(5, audio.getArtist());
@@ -83,7 +83,7 @@ public class AudioDaoImpl implements AudioDao{
 		@Override
 		public Audio mapRow(ResultSet rs, int rowNum) throws SQLException {
 			Audio audio = null;
-			audio = new Audio(rs.getLong("id"), rs.getLong("url"),
+			audio = new Audio(rs.getLong("id"), rs.getLong("owner_id"),
 					rs.getLong("length"), rs.getString("title"), rs.getString("artist"),
 					rs.getLong("genre"));
 			return audio;

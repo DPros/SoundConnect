@@ -23,7 +23,7 @@ import com.soundconnect.Utils.Calendar;
 @EnableScheduling
 public class ConferenceServiceImpl implements ConferenceService{
 
-	Map<Long, Conference> cache = new HashMap<Long, Conference>();
+	private Map<Long, Conference> cache = new HashMap<Long, Conference>();
 	
 	@Autowired
 	ConferenceDAO conferenceDAO;
@@ -66,5 +66,21 @@ public class ConferenceServiceImpl implements ConferenceService{
 	public List<Audio> getConferenceAudio(Conference conference) {
 		if(conference.getTracks()==null)conference.setTracks(audioDao.getAudioByConference(conference.getId()));
 		return conference.getTracks();
+	}
+
+	@Override
+	public Conference playConference(long id) throws DataAccessException, SQLException {
+		Conference conference = getConferenceById(id);
+		if(conference.getTracks()==null)conference.setTracks(getConferenceAudio(conference));
+		if(!conference.getTracks().isEmpty()){
+			if(conference.getSongStarted() < Calendar.getCurrentTime() - conference.getTracks().get(0).getLength()){
+				if(conference.getSongStarted()!=0){
+					conference.getTracks().remove(0);
+					conferenceDAO.updateConferenceAudios(conference);
+				}
+				conference.setSongStarted(Calendar.getCurrentTime());
+			}
+		}
+		return conference;
 	}
 }
