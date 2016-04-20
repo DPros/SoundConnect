@@ -12,7 +12,7 @@
 <c:forEach items="${myaudios}" var="audio">
     <div class="row search-results" id="search-results/${audio.id}">
         <div class="col-sm-2">
-            <a href="javascript:void(0)" class="btn btn-link" id="previewbtn" data-toggle="tooltip" title="Preview" onclick="clickPreviewPlay('player/list', ${audio.source},${audio.id})">
+            <a href="javascript:void(0)" class="btn btn-link" id="previewbtn" data-toggle="tooltip" title="Preview" onclick="clickPreviewPlay('player/list', ${audio.ownerId},${audio.id})">
                 <span class="glyphicon glyphicon-play" id="play-glyph/${audio.id}"></span>
             </a>
             <div class="volume">
@@ -27,12 +27,12 @@
             </div>
         </div>
         <div class="col-sm-1">
-            <button class="audio-remove-from-user btn btn-link" data-toggle="tooltip" onclick=audioRemoveFromUser('{"id":${audio.id},"source":"${audio.source}","length":${audio.length},"title":"${audio.title}","artist":"${audio.artist}","genre":${audio.genre}}') title="Remove from your playlist">
+            <button class="audio-remove-from-user btn btn-link" data-toggle="tooltip" onclick=audioRemoveFromUser('{"id":${audio.id},"ownerId":"${audio.ownerId}","length":${audio.length},"title":"${audio.title}","artist":"${audio.artist}","genre":${audio.genre}}') title="Remove from your playlist">
                 <span class="glyphicon glyphicon-minus" id="remove-from-user-glyph"></span>
             </button>
         </div>
         <div class="col-sm-1">
-            <button class="audio-add-to-conference btn btn-link" data-toggle="tooltip" onclick=AudioAddToConference('{"id":${audio.id},"source":"${audio.source}","length":${audio.length},"title":"${audio.title}","artist":"${audio.artist}","genre":${audio.genre}}') title="Send to the conference">
+            <button class="audio-add-to-conference btn btn-link" data-toggle="tooltip" onclick=AudioAddToConference('{"id":${audio.id},"ownerId":"${audio.ownerId}","length":${audio.length},"title":"${audio.title}","artist":"${audio.artist}","genre":${audio.genre}}') title="Send to the conference">
                 <span class="glyphicon glyphicon-send" id="add-to-conf-glyph"></span>
             </button>
         </div>

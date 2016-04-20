@@ -139,8 +139,8 @@ public class AuthController {
 	}
 
 	@RequestMapping("/logout")
-	public RedirectView logOut(HttpServletRequest req, SessionStatus status) throws ServletException {
+	public String logOut(HttpServletRequest req, SessionStatus status) throws ServletException {
 		status.setComplete();
-		return new RedirectView("redirect:/auth");
+		return "index";
 	}
 }

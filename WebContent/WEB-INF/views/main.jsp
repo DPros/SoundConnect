@@ -72,7 +72,7 @@ VK.init({
 											id="mymusicbtn">My Music</button></li>
 								</ul>
 								<ul class="nav navbar-nav navbar-right">
-									<li><a href="/logout"> <span
+									<li><a href="/SoundConnect/logout"> <span
 											class="glyphicon glyphicon-log-in"></span> Log out
 									</a></li>
 								</ul>
