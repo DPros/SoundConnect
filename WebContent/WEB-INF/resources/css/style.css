@@ -252,7 +252,9 @@ audio {
 
 .text-warning {
     /* green */
-    color: #67DE40;
+   /* color: #67DE40;*/
+    /* orange-red */
+    color: #DE6840;
     font-family: 'Quicksand', sans-serif;
     font-size: 110%;
 }
@@ -417,10 +419,12 @@ p .text-warning, .hr {
     /*border-color: #050523;*/
 }
 .btn-link {
+    /* orange-red */
+    color: #DE6840;
     /* electric cyan */
    /* color: #4AE9E4;*/
     /* green */
-    color: #67DE40;
+   /* color: #67DE40;*/
 }
 
 .central-menu > .btn-link, .glyphicon-log-out, #logout {

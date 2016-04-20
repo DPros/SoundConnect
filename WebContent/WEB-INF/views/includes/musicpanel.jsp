@@ -30,8 +30,8 @@
                     <output id="rangevalue">0</output>
                 </div>
 
-                <span class="currenttime">00:00</span>/
-                <span class="duration">00:00</span>
+              <!--  <span class="currenttime">00:00</span>/
+                <span class="duration">00:00</span>-->
             </div>
 
         </div>
