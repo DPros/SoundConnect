@@ -231,6 +231,11 @@ audio {
     height: 100%;
     width: 100%;
     overflow: scroll;
+    color: #4AE9E4;
+}
+
+.text-primary {
+    color: #4AE9E4;
 }
 
 #search-results {
@@ -326,9 +331,7 @@ audio {
     border-color: #050523;
 }
 
-.text-primary {
-    background-color: #02022A;
-    text-decoration-color: #050523;
+p .text-warning, .hr {
     color: #050523;
 }
 

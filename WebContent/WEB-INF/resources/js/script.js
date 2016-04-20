@@ -153,7 +153,7 @@ $(document).ready(function () {
 		var confAudio;
 		// stubs for testing
 		var data = {src: 'sound/2.mp3'};
-		$('.snd').snd(data.src, {autoplay: true}, onAudioEnded);
+		$('.snd').snd(data.src, onAudioEnded);
 		/*$.ajax({
 			type: "GET",
 			url: address,
