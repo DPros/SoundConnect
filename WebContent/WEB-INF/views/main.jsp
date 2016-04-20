@@ -1,3 +1,5 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page session="true"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +9,6 @@
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">
-<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>-->
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <link rel="stylesheet"
@@ -35,6 +36,16 @@
 </style>
 </head>
 <body>
+	<c:url value="/j_spring_security_logout" var="logoutUrl" />
+	<form action="${logoutUrl}" method="post" id="logoutForm">
+		<input type="hidden" name="${_csrf.parameterName}"
+			value="${_csrf.token}" />
+	</form>
+	<script>
+		function formSubmit() {
+			document.getElementById("logoutForm").submit();
+		}
+	</script>
 	<div class="container-fluid text-center">
 		<div class="row content">
 			<div class="row">
@@ -65,8 +76,14 @@
 												id="mymusicbtn">My Music</button></li>
 								</ul>
 								<ul class="nav navbar-nav navbar-right">
-									<li><a href="#" id="logout"><span
-											class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+									<li><c:if
+											test="${pageContext.request.userPrincipal.name != null}">
+										
+											Welcome : ${pageContext.request.userPrincipal.name} | <a
+												href="javascript:formSubmit()" id="logout"> <span
+												class="glyphicon glyphicon-log-out"></span> Log out
+											</a>
+										</c:if></li>
 								</ul>
 							</div>
 						</div>

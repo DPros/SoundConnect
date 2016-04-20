@@ -3,6 +3,7 @@
  */
 var myAudio;
 var onAudioEnded;
+
 var audioAddToUser = function(au){
 	var address = 'add-to-user';
 	var success = false;
@@ -29,7 +30,7 @@ var audioAddToUser = function(au){
 	{
 		$('#add-to-user-glyph').removeClass('glyphicon-plus');
 		$('#add-to-user-glyph').addClass('glyphicon-minus');
-	}
+	};
 };
 
 var audioRemoveFromUser = function(au){
@@ -90,7 +91,7 @@ function audioPreview (id) {
 	} else {
 		myAudio.pause();
 	}
-}
+};
 
 function clickPreviewPlay(id) {
 	if($('#play-glyph\\/'+id).hasClass('glyphicon-play'))
@@ -109,7 +110,7 @@ function clickPreviewPlay(id) {
 	}
 	else $('#search-results\\/'+id).removeClass('current-track');
 	audioPreview(id);
-}
+};
 
 $(document).ready(function () {
 
@@ -148,14 +149,18 @@ $(document).ready(function () {
 	});
 
 	onAudioEnded = function () {
-		var address = 'player/content';
-		$.ajax({
-			type: "POST",
+		var address = 'get-from-conference'; // TODO what's the actual address?
+		var confAudio;
+		// stubs for testing
+		var data = {src: 'sound/2.mp3'};
+		$('.snd').snd(data.src, {autoplay: true}, onAudioEnded);
+		/*$.ajax({
+			type: "GET",
 			url: address,
+			data: confAudio, // TODO is this the variable where the result of the request is stored?
+			contentType: "application/json; charset=utf-8",
+			dataType: 'json', // TODO get next song json
 			success: function (data) {
-				alert(data);
-				$('#music-div').html(data);
-//				$('.snd').snd(data.src, {autoplay: true}, onAudioEnded);
 				if (!data)
 					alert('Something went wrong... Failed to retrieve audio');
 				else {
@@ -166,8 +171,8 @@ $(document).ready(function () {
 			error: function (xhr, status, error) {
 				alert('Something went wrong... Failed to retrieve audio');
 			}
-		});
-	}
+		});*/
+	};
 
 
 	// call to the function when the document is first loaded, may need to be replaced with window.loaded
@@ -274,7 +279,7 @@ $(document).ready(function () {
 					alert("Please try again");
 			}
 		});
-	});    
+	});   
 });
 
 $(window).load(function() {

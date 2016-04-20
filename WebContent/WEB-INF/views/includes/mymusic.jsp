@@ -9,8 +9,6 @@
 
 <c:forEach items="${myaudios}" var="audio">
     <div class="row search-results" id="search-results/${audio.id}">
-        <!-- <a href="${audio.source}">${audio.artist} - ${audio.title }</a>
-		 -->
         <div class="col-sm-2">
             <audio id="player/${audio.id}" preload="none">
                <source src="${audio.source}" type="audio/mp3" />
@@ -42,4 +40,3 @@
     </div>
     <br>
 </c:forEach>
-
