@@ -38,7 +38,7 @@ var vkLogin = function(username){
 			console.log('Something went wrong... Failed to add ');
 		}
 	});
-}
+};
 
 var audioAddToUser = function(au){
 	var address = 'add-to-user';
