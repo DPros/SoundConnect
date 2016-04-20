@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestWrapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,45 +23,66 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import com.soundconnect.Beans.User;
 import com.soundconnect.Services.UserService;
+import com.soundconnect.Utils.MD5;
 
 @Controller
-@SessionAttributes({ "userId", "confId" })
+@SessionAttributes({ "user" })
 public class AuthController {
 	@Autowired
 	private UserService userv;
-
+	
 	@RequestMapping(value = "/auth", method = RequestMethod.GET)
-	public String hello(SecurityContextHolderAwareRequestWrapper req, Model model) {
-		model.addAttribute("message", "This is data from Controller");
-		model.addAttribute("session", "Current session info:<br>userId: " + req.getSession().getAttribute("userId")
-				+ "<br>confId: " + req.getSession().getAttribute("confId"));
-		return "auth";
-	}
+	public String hello(Model model, HttpServletRequest request) {
+			return "auth";	}
 
 	@RequestMapping(value = "/auth", method = RequestMethod.POST)
-	public String createSession(SecurityContextHolderAwareRequestWrapper req, Model model) {
-		req.getSession().setAttribute("userId", req.getParameter("userId"));
-		req.getSession().setAttribute("confId", req.getParameter("confId"));
-		model.addAttribute("session", "Current session info:<br>userId: " + req.getSession().getAttribute("userId")
-				+ "<br>confId: " + req.getSession().getAttribute("confId"));
+	public String createSession(Model model, HttpServletRequest request) {
+		System.out.println(((User)request.getSession().getAttribute("user")).getUsername());
 		return "auth";
 	}
 
 	@RequestMapping(value = { "/", "/welcome**" }, method = RequestMethod.GET)
-	public ModelAndView defaultPage(SecurityContextHolderAwareRequestWrapper req, HttpServletRequest request) {
+	public ModelAndView defaultPage(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView();
 		model.addObject("title", "Spring Security Login Form - Database Authentication");
 		model.addObject("message", "This is default page!");
 		model.setViewName("hello");
 		User u = null;
 		try {
-			u = userv.getUserByUName(req.getUserPrincipal().getName());
+			u = userv.getUserByUName(Long.toString((Long)request.getSession().getAttribute("userId")));
 		} catch (SQLException e) {
 		}
 		if (u != null) {
 			request.getSession().setAttribute("userId", u.getId());
 			request.getSession().setAttribute("confId", u.getConference());
 		}
+		return model;
+
+	}
+	
+	@RequestMapping(value = {"/vklogin" }, method = {RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView vkLogin(@RequestBody String uname, HttpServletRequest request) {
+		ModelAndView model = new ModelAndView();
+		String name = "User #"+uname;
+		System.out.println(name+'+'+uname);
+		model.addObject("title", "Spring Security Login Form - Database Authentication");
+		model.addObject("message", "This is default page!");
+		model.setViewName("hello");
+		User u = null;
+		try {
+			u = userv.getUserByUName(uname);
+		if (u == null) {
+			u = new User(Long.valueOf(uname), name, (long) 0, null, null,
+					uname, (short) 1);
+			u.setPassword(MD5.getHash("password"));
+			userv.createUser(u);
+		}
+			u = userv.getUserByUName(uname);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		//session
+		 request.getSession().setAttribute("user", u);
 		return model;
 
 	}
@@ -79,7 +101,7 @@ public class AuthController {
 	@RequestMapping(value = "/login", method ={ RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView login(@RequestParam(value = "error", required = false) String error,
 			@RequestParam(value = "logout", required = false) String logout,
-			SecurityContextHolderAwareRequestWrapper req, HttpServletRequest request) {
+			HttpServletRequest request) {
 
 		ModelAndView model = new ModelAndView();
 		if (error != null) {
@@ -109,6 +131,11 @@ public class AuthController {
 		model.setViewName("403");
 		return model;
 
+	}
+	
+	@RequestMapping("/test")
+	public String test(HttpServletRequest req, SessionStatus status) throws ServletException {
+		return "VkTest";
 	}
 
 	@RequestMapping("/logout")

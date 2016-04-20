@@ -51,12 +51,12 @@ public class AudioDaoImpl implements AudioDao{
 			preparedStatement = jdbcTemplate.getDataSource().getConnection()
 					.prepareStatement(createAudio, Statement.RETURN_GENERATED_KEYS);
 			preparedStatement.setLong(1, audio.getId());
-			preparedStatement.setString(2, audio.getSource().toString());
+			preparedStatement.setLong(2, audio.getSource());
 			preparedStatement.setLong(3, audio.getLength());
 			preparedStatement.setString(4, audio.getTitle());
 			preparedStatement.setString(5, audio.getArtist());
 			preparedStatement.setLong(6, audio.getGenre());
-			preparedStatement.executeQuery();
+			preparedStatement.executeUpdate();
 			if(preparedStatement.getGeneratedKeys().next()){
 				id = preparedStatement.getGeneratedKeys().getLong(1);
 			}
@@ -83,13 +83,9 @@ public class AudioDaoImpl implements AudioDao{
 		@Override
 		public Audio mapRow(ResultSet rs, int rowNum) throws SQLException {
 			Audio audio = null;
-			try {
-				audio = new Audio(rs.getLong("id"), new URL(rs.getString("url")),
-						rs.getLong("length"), rs.getString("title"), rs.getString("artist"),
-						rs.getLong("genre"));
-			} catch (MalformedURLException e) {
-				deleteAudioById(rs.getLong("id"));
-			}
+			audio = new Audio(rs.getLong("id"), rs.getLong("url"),
+					rs.getLong("length"), rs.getString("title"), rs.getString("artist"),
+					rs.getLong("genre"));
 			return audio;
 		}
 		

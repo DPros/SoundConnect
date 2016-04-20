@@ -19,6 +19,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="js/player/snd.js"></script>
 <script src="js/script.js"></script>
+<script src="http://vk.com/js/api/openapi.js" type="text/javascript"></script>
 
 <style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
 .en-markup-crop-options {
@@ -36,16 +37,11 @@
 </style>
 </head>
 <body>
-	<c:url value="/j_spring_security_logout" var="logoutUrl" />
-	<form action="${logoutUrl}" method="post" id="logoutForm">
-		<input type="hidden" name="${_csrf.parameterName}"
-			value="${_csrf.token}" />
-	</form>
-	<script>
-		function formSubmit() {
-			document.getElementById("logoutForm").submit();
-		}
-	</script>
+<script language="javascript">
+VK.init({
+    apiId: 5368927
+  });
+</script>
 	<div class="container-fluid text-center">
 		<div class="row content">
 			<div class="col-sm-3 sidenav" id="left-panel">
@@ -76,14 +72,9 @@
 											id="mymusicbtn">My Music</button></li>
 								</ul>
 								<ul class="nav navbar-nav navbar-right">
-									<li><c:if
-											test="${pageContext.request.userPrincipal.name != null}">
-										
-											Welcome : ${pageContext.request.userPrincipal.name} | <a
-												href="javascript:formSubmit()"> <span
-												class="glyphicon glyphicon-log-in"></span> Log out
-											</a>
-										</c:if></li>
+									<li><a href="/logout"> <span
+											class="glyphicon glyphicon-log-in"></span> Log out
+									</a></li>
 								</ul>
 							</div>
 						</div>

@@ -7,13 +7,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 
+            <audio id="player/list" src="" preload="none">              
+            </audio>
 <c:forEach items="${myaudios}" var="audio">
     <div class="row search-results" id="search-results/${audio.id}">
         <div class="col-sm-2">
-            <audio id="player/${audio.id}" preload="none">
-               <source src="${audio.source}" type="audio/mp3" />
-            </audio>
-            <a href="javascript:void(0)" class="btn btn-link" id="previewbtn" data-toggle="tooltip" title="Preview" onclick="clickPreviewPlay(${audio.id})">
+            <a href="javascript:void(0)" class="btn btn-link" id="previewbtn" data-toggle="tooltip" title="Preview" onclick="clickPreviewPlay('player/list', ${audio.source},${audio.id})">
                 <span class="glyphicon glyphicon-play" id="play-glyph/${audio.id}"></span>
             </a>
             <div class="volume">

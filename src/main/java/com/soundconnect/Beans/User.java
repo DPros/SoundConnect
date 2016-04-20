@@ -2,6 +2,9 @@ package com.soundconnect.Beans;
 
 import java.util.Set;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 public class User {
 
 	private long id;
@@ -13,6 +16,8 @@ public class User {
 	private String password;
 	private Short role;
 
+	public User(){}
+	
 	public Set<Audio> getAudio() {
 		return audio;
 	}

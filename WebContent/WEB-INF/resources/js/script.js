@@ -4,6 +4,42 @@
 var myAudio;
 var onAudioEnded;
 
+var getAudio = function (object_id, owner, id){
+	  var req = owner+'_'+id;
+	  console.log('before api');
+	 var a = VK.api('audio.getById', {audios: req}, function(data){
+		  
+			  console.log('OK');
+			  var sound = data.response[0];
+		 	 	var a = document.getElementById(object_id);
+		 		a.setAttribute("src", sound.url);
+	 		console.log('OK');
+		  if(data.error)
+		  console.log(data.error);
+	  });
+	  console.log('after api');
+	  console.log(a);
+};
+
+var vkLogin = function(username){
+	console.log("vkLogin js");
+	var address = 'vklogin';
+	var json = username;
+	$.ajax({
+		type: "POST",
+		url: address,
+		data: json,
+		contentType: "application/json; charset=utf-8",
+		dataType: 'json',
+		success: function(data){
+			console.log('LoggedIn!');
+		},
+		error: function(xhr, status, error){
+			console.log('Something went wrong... Failed to add ');
+		}
+	});
+}
+
 var audioAddToUser = function(au){
 	var address = 'add-to-user';
 	var success = false;
@@ -83,17 +119,20 @@ var AudioAddToConference = function(au){
 	});
 };
 
-function audioPreview (id) {
-	myAudio = document.getElementById("player/"+id);
+function audioPreview (object, owner, id) {
+	getAudio(object, owner, id);
+	var myAudio = document.getElementById("player/search");
 	console.log(myAudio.id);
 	if (myAudio.paused) {
+		console.log('play!');
 		myAudio.play();
 	} else {
+		console.log('pause!');
 		myAudio.pause();
 	}
 };
 
-function clickPreviewPlay(id) {
+function clickPreviewPlay(object, owner, id) {
 	if($('#play-glyph\\/'+id).hasClass('glyphicon-play'))
 	{
 		$('#play-glyph\\/'+id).removeClass('glyphicon-play');
@@ -109,7 +148,7 @@ function clickPreviewPlay(id) {
 		$('#search-results\\/'+id).addClass('current-track');
 	}
 	else $('#search-results\\/'+id).removeClass('current-track');
-	audioPreview(id);
+	audioPreview(object, owner, id);
 };
 
 $(document).ready(function () {

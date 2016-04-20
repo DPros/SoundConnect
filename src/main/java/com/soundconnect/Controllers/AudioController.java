@@ -2,6 +2,7 @@ package com.soundconnect.Controllers;
 
 import com.soundconnect.Beans.Audio;
 import com.soundconnect.Beans.Conference;
+import com.soundconnect.Beans.User;
 import com.soundconnect.Services.AudioService;
 import com.soundconnect.Services.ConferenceService;
 import com.soundconnect.Services.UserService;
@@ -21,7 +22,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 @Controller
-@SessionAttributes({ "userId", "confId" })
+@SessionAttributes({ "user"})
 public class AudioController {
 
 	@Autowired
@@ -50,12 +51,14 @@ public class AudioController {
 	
 	@RequestMapping("/list-music")
 	public String listMusic(Model model, HttpServletRequest request){
-		model.addAttribute("myaudios", audioserv.getAudioByUser((Long) request.getSession().getAttribute("userId")));
+		User u = (User) request.getSession().getAttribute("user");
+		model.addAttribute("myaudios", audioserv.getAudioByUser(u.getId()));
 		return "includes/mymusic";
 	}
 
 	@RequestMapping("/add-to-user")
 	public @ResponseBody Boolean addAudioToUser(@RequestBody Audio audio, Model model, HttpServletRequest req) {
+		User u = (User) req.getSession().getAttribute("user");
 		if (audio == null) {
 			System.out.println("null pointer audio request");
 			return false;
@@ -63,19 +66,20 @@ public class AudioController {
 		if (audioserv.getAudioById(audio.getId()) == null)
 			try {
 				// analyze song before creating!!
-				audioserv.createAudio(audio);
+				audioserv.createAudio(audio);		
+			// add audio to user here!!!
 			} catch (SQLException e1) {
 				return false;
 			}
 		try {
-			// add audio to user here!!!
-			userserv.addAudio(audio.getId(), (Long) req.getSession().getAttribute("userId"));
-		} catch (NumberFormatException e) {
+			userserv.addAudio(audio.getId(), u.getId());
 		} catch (SQLException e) {
-			return false;
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		System.out.println("Current session info:\nuserId: " + req.getSession().getAttribute("userId") + "\nconfId: "
-				+ req.getSession().getAttribute("confId"));
+		
+		System.out.println("Current session info:\nuserId: " + u.getId() + "\nconfId: "
+				+ u.getConference());
 
 		System.out.println("ADDING AUDIO TO USER; AID=" + audio.getId());
 		return true;
@@ -83,8 +87,9 @@ public class AudioController {
 
 	@RequestMapping("/add-to-conference")
 	public @ResponseBody Boolean addAudioToConference(@RequestBody Audio audio, Model model, HttpServletRequest req) {
-		System.out.println("Current session info:\nuserId: " + req.getSession().getAttribute("userId") + "\nconfId: "
-				+ req.getSession().getAttribute("confId"));
+		User u = (User) req.getSession().getAttribute("user");
+		System.out.println("Current session info:\nuserId: " + u.getId() + "\nconfId: "
+				+ u.getConference());
 		if (audio == null) {
 			System.out.println("null pointer audio request");
 			return false;
@@ -100,7 +105,7 @@ public class AudioController {
 			}
 		try {
 			Conference conf = confserv
-					.getConferenceById((Long) req.getSession().getAttribute("confId"));
+					.getConferenceById(u.getConference());
 			conf.addAudioToConference(audio);
 			confserv.updateConferenceAudios(conf);
 		} catch (NumberFormatException e) {
@@ -113,19 +118,20 @@ public class AudioController {
 	
 	@RequestMapping("/remove-from-user")
 	public @ResponseBody Boolean removeAudioFromUser(@RequestBody Audio audio, Model model, HttpServletRequest req){
+		User u = (User) req.getSession().getAttribute("user");
 		if (audio == null) {
 			System.out.println("null pointer audio request");
 			return false;
 		}
 		try {
 			// add audio to user here!!!
-			userserv.deleteAudio(audio.getId(), (Long) req.getSession().getAttribute("userId"));
+			userserv.deleteAudio(audio.getId(), u.getId());
 		} catch (NumberFormatException e) {
 		} catch (SQLException e) {
 			return false;
 		}
-		System.out.println("Current session info:\nuserId: " + req.getSession().getAttribute("userId") + "\nconfId: "
-				+ req.getSession().getAttribute("confId"));
+		System.out.println("Current session info:\nuserId: " + u.getId() + "\nconfId: "
+				+ u.getConference());
 
 		System.out.println("DELETING AUDIO FROM USER; AID=" + audio.getId());
 		return true;
