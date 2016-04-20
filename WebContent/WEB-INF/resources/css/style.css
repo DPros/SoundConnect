@@ -101,25 +101,25 @@ html,body {
     border-radius: 40px;
 }
 #slider .volume-bar {
-    width: 97%;
+    width: 100%;
     height: 5px;
-    background: #333;
+    /*background: #333;*/
     position: relative;
     top: 5px;
     left: 4px;
-    background: #1d2e38;
-    background: -moz-linear-gradient(left, rgba(29, 46, 56, 0) 0%, #354f64 50%, #354f64 100%);
-    background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(29, 46, 56, 0.3)), color-stop(50%, #354f64), color-stop(100%, #354f64));
-    background: -webkit-linear-gradient(left, rgba(29, 46, 56, 0) 0%, #354f64 50%, #354f64 100%);
-    background: -o-linear-gradient(left, rgba(29, 46, 56, 0) 0%, #354f64 50%, #354f64 100%);
-    background: -ms-linear-gradient(left, rgba(29, 46, 56, 0) 0%, #354f64 50%, #354f64 100%);
-    background: linear-gradient(left, rgba(29, 46, 56, 0) 0%, #354f64 50%, #354f64 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='rgba(29, 46, 56, 0)', endColorstr='#354f64', GradientType=1);
+    background: #050540;
+    background: -moz-linear-gradient(left, #050540 0%, #354f64 50%, #354f64 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #050540), color-stop(50%, #354f64), color-stop(100%, #354f64));
+    background: -webkit-linear-gradient(left, #050540 0%, #354f64 50%, #354f64 100%);
+    background: -o-linear-gradient(left, #050540 0%, #354f64 50%, #354f64 100%);
+    background: -ms-linear-gradient(left, #050540 0%, #354f64 50%, #354f64 100%);
+    background: linear-gradient(left, #050540 0%, #354f64 50%, #354f64 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#050540', endColorstr='#354f64', GradientType=1);
     -webkit-border-radius: 40px;
     -moz-border-radius: 40px;
     border-radius: 40px;
 }
-#slider .highlight {
+/*  #slider .highlight {
     height: 2px;
     position: absolute;
     width: 388px;
@@ -129,7 +129,7 @@ html,body {
     -moz-border-radius: 40px;
     border-radius: 40px;
     background: rgba(255, 255, 255, 0.25);
-}
+}*/
 input[type="range"] {
     -webkit-appearance: none;
    /* background-color: black;*/
@@ -277,10 +277,8 @@ audio {
 }
 
 #custom-search-input .search-query {
-    padding-right: 3px;
     padding-right: 10px; \9
-    padding-left: 6px;
-    padding-left: 10px \9;
+    padding-left: 10px;
     padding-bottom: 5px;
     /* IE7-8 doesn't have border-radius, so don't indent the padding */
     background-color: #050540;
@@ -288,7 +286,7 @@ audio {
     border-color: #DE6840;
     /*color: #67DE40;*/
     /* orange-red*/
-    color: #DE6840;
+    color: white;
     margin-bottom: 40px;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
