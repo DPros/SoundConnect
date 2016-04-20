@@ -13,7 +13,7 @@
 	src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <link rel="stylesheet"
 	href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
-	<link rel='stylesheet' href='dist/css/perfect-scrollbar.css' />
+	<link rel="stylesheet" href="css/perfect-scrollbar.css" />
 	<!-- Fonts -->
 	<link href='https://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
@@ -24,6 +24,7 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="js/player/snd.js"></script>
+	<script src="js/perfect-scrollbar.jquery.js"></script>
 <script src="js/script.js"></script>
 
 
@@ -209,9 +210,6 @@
 						venenatis, ipsum neque tempus odio, quis fermentum tortor odio ut
 						nunc. Donec blandit convallis urna, nec blandit dolor sagittis et.
 						Nam facilisis.</p>
-					<hr>
-					<h3>Test</h3>
-					<p>Lorem ipsum...</p>
 				</div>
 				<div id="finddiv" class="hiddendiv scrollfixed">
 					<div class="input-group col-md-12" id="custom-search-input">

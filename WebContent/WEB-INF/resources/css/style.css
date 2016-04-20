@@ -226,6 +226,7 @@ audio {
     padding: 30px;
     border: none;
     /*margin-left: -30px;*/
+    height: 100%;
     width: 100%;
 }
 
@@ -238,9 +239,7 @@ audio {
 }
 
 .scrollfixed {
-    height: 100%;
-    width: 100%;
-    overflow: scroll;
+   /* overflow: scroll;*/
     color: #4AE9E4;
     font-family: 'Quicksand', sans-serif;
 }

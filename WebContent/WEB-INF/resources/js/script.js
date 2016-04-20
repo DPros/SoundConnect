@@ -114,6 +114,19 @@ function clickPreviewPlay(id) {
 
 $(document).ready(function () {
 
+	// scrollbar initialization
+	$('#homediv').perfectScrollbar();
+	$('#finddiv').perfectScrollbar();
+	$('#mymusicdiv').perfectScrollbar();
+	$('#followdiv').perfectScrollbar();
+	$('#recdiv').perfectScrollbar();
+//	$('#profilediv').perfectScrollbar();
+	$('#mymusicdiv').perfectScrollbar();
+	$('#member-div').perfectScrollbar();
+
+	//Ps.initialize(document.getElementById('finddiv'));
+	//Ps.initialize(document.getElementById('followdiv'));
+
 	$('.volume-bar').slider({
 		range: "%",
 		min: 0,
