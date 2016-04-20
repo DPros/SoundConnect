@@ -431,8 +431,27 @@ p .text-warning, .hr {
    /* color: #67DE40;*/
 }
 
-.btn-link:focus, .btn-link:active {
+.btn-link:hover, .btn-link:focus, .btn-link:active {
     text-decoration: none;
+    text-decoration-color: white;
+    color: white;
+    border: none;
+    text-shadow: none;
+    font-weight: bold;
+}
+
+.nav .btn-link:hover, .nav .btn-link:focus, .nav .btn-link:active {
+    text-decoration: none;
+    border: none;
+    text-decoration-color: white;
+    color: white;
+    text-shadow: none;
+    font-weight: bold;
+}
+
+li:hover {
+    text-decoration: none;
+    text-decoration-color: white;
     color: white;
     font-weight: bold;
 }
