@@ -78,8 +78,8 @@
 			</div>
 			<div class="col-sm-6 text-left" id="centre-panel">
 				<div id="homediv" class="visiblediv scrollfixed">
-					<h1>Welcome</h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+					<h1 class="text-primary">Welcome</h1>
+					<p class="text-primary">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 						Cras nibh lacus, aliquam et faucibus ac, vehicula sit amet odio.
 						Nullam vestibulum ornare efficitur. Donec consectetur, sapien
 						porta sagittis feugiat, mauris est tempor dolor, nec aliquet enim

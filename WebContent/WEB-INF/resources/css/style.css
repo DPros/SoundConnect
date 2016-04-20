@@ -311,11 +311,25 @@ audio {
     border-bottom-width: thick;
 }
 
-#homediv, #followdiv, #finddiv, #recdiv, #followdiv, #profilediv, #mymusicdiv, .sidenav, .panel-heading, .panel-body, .panel-footer {
+.sidenav, .panel-heading, .panel-body, .panel-footer {
     background-color: #02022A;
     background-image: none;
    /* color: #050523;*/
     border-color: #050523;
+}
+
+#homediv, #followdiv, #finddiv, #recdiv, #followdiv, #profilediv, #mymusicdiv {
+    background-color: #02022A;
+    background-image: none;
+    color: #050523;
+    text-decoration-color: #050523;
+    border-color: #050523;
+}
+
+.text-primary {
+    background-color: #02022A;
+    text-decoration-color: #050523;
+    color: #050523;
 }
 
 .panel-heading {
