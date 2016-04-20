@@ -303,6 +303,7 @@ audio {
 /* Remove the navbar's default margin-bottom and rounded borders */
 .navbar {
     margin-bottom: 0;
+    padding: 15px;
     /*margin-left: -35px;*/
     /*margin-right: -15px;*/
     border-radius: 0;
@@ -313,7 +314,7 @@ audio {
 .navbar-default {
     background-color: #00004D;
     border-color: #4AE9E4 #09162F;
-    border-bottom-width: thick;
+    border-bottom-width: 10px;
 }
 
 .sidenav, .panel-heading, .panel-body, .panel-footer {
