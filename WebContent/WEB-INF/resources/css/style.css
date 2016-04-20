@@ -378,6 +378,11 @@ audio {
     border-color: #050523;
 }
 
+#homediv {
+    text-align: justify;
+    padding-right: 10px;
+}
+
 p .text-warning, .hr {
     /*color: #050523;*/
     /* orange-red*/
@@ -424,6 +429,12 @@ p .text-warning, .hr {
    /* color: #4AE9E4;*/
     /* green */
    /* color: #67DE40;*/
+}
+
+.btn-link:focus, .btn-link:active {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
 }
 
 .central-menu > .btn-link, .glyphicon-log-out, #logout {

@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5582a5b3-2715-4da9-84c2-05865c4bc9e6" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/resources/scrollbar/js/min/perfect-scrollbar.jquery.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/resources/scrollbar/js/min/perfect-scrollbar.min.js" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/resources/scrollbar/css/perfect-scrollbar.css" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/resources/css/perfect-scrollbar.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/resources/scrollbar/css/perfect-scrollbar.min.css" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/resources/css/perfect-scrollbar.min.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/resources/scrollbar/js/perfect-scrollbar.jquery.js" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/resources/js/perfect-scrollbar.jquery.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/resources/scrollbar/js/perfect-scrollbar.js" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/resources/js/perfect-scrollbar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/resources/css/style.css" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/resources/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/resources/js/script.js" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/resources/js/script.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/views/main.jsp" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/views/main.jsp" />
     </list>
     <ignored path="SoundConnect.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,14 +25,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/views/main.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
+            <state relative-caret-position="1620">
               <caret line="211" column="42" selection-start-line="211" selection-start-column="42" selection-end-line="211" selection-end-column="42" />
               <folding>
                 <element signature="n#script#2;n#head#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#p#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -67,11 +59,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/resources/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="240" column="14" selection-start-line="240" selection-start-column="14" selection-end-line="240" selection-end-column="14" />
+            <state relative-caret-position="263">
+              <caret line="382" column="21" selection-start-line="382" selection-start-column="21" selection-end-line="382" selection-end-column="21" />
               <folding>
                 <element signature="e#188#269#0" expanded="false" />
                 <element signature="e#283#391#0" expanded="false" />
@@ -149,8 +141,8 @@
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/views/includes/members.jsp" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/views/includes/musicpanel.jsp" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/resources/js/script.js" />
-        <option value="$PROJECT_DIR$/WebContent/WEB-INF/resources/css/style.css" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/views/main.jsp" />
+        <option value="$PROJECT_DIR$/WebContent/WEB-INF/resources/css/style.css" />
       </list>
     </option>
   </component>
@@ -752,12 +744,12 @@
       <workItem from="1461053636242" duration="15019000" />
       <workItem from="1461079232061" duration="500000" />
       <workItem from="1461079761014" duration="9389000" />
-      <workItem from="1461130048819" duration="15775000" />
+      <workItem from="1461130048819" duration="16285000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="125860000" />
+    <option name="totallyTimeSpent" value="126370000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="742" extended-state="0" />
@@ -1097,14 +1089,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/views/includes/musicpanel.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="33" column="54" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/views/includes/members.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -1121,10 +1105,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/views/main.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1620">
+          <caret line="211" column="42" selection-start-line="211" selection-start-column="42" selection-end-line="211" selection-end-column="42" />
+          <folding>
+            <element signature="n#script#2;n#head#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#p#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/views/includes/musicpanel.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="33" column="54" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/resources/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="240" column="14" selection-start-line="240" selection-start-column="14" selection-end-line="240" selection-end-column="14" />
+        <state relative-caret-position="263">
+          <caret line="382" column="21" selection-start-line="382" selection-start-column="21" selection-end-line="382" selection-end-column="21" />
           <folding>
             <element signature="e#188#269#0" expanded="false" />
             <element signature="e#283#391#0" expanded="false" />
@@ -1144,17 +1148,6 @@
             <element signature="e#7830#7871#0" expanded="false" />
             <element signature="e#7892#7934#0" expanded="false" />
             <element signature="e#7959#7982#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/views/main.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="211" column="42" selection-start-line="211" selection-start-column="42" selection-end-line="211" selection-end-column="42" />
-          <folding>
-            <element signature="n#script#2;n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
