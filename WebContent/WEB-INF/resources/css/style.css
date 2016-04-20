@@ -238,10 +238,18 @@ audio {
     width: 100%;
     overflow: scroll;
     color: #4AE9E4;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .text-primary {
     color: #4AE9E4;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.text-warning {
+    /* green */
+    color: #67DE40;
+    font-family: 'Quicksand', sans-serif;
 }
 
 #search-results {
@@ -263,8 +271,8 @@ audio {
     padding-bottom: 5px;
     /* IE7-8 doesn't have border-radius, so don't indent the padding */
     background-color: #050540;
-    border-color: #F925F9;
-    color: #F925F9;
+    border-color: #67DE40;
+    color: #67DE40;
     margin-bottom: 40px;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
@@ -300,7 +308,7 @@ audio {
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
-    color: #F925F9;
+    color: #67DE40;
 }
 
 .search-query:focus + button {
@@ -374,11 +382,20 @@ p .text-warning, .hr {
     /*border-color: #050523;*/
 }
 .btn-link {
-    color: #4AE9E4;
+    /* electric cyan */
+   /* color: #4AE9E4;*/
+    /* green */
+    color: #67DE40;
 }
 
 .central-menu > .btn-link, .glyphicon-log-out, #logout {
-    color: #F925F9;
+
+   /* orange-red
+   color: #DE6840;*/
+    /* purple
+    color: #7F3FBF;*/
+    /* green */
+    color: #67DE40;
 }
 
 #mainNavbar {

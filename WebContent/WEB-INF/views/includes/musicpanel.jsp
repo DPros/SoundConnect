@@ -10,7 +10,7 @@
     <div class="panel-heading">
         <h4 class="panel-title">
             <a id="collapse-conf" data-toggle="collapse" href="#collapse1">
-                <span class="btn btn-link">Conference</span>
+                <span class="text-warning">Conference</span>
                 <span class="glyphicon glyphicon-eye-open btn btn-link" id="conf-glyph"></span>
             </a>
         </h4>
