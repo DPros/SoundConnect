@@ -15,7 +15,6 @@ html,body {
     padding: 0;
     border: 0;
     background-color: #1d2e38;
-
 }
 
 .track-data {
@@ -23,7 +22,7 @@ html,body {
     padding-top: 10px;
     margin-left: 2px;
     margin-top: 10px;
-    font-size: 10px;
+    font-size: 15px;
 }
 
 .inner-row {
