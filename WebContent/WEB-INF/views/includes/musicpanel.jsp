@@ -21,7 +21,7 @@
                 <div class="toggle">
                     <!--<button type="button" class="button btn-default toggle-play">Play</button>-->
                     <button type="button" class="mute button btn-default">
-                        <span class="glyphicon glyphicon-volume-off btn btn-link"></span>
+                        <span class="glyphicon glyphicon-volume-off btn btn-link" id="mute-glyph"></span>
                     </button>
                 </div>
                 <div id="slider">

@@ -254,6 +254,7 @@ audio {
     /* green */
     color: #67DE40;
     font-family: 'Quicksand', sans-serif;
+    font-size: 110%;
 }
 
 #search-results {
@@ -275,8 +276,11 @@ audio {
     padding-bottom: 5px;
     /* IE7-8 doesn't have border-radius, so don't indent the padding */
     background-color: #050540;
-    border-color: #67DE40;
-    color: #67DE40;
+    /*border-color: #67DE40;*/
+    border-color: #DE6840;
+    /*color: #67DE40;*/
+    /* orange-red*/
+    color: #DE6840;
     margin-bottom: 40px;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
@@ -312,7 +316,9 @@ audio {
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
-    color: #67DE40;
+    /*color: #67DE40;*/
+    /* orange-red */
+    color: #DE6840;
 }
 
 .search-query:focus + button {
@@ -334,6 +340,15 @@ audio {
 .btn-lg {
     font-size: 100%;
     /*font-size: 250%;*/
+}
+
+#conf-glyph, #members-glyph
+{
+    font-size: 15px;
+}
+
+#mute-glyph {
+    font-size: 20px;
 }
 
 .navbar-default {
@@ -363,16 +378,17 @@ audio {
 }
 
 p .text-warning, .hr {
-    color: #050523;
+    /*color: #050523;*/
+    /* orange-red*/
+    color: #DE6840;
 }
 
 .panel-info > .panel-heading {
    /* color: #050540;*/
-    border-color: #4AE9E4;
-    font-size: 70%;
-    border-bottom-color: #4AE9E4;
+    border-color: #050540;
+    border-bottom-color: #050540;
     background-color: #050540;
-    padding: 20px;
+    padding: 15px 15px 0px 15px;
     margin-bottom: 0;
 }
 
@@ -409,12 +425,12 @@ p .text-warning, .hr {
 
 .central-menu > .btn-link, .glyphicon-log-out, #logout {
 
-   /* orange-red
-   color: #DE6840;*/
+   /* orange-red*/
+   color: #DE6840;
     /* purple
     color: #7F3FBF;*/
     /* green */
-    color: #67DE40;
+   /* color: #67DE40;*/
 }
 
 #mainNavbar {
