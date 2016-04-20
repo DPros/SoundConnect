@@ -1,4 +1,8 @@
-html,body{margin:0;padding:0}
+html,body {
+    background-color: #050540;
+    margin:0;
+    padding:0
+}
 
 @font-face {
     font-family: RazorFont;
@@ -341,8 +345,13 @@ audio {
 .sidenav, .panel-heading, .panel-body, .panel-footer {
     background-color: #050540;
     background-image: none;
+    break-after: avoid;
    /* color: #050523;*/
     border-color: #050523;
+}
+
+.panel-footer {
+    border-top: #00004D;
 }
 
 #homediv, #followdiv, #finddiv, #recdiv, #followdiv, #profilediv, #mymusicdiv {
@@ -357,24 +366,34 @@ p .text-warning, .hr {
     color: #050523;
 }
 
-.panel-heading {
-    color: #050540;
-    padding: 0;
+.panel-info > .panel-heading {
+   /* color: #050540;*/
+    border-color: #4AE9E4;
+    font-size: 70%;
+    border-bottom-color: #4AE9E4;
+    background-color: #050540;
+    padding: 20px;
     margin-bottom: 0;
 }
 
-.panel-body {
+.panel-info > .panel-body {
     margin-top: 0;
+    border-top: 10px #050523;
+    background-color: #050540;
 }
 
-.panel-title {
+.panel-info > .panel-title {
+    border: none;
     border-color: #050540;
+    padding: 10px;
     background-color: #050540;
     margin: 0;
 }
 
-.panel-default {
-    border: none;
+.panel-info {
+    color: #4AE9E4;
+    border-color: #4AE9E4;
+    border-width: thick;
     padding: 0;
     background-color: #050540;
     background-image: none;

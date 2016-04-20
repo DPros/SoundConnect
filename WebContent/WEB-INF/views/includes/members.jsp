@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 
-<div class="panel panel-default" id="members-panel">
+<div class="panel panel-info" id="members-panel">
     <div class="panel-heading">
         <h4 class="panel-title">
             <a id="collapse-members" data-toggle="collapse" href="#collapse2">
