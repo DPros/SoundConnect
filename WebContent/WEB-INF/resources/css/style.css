@@ -389,6 +389,10 @@ p .text-warning, .hr {
     color: #DE6840;
 }
 
+.text-warning:hover {
+    color: white;
+}
+
 .panel-info > .panel-heading {
    /* color: #050540;*/
     border-color: #050540;
@@ -431,29 +435,22 @@ p .text-warning, .hr {
    /* color: #67DE40;*/
 }
 
-.btn-link:hover, .btn-link:focus, .btn-link:active {
+
+a:hover, a:visited, a:active, a:focus, .btn-link:hover, .nav .btn-link:hover, #mute-glyph:hover {
     text-decoration: none;
-    text-decoration-color: white;
-    color: white;
     border: none;
+    color: white;
+    outline: none !important;
     text-shadow: none;
     font-weight: bold;
 }
 
-.nav .btn-link:hover, .nav .btn-link:focus, .nav .btn-link:active {
+.btn-link:focus, .btn-link:active, .nav .btn-link:focus, .nav .btn-link:active, #mute-glyph:focus, #mute-glyph:active, #mute-glyph:visited {
     text-decoration: none;
     border: none;
-    text-decoration-color: white;
-    color: white;
+    color: #DE6840;
+    outline: none !important;
     text-shadow: none;
-    font-weight: bold;
-}
-
-li:hover {
-    text-decoration: none;
-    text-decoration-color: white;
-    color: white;
-    font-weight: bold;
 }
 
 .central-menu > .btn-link, .glyphicon-log-out, #logout {
