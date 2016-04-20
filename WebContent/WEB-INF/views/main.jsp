@@ -13,12 +13,16 @@
 	src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <link rel="stylesheet"
 	href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+	<!-- Fonts -->
+	<link href='https://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="js/player/snd.js"></script>
 <script src="js/script.js"></script>
+
 
 <style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
 .en-markup-crop-options {
@@ -58,22 +62,22 @@
 									<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 										class="icon-bar"></span>
 								</button>
-								<a class="navbar-brand" href="#">Logo</a>
+								<a class="navbar-brand" href="#">LOGO</a>
 							</div>
-							<div class="col-sm-6"></div>
+							<div class="col-sm-4"></div>
 							<div class="collapse navbar-collapse" id="myNavbar">
-								<ul class="nav navbar-nav col-sm-6" id="mainNavbar">
+								<ul class="nav navbar-nav col-sm-8" id="mainNavbar">
 									<li class="active central-menu"><button type="button"
-															   class="btn btn-link" id="homebtn">Home</button></li>
-									<li class="central-menu"><button type="button" class="btn btn-link"
-												id="findbtn">Find Music</button></li>
-									<li class="central-menu"><button type="button" class="btn btn-link"
-												id="followbtn">Following</button></li>
-									<li class="central-menu"><button type="button" class="btn btn-link" id="recbtn">Recommended</button></li>
-									<li class="central-menu"><button type="button" class="btn btn-link"
-												id="profilebtn">Profile</button></li>
-									<li class="central-menu"><button type="button" class="btn btn-link"
-												id="mymusicbtn">My Music</button></li>
+															   class="btn btn-link btn-lg" id="homebtn">HOME</button></li>
+									<li class="central-menu"><button type="button" class="btn btn-link btn-lg"
+												id="findbtn">FIND MUSIC</button></li>
+									<li class="central-menu"><button type="button" class="btn btn-link btn-lg"
+												id="followbtn">FOLLOWING</button></li>
+									<li class="central-menu"><button type="button" class="btn btn-link btn-lg" id="recbtn">RECOMMENDED</button></li>
+									<li class="central-menu"><button type="button" class="btn btn-link btn-lg"
+												id="profilebtn">PROFILE</button></li>
+									<li class="central-menu"><button type="button" class="btn btn-link btn-lg"
+												id="mymusicbtn">MY MUSIC</button></li>
 								</ul>
 								<ul class="nav navbar-nav navbar-right">
 									<li><c:if
