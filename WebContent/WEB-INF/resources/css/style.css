@@ -256,7 +256,7 @@ audio {
     padding-left: 10px \9;
     padding-bottom: 5px;
     /* IE7-8 doesn't have border-radius, so don't indent the padding */
-    background-color: #02022A;
+    background-color: #050540;
     border-color: #F925F9;
     color: #F925F9;
     margin-bottom: 40px;
@@ -317,14 +317,14 @@ audio {
 }
 
 .sidenav, .panel-heading, .panel-body, .panel-footer {
-    background-color: #02022A;
+    background-color: #050540;
     background-image: none;
    /* color: #050523;*/
     border-color: #050523;
 }
 
 #homediv, #followdiv, #finddiv, #recdiv, #followdiv, #profilediv, #mymusicdiv {
-    background-color: #02022A;
+    background-color: #050540;
     background-image: none;
     color: #050523;
     text-decoration-color: #050523;
@@ -336,7 +336,7 @@ p .text-warning, .hr {
 }
 
 .panel-heading {
-    color: #02022A;
+    color: #050540;
     padding: 0;
     margin-bottom: 0;
 }
@@ -346,15 +346,15 @@ p .text-warning, .hr {
 }
 
 .panel-title {
-    border-color: #02022A;
-    background-color: #02022A;
+    border-color: #050540;
+    background-color: #050540;
     margin: 0;
 }
 
 .panel-default {
     border: none;
     padding: 0;
-    background-color: #02022A;
+    background-color: #050540;
     background-image: none;
    /*  color: #02022A;*/
     /*border-color: #050523;*/
