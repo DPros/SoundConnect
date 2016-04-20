@@ -15,6 +15,7 @@
 	href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
 	<!-- Fonts -->
 	<link href='https://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
@@ -64,9 +65,9 @@
 								</button>
 								<a class="navbar-brand" href="#">LOGO</a>
 							</div>
-							<div class="col-sm-4"></div>
+							<div class="col-sm-5"></div>
 							<div class="collapse navbar-collapse" id="myNavbar">
-								<ul class="nav navbar-nav col-sm-8" id="mainNavbar">
+								<ul class="nav navbar-nav col-sm-7" id="mainNavbar">
 									<li class="active central-menu"><button type="button"
 															   class="btn btn-link btn-lg" id="homebtn">HOME</button></li>
 									<li class="central-menu"><button type="button" class="btn btn-link btn-lg"
@@ -74,8 +75,6 @@
 									<li class="central-menu"><button type="button" class="btn btn-link btn-lg"
 												id="followbtn">FOLLOWING</button></li>
 									<li class="central-menu"><button type="button" class="btn btn-link btn-lg" id="recbtn">RECOMMENDED</button></li>
-									<li class="central-menu"><button type="button" class="btn btn-link btn-lg"
-												id="profilebtn">PROFILE</button></li>
 									<li class="central-menu"><button type="button" class="btn btn-link btn-lg"
 												id="mymusicbtn">MY MUSIC</button></li>
 								</ul>
