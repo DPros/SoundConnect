@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
@@ -49,7 +50,7 @@ public class AudioController {
 		return "includes/findmusic";
 	}
 	
-	@RequestMapping("/list-music")
+	@RequestMapping(value="/list-music", method = {RequestMethod.POST})
 	public String listMusic(Model model, HttpServletRequest request){
 		User u = (User) request.getSession().getAttribute("user");
 		model.addAttribute("myaudios", audioserv.getAudioByUser(u.getId()));

@@ -216,7 +216,6 @@ VK.init({
 					<jsp:include page="includes/recommended.jsp" />
 				</div>
 				<div id="mymusicdiv" class="hiddendiv scrollfixed">
-					<jsp:include page="includes/mymusic.jsp" />
 					<div id="my-music-list"></div>
 				</div>
 			</div>

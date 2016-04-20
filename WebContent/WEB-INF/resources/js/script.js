@@ -277,6 +277,7 @@ $(document).ready(function () {
 			data: userid,
 			contentType: "application/json; charset=utf-8",
 			success: function (data) {
+				console.log(data);
 				$('#my-music-list').html(data);
 			},
 			error: function(xhr, status, error) {

@@ -7,8 +7,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 
-            <audio id="player/list" src="" preload="none" controls>              
-            </audio>
+           <audio id="player/list" src="" preload="none" controls>              
+            </audio>	 
 <c:forEach items="${myaudios}" var="audio">
     <div class="row search-results" id="search-results/${audio.id}">
         <div class="col-sm-2">
