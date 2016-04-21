@@ -25,7 +25,7 @@ public class UserDaoImpl implements UserDao{
 	final String updateUserConference = "UPDATE users SET conference=? WHERE id=?";
 	final String addAudio = "UPDATE users SET audios=(audios || ?) WHERE id=?";
 	final String deleteAudio = "UPDATE users SET audios=array_erase(audios, ?) WHERE id=?";
-	final String getFollowings = "SELECT * FROM users WHERE id IN(SELECT following FROM users WHERE id=?)";
+	final String getFollowings = "SELECT * FROM users WHERE ARRAY[id] && (SELECT following FROM users WHERE id=?)";
 	private String getUserByUName = "SELECT * FROM users WHERE username=?"; 
 	
 	@Autowired

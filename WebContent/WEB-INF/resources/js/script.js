@@ -9,8 +9,7 @@ var mainPlayer = $('#main-player');
 var getAudio = function (object_id, owner, id){
 	  var req = owner+'_'+id;
 	  console.log('before api');
-	 var a = VK.api('audio.getById', {audios: req}, function(data){
-		  
+	 var a = VK.api('audio.getById', {audios: req}, function(data){		  
 			  console.log('OK');
 			  var sound = data.response[0];
 		 	 	var a = document.getElementById(object_id);
@@ -128,7 +127,6 @@ var AudioAddToConference = function(au){
 function audioPreview (object, owner, id) {
 	getAudio(object, owner, id);
 	var myAudio = document.getElementById("player/search");
-	console.log(myAudio.id);
 	if (myAudio.paused) {
 		console.log('play!');
 		myAudio.play();
@@ -259,6 +257,23 @@ $(document).ready(function () {
         $('#finddiv').removeClass('visiblediv').addClass('hiddendiv');
 		$('#mymusicdiv').removeClass('visiblediv').addClass('hiddendiv');
         $('#followdiv').removeClass('hiddendiv').addClass('visiblediv');
+        
+        var address = 'followings';
+        var id =0;
+    	$.ajax({
+    		type: "POST",
+    		url: address,
+    		data: id,
+    		contentType: "application/json; charset=utf-8",
+    		dataType: 'json',
+    		success: function(data){
+    			$('#my-followings-list').html(data);
+    		},
+    		error: function(xhr, status, error){
+    			alert('Something went wrong... Failed to get data'+error+status+xhr);
+    			console.log(xhr);
+    		}
+    	});
     });
 
     /* Shows the recommended users div */
@@ -288,7 +303,6 @@ $(document).ready(function () {
 			data: userid,
 			contentType: "application/json; charset=utf-8",
 			success: function (data) {
-				console.log(data);
 				$('#my-music-list').html(data);
 			},
 			error: function(xhr, status, error) {

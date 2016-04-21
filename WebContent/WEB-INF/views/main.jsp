@@ -104,7 +104,7 @@ VK.init({
 					</div>
 				</div>
 				<div id="followdiv" class="hiddendiv scrollfixed">
-					<jsp:include page="includes/following.jsp" />
+					<div id="my-followings-list"></div>
 				</div>
 				<div id="recdiv" class="hiddendiv scrollfixed">
 					<jsp:include page="includes/recommended.jsp" />

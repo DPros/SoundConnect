@@ -1,6 +1,7 @@
 package com.soundconnect.Services;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import com.soundconnect.Beans.User;
 
@@ -19,4 +20,6 @@ public interface UserService {
 	User getUserById(long id) throws SQLException;
 	
 	User getUserByUName(String name) throws SQLException;
+	
+	List<User> getFollowings(long id);
 }

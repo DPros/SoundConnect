@@ -1,6 +1,7 @@
 package com.soundconnect.Services;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -47,6 +48,11 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public User getUserByUName(String name) throws SQLException {
 		return userDao.getUserByUName(name);
+	}
+
+	@Override
+	public List<User> getFollowings(long id) {
+		return userDao.getFollowings(id);
 	}
 
 }
