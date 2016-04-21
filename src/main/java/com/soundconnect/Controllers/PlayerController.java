@@ -30,14 +30,9 @@ public class PlayerController {
 	
 	@RequestMapping(path = "/content")
 	public String getPlaying(Model model, HttpServletRequest request) throws DataAccessException, SQLException {
-//		long conferenceId = Long.parseLong((String) request.getSession().getAttribute("confId"));
-		
-		//////////////////
 		long now = Calendar.getInstance().getTimeInMillis();
 		Conference conference = conferenceService.playConference(((User)request.getSession().getAttribute("user")).getConference(), now);
-		
-		
-		///////////////////////
+		if((!conference.getTracks().isEmpty())&&conference.getSongStarted()+conference.getTracks().get(0).getLength()+10000<now)now=1;
 		model.addAttribute("time", (now-conference.getSongStarted())/1000);
 		model.addAttribute("conference", conference);
 		return "player";
