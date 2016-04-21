@@ -22,19 +22,19 @@
 	<script src="js/script.js"></script>
 
 	<div class="container">
-		<div class="col-sm-4"></div>
+		<div class="col-sm-5"></div>
 		<div class="col-sm-4">
 			<div class="row">
-				<div class="panel panel-info" id="party-panel">
+				<div class="panel panel-info" id="login-panel">
 					<div class="panel-heading">
 						<h4 class="panel-title">
 							<div>
-								<span class="text-warning">Welcome!</span>
+								<span class="text-help">Welcome!</span>
 							</div>
 						</h4>
 					</div>
 						<div class="panel-body">
-							<h3>Simply sign in via VK.COM</h3>
+							<h3 class="text-primary">Simply sign in via VK.COM</h3>
 							<div id="login_button" onclick="VK.Auth.login(authInfo);"></div>
 						</div>
 						<div class="panel-footer">
@@ -44,7 +44,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-sm-4"></div>
+		<div class="col-sm-3"></div>
 	</div>
 
 
