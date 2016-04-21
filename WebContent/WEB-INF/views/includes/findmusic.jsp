@@ -9,9 +9,22 @@
   Time: 2:56 PM
   To change this template use File | Settings | File Templates.
 --%>
+<div class="btn-group hiddendiv" id="search-btn-group">
+	<button type="button" class="btn btn-link" id="pause-search">
+		<span class="glyphicon glyphicon-play btn btn-link" id="search-pause-glyph"></span>
+	</button>
+	<button type="button" class="mute button btn-link" id="mute-search">
+		<span class="glyphicon glyphicon-volume-off btn btn-link" id="search-mute-glyph"></span>
+	</button>
+</div>
+<audio id="player/search" src="" preload="none">
+</audio>
+<div id="progressOut-search">
+	<div id="progressIn-search">
+		<div id="time-search">00:00</div>
+	</div>
+</div>
 
-			<audio id="player/search" src="" preload="none" controls>
-			</audio>
 <c:forEach items="${audios}" var="audio">
 	<div class="row search-results" id="search-results/${audio.id}">
 		<div class="col-sm-2">

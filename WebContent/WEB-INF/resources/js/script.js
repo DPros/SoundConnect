@@ -6,21 +6,27 @@ var onAudioEnded;
 var track;
 var mainPlayer = $('#main-player');
 
-// stubs for testing the player
+function formatTime(seconds) {
+	var minutes = Math.floor(seconds / 60);
+	minutes = (minutes >= 10) ? minutes : "" + minutes;
+	var seconds = Math.floor(seconds % 60);
+	seconds = (seconds >= 10) ? seconds : "0" + seconds;
+	return minutes + ":" + seconds;
+}
+
 var getAudio = function (object_id, owner, id){
 	  var req = owner+'_'+id;
-	 // console.log('before api');
-	// var a = VK.api('audio.getById', {audios: req}, function(data){
-		  
-			  console.log('OK');
-			 // var sound = data.response[0];
-		 	 	var a = document.getElementById(object_id);
-		 	//	a.setAttribute("src", sound.url);
-	a.setAttribute("src", 'sound/2.mp3');
-	 		//console.log('OK');
-		///  if(data.error)
-		//  console.log(data.error);
-	 // });
+	  console.log('before api');
+	  var a = VK.api('audio.getById', {audios: req}, function(data){
+		  console.log('OK');
+		  var sound = data.response[0];
+		  var a = document.getElementById(object_id);
+		  a.setAttribute("src", sound.url);
+		//a.setAttribute("src", 'sound/2.mp3');
+		  console.log('OK');
+		  if(data.error)
+			  console.log(data.error);
+	  });
 	  console.log('after api');
 	  console.log(a);
 };
@@ -152,7 +158,60 @@ function clickPreviewPlay(object, owner, id) {
 		$('#search-results\\/'+id).addClass('current-track');
 	}
 	else $('#search-results\\/'+id).removeClass('current-track');
-	audioPreview(object, owner, id);
+	getAudio(object, owner, id);
+
+	$('#search-btn-group').removeClass('hiddendiv');
+	var search_player = document.getElementById("player/search");
+	$('#pause-search').click(function() {
+		if (!search_player.paused) {
+			search_player.pause();
+			$('#search-pause-glyph').removeClass('glyphicon-pause');
+			$('#search-pause-glyph').addClass('glyphicon-play');
+		} else {
+			search_player.play();
+			$('#search-pause-glyph').removeClass('glyphicon-play');
+			$('#search-pause-glyph').addClass('glyphicon-pause');
+		}
+	});
+	$('#mute-search').click(function (e) {
+		if (!search_player.muted) {
+			search_player.muted = true;
+			$('#search-mute-glyph').removeClass('glyphicon-volume-off');
+			$('#search-mute-glyph').addClass('glyphicon-volume-up');
+		} else {
+			search_player.muted = false;
+			$('#search-mute-glyph').removeClass('glyphicon-volume-up');
+			$('#search-mute-glyph').addClass('glyphicon-volume-off');
+		}
+	});
+
+	function updateProgressSearch() {
+		var progress = $("#progressIn-search");
+		var value = 0;
+
+		//If duration = infinity set value to 100
+
+		if(search_player.duration == 'Infinity')
+			value = 100;
+		//else if it is > 0 calculate percentage to highlight
+
+		else if (search_player.currentTime > 0) {
+			value = Math.floor((100 / search_player.duration) * search_player.currentTime);
+			if (value < 50) value += 10;
+		}
+
+		//set the width of the progress bar
+
+		progress.stop().css({'width':value + '%'},500);
+
+		//set the new timestamp
+		$('#time-search').html(formatTime(search_player.currentTime))
+	}
+
+// add event listener for audio time updates
+	if (search_player !== null) search_player.addEventListener("timeupdate", updateProgressSearch, false);
+
+	//audioPreview(object, owner, id);
 };
 
 $(document).ready(function () {
@@ -207,13 +266,19 @@ $(document).ready(function () {
 // add event listener for audio time updates
 	main_player.addEventListener("timeupdate", updateProgress, false);
 
-	function formatTime(seconds) {
-		var minutes = Math.floor(seconds / 60);
-		minutes = (minutes >= 10) ? minutes : "" + minutes;
-		var seconds = Math.floor(seconds % 60);
-		seconds = (seconds >= 10) ? seconds : "0" + seconds;
-		return minutes + ":" + seconds;
-	}
+
+	//console.log(search_player);
+	/*$('#pause-search').click(function() {
+		if (!search_player.paused) {
+			search_player.pause();
+			$('#search-pause-glyph').removeClass('glyphicon-pause');
+			$('#search-pause-glyph').addClass('glyphicon-play');
+		} else {
+			search_player.play();
+			$('#search-pause-glyph').removeClass('glyphicon-play');
+			$('#search-pause-glyph').addClass('glyphicon-pause');
+		}
+	});*/
 
 	$('#mute').click(function (e) {
 		if (!main_player.muted) {
@@ -264,30 +329,30 @@ $(document).ready(function () {
 
 	mainPlayer.onended = function() {
 		track = undefined;
-//		var address = 'player/content';
-//		$.ajax({
-//			type: "GET",
-//			url: address,
-//			success: function (list) {
-//				$('#music-div').html(list);
-//				if(track!==undefined){
+		var address = 'player/content';
+		$.ajax({
+			type: "GET",
+			url: address,
+			success: function (list) {
+				$('#music-div').html(list);
+				if(track!==undefined){
 					getAudio("main-player", 0, 0 /*track.ownerId, track.id*/);
-			//		alert(track.startTime);
+					alert(track.startTime);
 					main_player.currentTime = 0;//track.startTime;
 					main_player.play();
 					
-//				}
+				}
 //				if (!data)
 //					alert('Something went wrong... Failed to retrieve audio');
 //				else {
 //					alert('Audio track retrieved');
 //					$('.snd').snd(data.src, {autoplay: true}, onAudioEnded);
 //				}
-//			},
-//			error: function (xhr, status, error) {
-//				alert('Something went wrong... Failed to retrieve audio');
-//			}
-//		});
+			},
+			error: function (xhr, status, error) {
+				alert('Something went wrong... Failed to retrieve audio');
+			}
+		});
 	};
 
 
