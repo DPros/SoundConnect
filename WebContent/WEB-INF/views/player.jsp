@@ -3,7 +3,7 @@
 
 <c:if test="${not empty conference.tracks}">
 	<script>
-		var track = {
+		track = {
 				name: "${conference.tracks[0].title}",
 				artist: "${conference.tracks[0].artist}",
 				startTime: "${time}",
@@ -16,4 +16,7 @@
 	<c:forEach items="${conference.tracks}" var="track">
 		${track.title } - ${track.artist } </br>
 	</c:forEach>
+</c:if>
+<c:if test="${empty conference.tracks}">
+	Currently no audios in the conference. You can contribute by adding some.
 </c:if>

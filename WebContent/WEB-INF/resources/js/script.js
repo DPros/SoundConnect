@@ -3,6 +3,7 @@
  */
 var myAudio;
 var onAudioEnded;
+var track;
 
 var getAudio = function (object_id, owner, id){
 	  var req = owner+'_'+id;
@@ -188,12 +189,13 @@ $(document).ready(function () {
 	});
 
 	onAudioEnded = function () {
+		track = undefined;
 		var address = 'player/content'; // TODO what's the actual address?
 		$.ajax({
 			type: "GET",
 			url: address,
-			success: function (data) {
-				$('#music-div').html(data);
+			success: function (list) {
+				$('#music-div').html(list);
 				if(track!==undefined){
 					VK.api('audio.getById', {audios: track.ownerId+'_'+track.id}, function(data){
 						$('.snd').snd(data.response[0].url, {autoplay: true}, onAudioEnded);

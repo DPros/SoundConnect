@@ -2,6 +2,7 @@ package com.soundconnect.Controllers;
 
 
 import java.sql.SQLException;
+import java.util.Calendar;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -15,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.soundconnect.Beans.Conference;
 import com.soundconnect.Services.AudioService;
 import com.soundconnect.Services.ConferenceService;
-import com.soundconnect.Utils.Calendar;
 
 @Controller
 @RequestMapping("/player")
@@ -38,8 +38,9 @@ public class PlayerController {
 		
 		
 		///////////////////////
-		model.addAttribute("time", Calendar.getCurrentTime()-conference.getSongStarted());
+		model.addAttribute("time", Calendar.getInstance().getTimeInMillis()-conference.getSongStarted());
 		model.addAttribute("conference", conference);
+		System.err.println(conference.getTracks().get(0).getOwnerId());
 		return "player";
 	}
 }

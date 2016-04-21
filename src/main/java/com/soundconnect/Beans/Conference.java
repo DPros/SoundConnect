@@ -4,8 +4,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
-import com.soundconnect.Utils.Calendar;
-
 public class Conference {
 
 	private long id;
@@ -82,5 +80,14 @@ public class Conference {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	@Override
+	public int hashCode(){
+		return Long.valueOf(id).hashCode();
+	}
+	
+	public boolean equals(Conference conference){
+		return id == conference.id;
 	}
 }
