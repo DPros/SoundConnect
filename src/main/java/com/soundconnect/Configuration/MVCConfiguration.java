@@ -1,13 +1,10 @@
 package com.soundconnect.Configuration;
 
-<<<<<<< HEAD
-=======
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
->>>>>>> 96b9518e168573bb41c67e69128a3945579bc344
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,9 +16,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 public class MVCConfiguration extends WebMvcConfigurerAdapter{
 
 	@Bean(name = "dataSource")
-<<<<<<< HEAD
-    public DriverManagerDataSource getDataSource() {
-=======
     public DataSource getDataSource() throws NamingException {
 		// Obtain our environment naming context
 		Context initCtx = new InitialContext();
@@ -30,7 +24,6 @@ public class MVCConfiguration extends WebMvcConfigurerAdapter{
 		// Look up our data source
 //		DataSource dataSource = (DataSource)
 //		  envCtx.lookup("jdbc/PostgreSQLDS");
->>>>>>> 96b9518e168573bb41c67e69128a3945579bc344
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");
         dataSource.setUrl("jdbc:postgresql://127.0.0.1:53876/i");
@@ -41,11 +34,7 @@ public class MVCConfiguration extends WebMvcConfigurerAdapter{
 
 	@Bean
 	@Autowired
-<<<<<<< HEAD
-	public JdbcTemplate getJDBCTemplate(){
-=======
 	public JdbcTemplate getJDBCTemplate() throws NamingException{
->>>>>>> 96b9518e168573bb41c67e69128a3945579bc344
 		return new JdbcTemplate(getDataSource());
 	}
 }

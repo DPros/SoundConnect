@@ -32,28 +32,12 @@ public class AuthController {
 	private UserService userv;
 	
 	@RequestMapping(value = "/auth", method = RequestMethod.GET)
-<<<<<<< HEAD
-	public String hello(HttpServletRequest req, Model model) {
-		model.addAttribute("message", "This is data from Controller");
-		model.addAttribute("session", "Current session info:<br>userId: " + req.getSession().getAttribute("userId")
-				+ "<br>confId: " + req.getSession().getAttribute("confId"));
-		return "auth";
-	}
-
-	@RequestMapping(value = "/auth", method = RequestMethod.POST)
-	public String createSession(HttpServletRequest req, Model model) {
-		req.getSession().setAttribute("userId", req.getParameter("userId"));
-		req.getSession().setAttribute("confId", req.getParameter("confId"));
-		model.addAttribute("session", "Current session info:<br>userId: " + req.getSession().getAttribute("userId")
-				+ "<br>confId: " + req.getSession().getAttribute("confId"));
-=======
 	public String hello(Model model, HttpServletRequest request) {
 			return "auth";	}
 
 	@RequestMapping(value = "/auth", method = RequestMethod.POST)
 	public String createSession(Model model, HttpServletRequest request) {
 		System.out.println(((User)request.getSession().getAttribute("user")).getUsername());
->>>>>>> 96b9518e168573bb41c67e69128a3945579bc344
 		return "auth";
 	}
 

@@ -470,7 +470,8 @@ a:hover, a:visited, a:active, a:focus, .btn-link:hover, .nav .btn-link:hover, #m
 }
 
 #mainNavbar {
-    padding-left: 5px;
+    margin-left: 70px;
+    padding-left: 20px;
     display: inline-block;
     float: none;
     padding-top: 5px;
@@ -484,7 +485,7 @@ a:hover, a:visited, a:active, a:focus, .btn-link:hover, .nav .btn-link:hover, #m
 
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
 .row.content {
-    height: 679px;
+    height: 660px;
     overflow-x: hidden;
     overflow-y: hidden;
     border: 0;

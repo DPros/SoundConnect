@@ -79,7 +79,7 @@ VK.init({
 								</ul>
 								<ul class="nav navbar-nav navbar-right">
 									<li><a href="/SoundConnect/logout" id="logout"> <span
-											class="glyphicon glyphicon-log-in"></span> Log out
+											class="glyphicon glyphicon-log-out"></span> Log out
 									</a></li>
 								</ul>
 							</div>

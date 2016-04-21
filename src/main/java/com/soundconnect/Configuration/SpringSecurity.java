@@ -9,13 +9,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
-<<<<<<< HEAD
-@EnableWebSecurity
-@Configuration
-=======
 //@EnableWebSecurity
 //@Configuration
->>>>>>> 96b9518e168573bb41c67e69128a3945579bc344
 public class SpringSecurity extends WebSecurityConfigurerAdapter{
 	
 	@Autowired
