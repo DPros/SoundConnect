@@ -21,7 +21,19 @@ def write_fft(fft_features, fn, out_dir=FFT_DIR):
     data_fn = base_fn + ".fft"  #make file name extension .fft
     FFT_DIR_GENRE = os.path.join(out_dir, genre);
     np.save(os.path.join(FFT_DIR_GENRE, data_fn), fft_features)
-    print (data_fn)
+    #print (data_fn)
+def write_fft2(fft_features, fn, out_dir=FFT_DIR):
+    """
+    Write the FFT features to separate files to speed up processing.
+    """
+    path, base_fn = os.path.split(fn)
+    path, genre = os.path.split(path)
+    data_fn = base_fn + ".fft"  #make file name extension .fft
+    #FFT_DIR_GENRE = os.path.join(out_dir);
+    np.save(os.path.join(FFT_DIR, data_fn), fft_features)
+    #print("test sample crated:"+data_fn)
+    #print (data_fn)
+    
 
 def create_fft(fn):
     """
@@ -33,15 +45,17 @@ def create_fft(fn):
     fft_features = abs(scipy.fft(X)[:1000])
     write_fft(fft_features, fn)
     
-def create_fft(fn,out_dir):
+def create_fft2(fn,out_dir):
     """
     Create FFT features from the specified file, fn. 
     (receives, and also passes to write_fft(), an absolute path to fn)
     """
     sample_rate, X = scipy.io.wavfile.read(fn)
+    #print("I read file:"+fn)
 
     fft_features = abs(scipy.fft(X)[:1000])
-    write_fft(fft_features, fn,out_dir)
+   # print(fft_features)
+    write_fft2(fft_features, fn,out_dir)
 
 def store_fft_all(genre_list=GENRE_LIST, base_dir=GENRE_DIR, out_dir=FFT_DIR):
     for label, genre in enumerate(genre_list):
@@ -52,9 +66,9 @@ def store_fft_all(genre_list=GENRE_LIST, base_dir=GENRE_DIR, out_dir=FFT_DIR):
             #path, file = os.path.split(file)
             create_fft(file)
             words = file.split("\\")
-            print (words[-1])
+            #print (words[-1])
             
-        print (label)
+        #print (label)
     
 
 
@@ -65,7 +79,7 @@ def read_fft(genre_list=GENRE_LIST, base_dir=GENRE_DIR):
     X = []
     y = []
     for label, genre in enumerate(genre_list):
-        print(genre)
+        #print(genre,label)
         genre_dir = os.path.join(base_dir, genre, "*.fft.npy")
         file_list = glob.glob(genre_dir)
         assert(file_list), genre_dir
@@ -74,7 +88,7 @@ def read_fft(genre_list=GENRE_LIST, base_dir=GENRE_DIR):
 
             X.append(fft_features[:2000])
             y.append(label)
-
+    #print("print np.array (train):",np.array(X))
     return np.array(X), np.array(y)
 def read_fft2( base_dir=GENRE_DIR):
     """
@@ -86,12 +100,14 @@ def read_fft2( base_dir=GENRE_DIR):
     file_list = glob.glob(genre_dir)
     assert(file_list), genre_dir
     for fn in file_list:
+        #print("File which is read:"+fn)
         fft_features = np.load(fn)
-
+       # print("Fft fetures during reading"+fft_features)
+        #return np.array(fft_features)
         X.append(fft_features[:2000])
-        
-
-    return np.array(X)
+        return np.array(X)
+    #print("print np.array:",np.array(X))
+    return np.array()
     
 
 

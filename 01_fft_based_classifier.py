@@ -16,7 +16,7 @@ FFT_DIR = "D:\Project\FFT_BASE"
 
 genre_list = GENRE_LIST
 
-from fft import read_fft, write_fft, create_fft
+from fft import read_fft, write_fft, create_fft2, read_fft2
 class Model:
     lr = LogisticRegression();
     def _init_(self):
@@ -31,7 +31,7 @@ class Model:
 
 def train_model(clf_factory, X, Y, name, plot=False):
     labels = np.unique(Y)
-    print(labels)
+    #print(labels)
 
     cv = ShuffleSplit(
         n=len(X), n_iter=1, test_size=0.3,  random_state=0)
@@ -55,7 +55,7 @@ def train_model(clf_factory, X, Y, name, plot=False):
     for train, test in cv:
         X_train, y_train = X[train], Y[train]
         X_test, y_test = X[test], Y[test]
-        print(X_test)
+        #print(X_test)
         clf = clf_factory#create classifier based on logistic regression()
         clf.fit(X_train, y_train)#process of training
         clfs.append(clf) #add values for obtainint median
@@ -74,7 +74,7 @@ def train_model(clf_factory, X, Y, name, plot=False):
         for label in labels:
             y_label_test = np.asarray(y_test == label, dtype=int)
             proba = clf.predict_proba(X_test)
-            print(proba)
+            #print(proba)
             proba_label = proba[:, label]
 
             precision, recall, pr_thresholds = precision_recall_curve(
@@ -91,7 +91,7 @@ def train_model(clf_factory, X, Y, name, plot=False):
 
     if plot:
         for label in labels:
-            print ( genre_list[label])
+            #print ( genre_list[label])
             scores_to_sort = roc_scores[label]
             median = np.argsort(scores_to_sort)[len(scores_to_sort) / 2]
 
@@ -121,22 +121,26 @@ def main():
  model = Model()
 
  if len(sys.argv) > 1:
-     print(1)
+     #print("start")
+     training_model(model)
      filename = sys.argv[1];
-     create_fft(filename,TEST_DIR)
-     X  = read_fft(TEST_DIR)  
-     for test in X:
-         X_test = X[test]
+     create_fft2(filename,FFT_DIR)
+     X  = read_fft2(FFT_DIR)  
+     #for i, test in enumerate(X):
+         #X_test = X[i]
+         #print "X_test:",X_test
          #y_pred = model.clf.predict(X_test)
-         maxval=0;
-         maxindex=0;
-         for label  ,genre in enumerate(genre_list):
-             proba = model.clf.predict_proba(X_test)
-             if maxval > proba :
-                 maxval = proba;
-                 maxindex[label];
-             else:
-                 print filename,genre_list[maxindex]      
+         #maxval=0;
+         #maxindex=0;
+         #for label  ,genre in enumerate(genre_list):
+     proba = model.lr.predict(X)
+     print(genre_list[proba])
+             #print(proba)
+             #if maxval > proba :
+                 #maxval = proba;
+                 #maxindex[label];
+             #else:
+                 #print filename,genre_list[maxindex]      
             
             
              
@@ -145,21 +149,21 @@ def main():
          
      
  if len(sys.argv) == 1:
-     print "2"
-     
-     
-     
-     print "reading"
+     #print "2"
+     training_model(model)
+def training_model(model):
+     #print "reading"
      X, y = read_fft(genre_list, FFT_DIR)
-     print "Training"
+     #print "Training"
      train_avg, test_avg, cms = train_model(model.lr, X, y, "Log Reg FFT", plot=True)
-     print "Computing averages"
+     #print "Computing averages"
      cm_avg = np.mean(cms, axis=0)
      cm_norm = cm_avg / np.sum(cm_avg, axis=0)
 
-     print (cm_norm)
-      print "Plottin confusion matrix"
-     plot_confusion_matrix(cm_norm, genre_list, "fft", "Confusion matrix of an FFT based classifier")
+     #print (cm_norm)
+     #print "Plottin confusion matrix"
+    # plot_confusion_matrix(cm_norm, genre_list, "fft", "Confusion matrix of an FFT based classifier")
+         
 
 if __name__ == "__main__":
     main() 

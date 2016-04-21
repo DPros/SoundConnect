@@ -1,10 +1,13 @@
 import java.io.IOException;
+import java.util.HashMap;
 
 import javazoom.jl.converter.Converter;
 import javazoom.jl.decoder.JavaLayerException;
 
 
 public class ModelController {
+	
+	
 	private Model model;
 	ModelController(){
 		
@@ -16,16 +19,21 @@ public class ModelController {
 	}
 	public void test(){
 		System.out.println("Model is testing:");
-		model=new Model("D:\\.android\\AudioConverter\\src\\01_based_fft_classifier");
+		model=new Model("D:\\.android\\AudioConverter\\src\\01_fft_based_classifier.py");
 		System.out.println("Finished!')");
 		
 	}
-	public void convert(){
+	public void test(String pathToTest){
+		System.out.println("Model is testing:");
+		model=new Model("D:\\.android\\AudioConverter\\src\\01_fft_based_classifier.py",pathToTest);
+		System.out.println("Finished!2')");
+	}
+	public void convert(String sourcemp3,String outwav){
 		//AudioConverter ac=new AudioConverter();
 		String x[]=new String[2];
-		x[0]="D:\\.android\\AudioConverter\\src\\testSample.mp3";
+		x[0]=sourcemp3;
 		
-		x[1]="D:\\.android\\AudioConverter\\src\\testSample.wav";
+		x[1]=outwav;
 		//ac.main(x);
 		Converter c=new Converter();
 		try {
@@ -50,6 +58,7 @@ public class ModelController {
 
 	public static void main(String[] args) {
 		ModelController mc=new ModelController();
+		mc.test("D:\\.android\\AudioConverter\\test1.wav");
 		//mc.convert();
 		//mc.trim("D:\\.android\\AudioConverter\\src\\testSample.mp3","D:\\.android\\AudioConverter\\src\\out.mp3",30);
 		// TODO Auto-generated method stub
