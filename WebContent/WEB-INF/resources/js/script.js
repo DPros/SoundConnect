@@ -192,7 +192,8 @@ $(document).ready(function () {
 		//else if it is > 0 calculate percentage to highlight
 
 		else if (main_player.currentTime > 0) {
-			value = Math.floor((100 / main_player.duration) * main_player.currentTime) + 10;
+			value = Math.floor((100 / main_player.duration) * main_player.currentTime);
+			if (value < 50) value += 10;
 		}
 
 		//set the width of the progress bar
