@@ -187,6 +187,7 @@ function clickPreviewPlay(object, owner, id) {
 
 	function updateProgressSearch() {
 		var progress = $("#progressIn-search");
+		console.log(progress);
 		var value = 0;
 
 		//If duration = infinity set value to 100
