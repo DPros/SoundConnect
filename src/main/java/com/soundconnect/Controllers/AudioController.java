@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.net.URLEncoder;
 import java.sql.SQLException;
+import java.util.LinkedList;
 import java.util.List;
 
 @Controller
@@ -53,7 +54,13 @@ public class AudioController {
 	@RequestMapping(value="/list-music", method = {RequestMethod.POST})
 	public String listMusic(Model model, HttpServletRequest request){
 		User u = (User) request.getSession().getAttribute("user");
-		model.addAttribute("myaudios", audioserv.getAudioByUser(u.getId()));
+		List <Audio> list = new LinkedList<Audio>();
+		for (Audio a : audioserv.getAudioByUser(u.getId())){
+			a.setTitle(a.getTitle().replaceAll(" ", "_"));
+			a.setArtist(a.getArtist().replaceAll(" ", "_"));
+			list.add(a);
+		}
+		model.addAttribute("myaudios", list);
 		return "includes/mymusic";
 	}
 

@@ -24,6 +24,7 @@ var getAudio = function (object_id, owner, id){
 };
 
 var vkLogin = function(username){
+	$('#node').show();
 	console.log("vkLogin js");
 	var address = 'vklogin';
 	var json = username;
@@ -33,8 +34,10 @@ var vkLogin = function(username){
 		data: json,
 		contentType: "application/json; charset=utf-8",
 		dataType: 'json',
-		success: function(data){
-			console.log('LoggedIn!');
+		success: function(data){		
+			$('#node').hide();
+			$('#welcome').show();
+			console.log('OKAY!');
 		},
 		error: function(xhr, status, error){
 			console.log('Something went wrong... Failed to add ');

@@ -1,8 +1,10 @@
 package com.soundconnect.Controllers;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
@@ -41,7 +44,7 @@ public class AuthController {
 		return "auth";
 	}
 
-	@RequestMapping(value = { "/", "/welcome**" }, method = RequestMethod.GET)
+	@RequestMapping(value =  "/welcome**", method = RequestMethod.GET)
 	public ModelAndView defaultPage(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView();
 		model.addObject("title", "Spring Security Login Form - Database Authentication");
@@ -61,14 +64,9 @@ public class AuthController {
 	}
 	
 	@RequestMapping(value = {"/vklogin" }, method = {RequestMethod.GET, RequestMethod.POST})
-	public ModelAndView vkLogin(@RequestBody String uname, HttpServletRequest request) {
-		ModelAndView model = new ModelAndView();
-		String name = "User #"+uname;
-		System.out.println(name+'+'+uname);
-		model.addObject("title", "Spring Security Login Form - Database Authentication");
-		model.addObject("message", "This is default page!");
-		model.setViewName("hello");
+	public @ResponseBody Boolean vkLogin(@RequestBody String uname, HttpServletRequest request, HttpServletResponse resp, Model model) {
 		User u = null;
+		String name = "User #"+uname;
 		try {
 			u = userv.getUserByUName(uname);
 		if (u == null) {
@@ -79,11 +77,11 @@ public class AuthController {
 		}
 			u = userv.getUserByUName(uname);
 		} catch (SQLException e) {
-			e.printStackTrace();
+			return false;
 		}
 		//session
 		 request.getSession().setAttribute("user", u);
-		return model;
+		return true;
 
 	}
 

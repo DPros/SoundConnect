@@ -6,14 +6,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-
+@SessionAttributes({ "user"})
 public class MainController {
 	
-	@RequestMapping(path="/home")
-	public String viewMain(Model model, HttpServletRequest request){
-		return "main";
+	@RequestMapping(value={"/home", "/"})
+	public ModelAndView viewMain(Model model, HttpServletRequest request){
+		if(request.getSession().getAttribute("user")==null)
+			return new ModelAndView("redirect:/auth");
+		return new ModelAndView("main");
 	}
 	
 	@RequestMapping(path="/index")
