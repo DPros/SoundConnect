@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.soundconnect.Beans.Conference;
+import com.soundconnect.Beans.User;
 import com.soundconnect.Services.AudioService;
 import com.soundconnect.Services.ConferenceService;
 
@@ -32,13 +33,12 @@ public class PlayerController {
 //		long conferenceId = Long.parseLong((String) request.getSession().getAttribute("confId"));
 		
 		//////////////////
-		
-		
-		Conference conference = conferenceService.playConference(3);
+		long now = Calendar.getInstance().getTimeInMillis();
+		Conference conference = conferenceService.playConference(((User)request.getSession().getAttribute("user")).getConference(), now);
 		
 		
 		///////////////////////
-		model.addAttribute("time", (Calendar.getInstance().getTimeInMillis()-conference.getSongStarted())/1000);
+		model.addAttribute("time", (now-conference.getSongStarted())/1000);
 		model.addAttribute("conference", conference);
 		return "player";
 	}

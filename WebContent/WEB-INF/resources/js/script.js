@@ -4,7 +4,7 @@
 var myAudio;
 var onAudioEnded;
 var track;
-var mainPlayer = $('#main-player');
+var mainPlayer;
 
 var getAudio = function (object_id, owner, id){
 	  var req = owner+'_'+id;
@@ -117,6 +117,7 @@ var AudioAddToConference = function(au){
 				alert('Something went wrong... Failed to add ');
 			else
 				alert('Audio added to current conference');
+			if(mainPlayer.src == "") mainPlayer.onended();
 		},
 		error: function(xhr, status, error){
 			alert('Something went wrong... Failed to add ');
@@ -157,7 +158,7 @@ function clickPreviewPlay(object, owner, id) {
 
 $(document).ready(function () {
 
-	var main_player = document.getElementById("main-player");
+	mainPlayer = $('#main-player')[0];
 	
 	$('.volume-bar').slider({
 		range: "%",
@@ -194,6 +195,7 @@ $(document).ready(function () {
 	});
 
 	mainPlayer.onended = function() {
+		mainPlayer.src = "";
 		track = undefined;
 		var address = 'player/content'; // TODO what's the actual address?
 		$.ajax({
@@ -203,17 +205,10 @@ $(document).ready(function () {
 				$('#music-div').html(list);
 				if(track!==undefined){
 					getAudio("main-player", track.ownerId, track.id);
-					alert(track.startTime);
-					main_player.currentTime = track.startTime;
-					main_player.play();
-					
+					mainPlayer.currentTime = track.startTime;
+					mainPlayer.load();
+					mainPlayer.play();
 				}
-//				if (!data)
-//					alert('Something went wrong... Failed to retrieve audio');
-//				else {
-//					alert('Audio track retrieved');
-//					$('.snd').snd(data.src, {autoplay: true}, onAudioEnded);
-//				}
 			},
 			error: function (xhr, status, error) {
 				alert('Something went wrong... Failed to retrieve audio');

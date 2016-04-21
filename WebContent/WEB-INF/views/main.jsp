@@ -45,7 +45,25 @@ VK.init({
 	<div class="container-fluid text-center">
 		<div class="row content">
 			<div class="col-sm-3 sidenav" id="left-panel">
-				<jsp:include page="includes/musicpanel.jsp" />
+				<div class="panel panel-default" id="party-panel">
+				    <div class="panel-heading">
+				        <h4 class="panel-title">
+				            <a id="collapse-conf" data-toggle="collapse" href="#collapse1">
+				                <span class="btn btn-link">Conference</span>
+				                <span class="glyphicon glyphicon-eye-open btn btn-link" id="conf-glyph"></span>
+				            </a>
+				        </h4>
+				    </div>
+				    <div id="collapse1" class="panel-collapse collapse in">
+				        <div class="panel-body">
+							<audio id="main-player" src="" currentTime="" controls autoplay>
+							</audio>
+				        </div>
+				        <div class="panel-footer scrollfixed" id="music-div">
+				            Insert track names here.
+				        </div>
+				    </div>
+				</div>
 			</div>
 			<div class="col-sm-6 text-left" id="centre-panel">
 				<div class="container-fluid" id="navbar-container">

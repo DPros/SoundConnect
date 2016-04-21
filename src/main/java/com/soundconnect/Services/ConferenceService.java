@@ -18,5 +18,7 @@ public interface ConferenceService {
 	
 	List<Audio> getConferenceAudio(Conference conference);
 	
-	Conference playConference(long id) throws DataAccessException, SQLException;
+	Conference playConference(long id, long now) throws DataAccessException, SQLException;
+	
+	List<Conference> searchConference(String name);
 }

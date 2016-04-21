@@ -122,7 +122,7 @@ public class AudioController {
 			
 			
 			Conference conf = confserv
-					.getConferenceById(3);
+					.getConferenceById(((User)req.getSession().getAttribute("user")).getConference());
 			
 			
 			//////////////////////////////////////////////////
@@ -131,7 +131,8 @@ public class AudioController {
 			confserv.getConferenceAudio(conf);
 			conf.addAudioToConference(audio);
 			confserv.updateConferenceAudios(conf);
-		} catch (NumberFormatException e) {
+//		} catch (NumberFormatException e) {
+			
 		} catch (SQLException e) {
 			return false;
 		}

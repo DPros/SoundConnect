@@ -1,6 +1,9 @@
 package com.soundconnect.Services;
 
+import java.lang.reflect.Array;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -63,16 +66,16 @@ public class ConferenceServiceImpl implements ConferenceService{
 
 	@Override
 	public List<Audio> getConferenceAudio(Conference conference) {
-		if(conference.getTracks()==null)conference.setTracks(audioDao.getAudioByConference(conference.getId()));
+		List<Audio> tracks = audioDao.getAudioByConference(conference.getId());
+		if(conference.getTracks()==null)conference.setTracks(tracks);
 		return conference.getTracks();
 	}
 
 	@Override
-	public Conference playConference(long id) throws DataAccessException, SQLException {
+	public Conference playConference(long id, long now) throws DataAccessException, SQLException {
 		Conference conference = getConferenceById(id);
 		getConferenceAudio(conference);
 		if(!conference.getTracks().isEmpty()){
-			long now = Calendar.getInstance().getTimeInMillis();
 			System.out.println("Started: "+conference.getSongStarted());
 			System.out.println("now: "+now);
 			System.out.println("-----------");
@@ -85,5 +88,16 @@ public class ConferenceServiceImpl implements ConferenceService{
 			}
 		}
 		return conference;
+	}
+
+	@Override
+	public List<Conference> searchConference(String name) {
+		List<Conference> res = new ArrayList<Conference>();
+		ArrayList<String> query = new ArrayList<String>();
+		query.addAll(Arrays.asList(name.split(" ")));
+		for(Conference conference:cache.values()){
+			for(String s:conference.getName().split(" "))if(query.contains(s))res.add(conference);
+		}
+		return res;
 	}
 }
