@@ -208,16 +208,16 @@ $(document).ready(function () {
 
 	mainPlayer.onended = function() {
 		track = undefined;
-		var address = 'player/content'; // TODO what's the actual address?
-		$.ajax({
-			type: "GET",
-			url: address,
-			success: function (list) {
-				$('#music-div').html(list);
-				if(track!==undefined){
-					getAudio("main-player", track.ownerId, track.id);
-					alert(track.startTime);
-					main_player.currentTime = track.startTime;
+//		var address = 'player/content';
+//		$.ajax({
+//			type: "GET",
+//			url: address,
+//			success: function (list) {
+//				$('#music-div').html(list);
+//				if(track!==undefined){
+					getAudio("main-player", 0, 0 /*track.ownerId, track.id*/);
+			//		alert(track.startTime);
+					main_player.currentTime = 0;//track.startTime;
 					main_player.play();
 					
 				}
@@ -227,11 +227,11 @@ $(document).ready(function () {
 //					alert('Audio track retrieved');
 //					$('.snd').snd(data.src, {autoplay: true}, onAudioEnded);
 //				}
-			},
-			error: function (xhr, status, error) {
-				alert('Something went wrong... Failed to retrieve audio');
-			}
-		});
+//			},
+//			error: function (xhr, status, error) {
+//				alert('Something went wrong... Failed to retrieve audio');
+//			}
+//		});
 	};
 
 
