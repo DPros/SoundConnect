@@ -168,7 +168,9 @@ function audioPreview (object, owner, id) {
 };
 
 function clickPreviewPlay(object, owner, id) {
-	var search_player = document.getElementById("player/search");
+	var search_player = document.getElementById(object);
+	search_player.src = "";
+	search_player.currentTime = "";
 	var updateProgressSearch;
 
 	if($('#play-glyph\\/'+id).hasClass('glyphicon-play'))
@@ -182,7 +184,7 @@ function clickPreviewPlay(object, owner, id) {
 	//	$('#searchaudio').addClass('visiblediv');
 
 		$('#pause-search').click(function (e) {
-			if (!search_player.paused) {
+			if ($('#search-pause-glyph').hasClass('glyphicon-pause')) {
 				search_player.pause();
 				$('#search-pause-glyph').removeClass('glyphicon-pause');
 				$('#search-pause-glyph').addClass('glyphicon-play');
@@ -193,7 +195,7 @@ function clickPreviewPlay(object, owner, id) {
 			}
 		});
 		$('#mute-search').click(function (e) {
-			if (!search_player.muted) {
+			if ($('#search-mute-glyph').hasClass('glyphicon-volume-off')) {
 				search_player.muted = true;
 				$('#search-mute-glyph').removeClass('glyphicon-volume-off');
 				$('#search-mute-glyph').addClass('glyphicon-volume-up');
@@ -218,19 +220,18 @@ function clickPreviewPlay(object, owner, id) {
 		search_player.addEventListener("timeupdate", updateProgressSearch, false);
 	//	search_player.play();
 	//	$('#pause-search').click();
-		onSearchAudioPlayed(search_player);
+		search_player.play();
 		$('#progressOut-search').removeClass('hiddendiv');
 		$('#progressOut-search').addClass('visiblediv');
 	}
 	else
 	{
-		onSearchAudioMutes(search_player);
+		search_player.pause();
 		$('#play-glyph\\/'+id).addClass('glyphicon-play');
 		$('#play-glyph\\/'+id).removeClass('glyphicon-remove');
 
 		search_player.src = "";
 		search_player.currentTime = "";
-		search_player.paused = true;
 		/*search_player.removeEventListener("timeupdate", updateProgressSearch, false);*/
 
 		$('#progressOut-search').removeClass('visiblediv');
