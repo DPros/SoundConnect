@@ -102,9 +102,6 @@ VK.init({
 					<h1>Welcome</h1>
 					<h2>SoundConnect</h2>
 					<p>... is a special service that allows you to communicate with your friends using the only one language -- MUSIC!</p>
-					<hr>
-					<h3>Test</h3>
-					<p>Lorem ipsum...</p>
 				</div>
 				<div id="finddiv" class="hiddendiv scrollfixed">
 					<div class="input-group col-md-12" id="custom-search-input">
