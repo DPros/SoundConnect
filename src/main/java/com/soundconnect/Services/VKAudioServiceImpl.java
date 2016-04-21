@@ -51,8 +51,8 @@ String url = "https://api.vk.com/method/audio.search?q="+query+"&access_token="+
         for (int i=1; i<mp3list.size(); i++) {
             JSONObject mp3 = (JSONObject) mp3list.get(i);
             //test
-            System.out.println((Long) mp3.get("aid")+' '+new URL((String) mp3.get("url")).toString()+(Long)mp3.get("duration")+(String)mp3.get("title")+(String) mp3.get("artist")+(Long)mp3.get("genre"));
-            audioresp.add(new Audio((Long) mp3.get("aid"), new URL(((String) mp3.get("url")).substring(0, ((String)mp3.get("url")).indexOf("?"))), (Long)mp3.get("duration"), (String)mp3.get("title"), (String) mp3.get("artist"), ((Long)mp3.get("genre")!=null)?(Long)mp3.get("genre"):0));
+            System.out.println((Long) mp3.get("aid")+" xxx "+(Long)mp3.get("owner_id")+(Long)mp3.get("duration")+(String)mp3.get("title")+(String) mp3.get("artist")+(Long)mp3.get("genre"));
+            audioresp.add(new Audio((Long) mp3.get("aid"), (Long)mp3.get("owner_id"), (Long)mp3.get("duration"), (String)mp3.get("title"), (String) mp3.get("artist"), ((Long)mp3.get("genre")!=null)?(Long)mp3.get("genre"):0));
             //control
            // System.out.println(mp3.get("artist")+" - "+mp3.get("title")+"\n src: "+mp3.get("url"));
         }

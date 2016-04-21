@@ -26,6 +26,7 @@
 <script src="js/player/snd.js"></script>
 	<script src="js/perfect-scrollbar.jquery.js"></script>
 <script src="js/script.js"></script>
+<script src="http://vk.com/js/api/openapi.js" type="text/javascript"></script>
 
 
 <style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
@@ -44,16 +45,11 @@
 </style>
 </head>
 <body>
-	<c:url value="/j_spring_security_logout" var="logoutUrl" />
-	<form action="${logoutUrl}" method="post" id="logoutForm">
-		<input type="hidden" name="${_csrf.parameterName}"
-			value="${_csrf.token}" />
-	</form>
-	<script>
-		function formSubmit() {
-			document.getElementById("logoutForm").submit();
-		}
-	</script>
+<script language="javascript">
+VK.init({
+    apiId: 5368927
+  });
+</script>
 	<div class="container-fluid text-center">
 		<div class="row content">
 			<div class="row">
@@ -82,14 +78,9 @@
 												id="mymusicbtn">MY MUSIC</button></li>
 								</ul>
 								<ul class="nav navbar-nav navbar-right">
-									<li><c:if
-											test="${pageContext.request.userPrincipal.name != null}">
-										
-											Welcome : ${pageContext.request.userPrincipal.name} | <a
-												href="javascript:formSubmit()" id="logout"> <span
-												class="glyphicon glyphicon-log-out"></span> Log out
-											</a>
-										</c:if></li>
+									<li><a href="/SoundConnect/logout" id="logout"> <span
+											class="glyphicon glyphicon-log-in"></span> Log out
+									</a></li>
 								</ul>
 							</div>
 						</div>
@@ -236,7 +227,6 @@
 					<jsp:include page="includes/profile.jsp" />
 				</div>
 				<div id="mymusicdiv" class="hiddendiv scrollfixed">
-					<jsp:include page="includes/mymusic.jsp" />
 					<div id="my-music-list"></div>
 				</div>
 			</div>

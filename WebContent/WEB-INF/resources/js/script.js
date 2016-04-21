@@ -3,6 +3,44 @@
  */
 var myAudio;
 var onAudioEnded;
+var track;
+var mainPlayer = $('#main-player');
+
+var getAudio = function (object_id, owner, id){
+	  var req = owner+'_'+id;
+	  console.log('before api');
+	 var a = VK.api('audio.getById', {audios: req}, function(data){
+		  
+			  console.log('OK');
+			  var sound = data.response[0];
+		 	 	var a = document.getElementById(object_id);
+		 		a.setAttribute("src", sound.url);
+	 		console.log('OK');
+		  if(data.error)
+		  console.log(data.error);
+	  });
+	  console.log('after api');
+	  console.log(a);
+};
+
+var vkLogin = function(username){
+	console.log("vkLogin js");
+	var address = 'vklogin';
+	var json = username;
+	$.ajax({
+		type: "POST",
+		url: address,
+		data: json,
+		contentType: "application/json; charset=utf-8",
+		dataType: 'json',
+		success: function(data){
+			console.log('LoggedIn!');
+		},
+		error: function(xhr, status, error){
+			console.log('Something went wrong... Failed to add ');
+		}
+	});
+}
 
 var audioAddToUser = function(au){
 	var address = 'add-to-user';
@@ -83,17 +121,20 @@ var AudioAddToConference = function(au){
 	});
 };
 
-function audioPreview (id) {
-	myAudio = document.getElementById("player/"+id);
+function audioPreview (object, owner, id) {
+	getAudio(object, owner, id);
+	var myAudio = document.getElementById("player/search");
 	console.log(myAudio.id);
 	if (myAudio.paused) {
+		console.log('play!');
 		myAudio.play();
 	} else {
+		console.log('pause!');
 		myAudio.pause();
 	}
 };
 
-function clickPreviewPlay(id) {
+function clickPreviewPlay(object, owner, id) {
 	if($('#play-glyph\\/'+id).hasClass('glyphicon-play'))
 	{
 		$('#play-glyph\\/'+id).removeClass('glyphicon-play');
@@ -103,13 +144,13 @@ function clickPreviewPlay(id) {
 	{
 		$('#play-glyph\\/'+id).addClass('glyphicon-play');
 		$('#play-glyph\\/'+id).removeClass('glyphicon-pause');
-	}
+	};
 	if(!($('#search-results\\/'+id).hasClass('current-track')))
 	{
 		$('#search-results\\/'+id).addClass('current-track');
 	}
 	else $('#search-results\\/'+id).removeClass('current-track');
-	audioPreview(id);
+	audioPreview(object, owner, id);
 };
 
 $(document).ready(function () {
@@ -124,8 +165,7 @@ $(document).ready(function () {
 	$('#mymusicdiv').perfectScrollbar();
 	$('#member-div').perfectScrollbar();
 
-	//Ps.initialize(document.getElementById('finddiv'));
-	//Ps.initialize(document.getElementById('followdiv'));
+	var main_player = document.getElementById("main-player");
 
 	$('.volume-bar').slider({
 		range: "%",
@@ -161,30 +201,33 @@ $(document).ready(function () {
 		}
 	});
 
-	onAudioEnded = function () {
-		var address = 'get-from-conference'; // TODO what's the actual address?
-		var confAudio;
-		// stubs for testing
-		var data = {src: 'sound/2.mp3'};
-		$('.snd').snd(data.src, onAudioEnded);
-		/*$.ajax({
+
+	mainPlayer.onended = function() {
+		track = undefined;
+		var address = 'player/content'; // TODO what's the actual address?
+		$.ajax({
 			type: "GET",
 			url: address,
-			data: confAudio, // TODO is this the variable where the result of the request is stored?
-			contentType: "application/json; charset=utf-8",
-			dataType: 'json', // TODO get next song json
-			success: function (data) {
-				if (!data)
-					alert('Something went wrong... Failed to retrieve audio');
-				else {
-					alert('Audio track retrieved');
-					$('.snd').snd(data.src, {autoplay: true}, onAudioEnded);
+			success: function (list) {
+				$('#music-div').html(list);
+				if(track!==undefined){
+					getAudio("main-player", track.ownerId, track.id);
+					alert(track.startTime);
+					main_player.currentTime = track.startTime;
+					main_player.play();
+					
 				}
+//				if (!data)
+//					alert('Something went wrong... Failed to retrieve audio');
+//				else {
+//					alert('Audio track retrieved');
+//					$('.snd').snd(data.src, {autoplay: true}, onAudioEnded);
+//				}
 			},
 			error: function (xhr, status, error) {
 				alert('Something went wrong... Failed to retrieve audio');
 			}
-		});*/
+		});
 	};
 
 
@@ -268,6 +311,7 @@ $(document).ready(function () {
 			data: userid,
 			contentType: "application/json; charset=utf-8",
 			success: function (data) {
+				console.log(data);
 				$('#my-music-list').html(data);
 			},
 			error: function(xhr, status, error) {
@@ -296,5 +340,5 @@ $(document).ready(function () {
 });
 
 $(window).load(function() {
-	onAudioEnded();
+	mainPlayer.onended();
 });

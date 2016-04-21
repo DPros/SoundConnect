@@ -1,10 +1,7 @@
 package com.soundconnect.Beans;
 
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
-
-import com.soundconnect.Utils.Calendar;
 
 public class Conference {
 
@@ -21,10 +18,7 @@ public class Conference {
 		this.id = id;
 		this.setPassword(password);
 		this.users = users;
-		if (audios != null)
-			tracks = audios;
-		else
-			tracks = new LinkedList<Audio>();
+		tracks = audios;
 		this.songStarted = songStarted;
 	}
 
@@ -53,11 +47,6 @@ public class Conference {
 	}
 
 	public List<Audio> getTracks() {
-		if(tracks.isEmpty())return null;
-		if(songStarted < Calendar.getCurrentTime() - tracks.get(0).getLength()){
-			if(songStarted!=0)tracks.remove(0);
-			songStarted = Calendar.getCurrentTime();
-		}
 		return tracks;
 	}
 
@@ -90,5 +79,14 @@ public class Conference {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	@Override
+	public int hashCode(){
+		return Long.valueOf(id).hashCode();
+	}
+	
+	public boolean equals(Conference conference){
+		return id == conference.id;
 	}
 }

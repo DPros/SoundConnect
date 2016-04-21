@@ -7,25 +7,29 @@
 <title>Hello</title>  
 </head>  
 <body> 
-<script src="//vk.com/js/api/openapi.js" type="text/javascript"></script>
-<script type="text/javascript">
-  VK.init({
-    apiId: 5368927
-   });
-</script> 
-<div id="login_button" onclick="VK.Auth.login(authInfo, 8);"></div>
-
+	<div id="login_button" onclick="VK.Auth.login(authInfo);"></div>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script src="http://vk.com/js/api/openapi.js" type="text/javascript"></script>
+<script src="js/script.js"></script>
 <script language="javascript">
+VK.init({
+    apiId: 5368927
+  });
 function authInfo(response) {
   if (response.session) {
-    console.log('user: '+response.session.mid);
+    alert('user: '+response.session.mid);
+    vkLogin(response.session.mid);    
   } else {
-    console.log('Not auth: please sign in');
+    alert('not auth');
   }
 }
 VK.Auth.getLoginStatus(authInfo);
 VK.UI.button('login_button');
 </script>
+
 
 <form method="POST" >
 <h3>Session creator beta</h3>

@@ -33,7 +33,8 @@
               <!--  <span class="currenttime">00:00</span>/
                 <span class="duration">00:00</span>-->
             </div>
-
+			<audio id="main-player" src="" currentTime="" controls>
+			</audio>
         </div>
         <div class="panel-footer scrollfixed" id="music-div">
             Insert track names here.
