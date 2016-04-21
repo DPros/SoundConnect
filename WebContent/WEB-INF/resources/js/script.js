@@ -340,5 +340,5 @@ $(document).ready(function () {
 });
 
 $(window).load(function() {
-	mainPlayer.onended();
+	mainPlayer.onended();	
 });

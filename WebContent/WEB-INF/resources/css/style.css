@@ -219,11 +219,6 @@ input[type="range"]:active ~ #rangevalue {
     margin-top: 25px;
 }
 
-audio {
-    position: relative;
-    width: 100%;
-}
-
 #member-div {
     padding: 0px 0px 0px 0px;
     height: 90.5%;
