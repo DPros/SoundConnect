@@ -42,7 +42,7 @@ var vkLogin = function(username){
 			console.log('Something went wrong... Failed to add ');
 		}
 	});
-}
+};
 
 var audioAddToUser = function(au){
 	console.log(au);
@@ -265,7 +265,6 @@ $(document).ready(function () {
     		url: address,
     		data: id,
     		contentType: "application/json; charset=utf-8",
-    		dataType: 'json',
     		success: function(data){
     			$('#my-followings-list').html(data);
     		},
