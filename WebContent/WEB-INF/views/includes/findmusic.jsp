@@ -17,8 +17,7 @@
 		<span class="glyphicon glyphicon-volume-off btn btn-link" id="search-mute-glyph"></span>
 	</button>
 </div>
-<audio id="player/search" src="" preload="none">
-</audio>
+<audio id="player/search" src="" currentTime=""></audio>
 <div id="progressOut-search">
 	<div id="progressIn-search">
 		<div id="time-search">00:00</div>

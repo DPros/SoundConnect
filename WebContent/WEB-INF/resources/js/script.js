@@ -209,7 +209,8 @@ function clickPreviewPlay(object, owner, id) {
 	}
 
 // add event listener for audio time updates
-	if (search_player !== null) search_player.addEventListener("timeupdate", updateProgressSearch, false);
+	console.log(search_player);
+	search_player.addEventListener("timeupdate", updateProgressSearch, false);
 
 	//audioPreview(object, owner, id);
 };
