@@ -36,7 +36,11 @@
 			<audio id="main-player" src="" currentTime=""></audio>
             <button id="play">Play</button>
             <button id="pause">Pause</button>
-            <div id="progressOut"></div>
+            <div id="progressOut">
+                <div id="progressIn">
+                    <div id="time">00:00</div>
+                </div>
+            </div>
         </div>
         <div class="panel-footer scrollfixed" id="music-div">
             Insert track names here.

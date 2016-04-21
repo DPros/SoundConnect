@@ -171,6 +171,40 @@ $(document).ready(function () {
 	$('#play').click(function(){ main_player.play(); }); //play when play is clicked
 	$('#pause').click(function(){ main_player.pause(); }); //pause when pause clicked
 
+	/*UPDATE PROGRESS BAR*/
+	function updateProgress() {
+		var progress = $("#progressIn");
+		var value = 0;
+
+		//If duration = infinity set value to 100
+
+		if(main_player.duration == 'Infinity')
+			value = 100;
+		//else if it is > 0 calculate percentage to highlight
+
+		else if (main_player.currentTime > 0) {
+			value = Math.floor((100 / main_player.duration) * main_player.currentTime);
+		}
+
+		//set the width of the progress bar
+
+		progress.stop().css({'width':value + '%'},500)
+
+		//set the new timestamp
+		$('#time').html(formatTime(main_player.currentTime))
+	}
+
+// add event listener for audio time updates
+	main_player.addEventListener("timeupdate", updateProgress, false);
+
+	function formatTime(seconds) {
+		var minutes = Math.floor(seconds / 60);
+		minutes = (minutes >= 10) ? minutes : "" + minutes;
+		var seconds = Math.floor(seconds % 60);
+		seconds = (seconds >= 10) ? seconds : "0" + seconds;
+		return minutes + ":" + seconds;
+	}
+
 	$('.volume-bar').slider({
 		range: "%",
 		min: 0,
