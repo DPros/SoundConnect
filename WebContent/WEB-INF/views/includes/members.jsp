@@ -6,11 +6,11 @@
   To change this template use File | Settings | File Templates.
 --%>
 
-<div class="panel panel-default" id="members-panel">
+<div class="panel panel-info" id="members-panel">
     <div class="panel-heading">
         <h4 class="panel-title">
             <a id="collapse-members" data-toggle="collapse" href="#collapse2">
-                <span class="btn btn-link">Members</span>
+                <span class="text-warning">Members</span>
                 <span class="glyphicon glyphicon-eye-open btn btn-link" id="members-glyph"></span>
             </a>
         </h4>

@@ -1,0 +1,97 @@
+#progressOut {
+    width:100%;
+    height:20px;
+    border: none;
+    position:relative;
+    margin-top:30px;
+    overflow:hidden;
+    background: #C7F2BF;
+  /*  -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;*/
+}
+
+#progressOut-search {
+    width:60%;
+    height:20px;
+    border: none;
+    position:relative;
+    margin-top:10px;
+    padding-right: 0px;
+    /*left: 10px;*/
+    /*right: 3px;*/
+    overflow:hidden;
+    background: #C7F2BF;
+    /*  -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;*/
+}
+
+#progressIn {
+    position:relative;
+    height:100%;
+    bottom:0px;
+    width:0px;
+    background: #C7F2BF;
+    background: -moz-linear-gradient(left, #C7F2BF 0%, #AA9174 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #C7F2BF), color-stop(100%, #AA9174));
+    background: -webkit-linear-gradient(left, #C7F2BF 0%, #AA9174 100%);
+    background: -o-linear-gradient(left, #C7F2BF 0%, #AA9174 100%);
+    background: -ms-linear-gradient(left, #C7F2BF 0%, #AA9174 100%);
+    background: linear-gradient(left, #C7F2BF 0%, #AA9174 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#050540', endColorstr='#AA9174', GradientType=1);
+   /* -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;*/
+}
+
+#progressIn-search {
+    position:relative;
+    height:100%;
+    bottom:0px;
+    width:0px;
+    background: #C7F2BF;
+    background: -moz-linear-gradient(left, #C7F2BF 0%, #AA9174 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #C7F2BF), color-stop(100%, #AA9174));
+    background: -webkit-linear-gradient(left, #C7F2BF 0%, #AA9174 100%);
+    background: -o-linear-gradient(left, #C7F2BF 0%, #AA9174 100%);
+    background: -ms-linear-gradient(left, #C7F2BF 0%, #AA9174 100%);
+    background: linear-gradient(left, #C7F2BF 0%, #AA9174 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#050540', endColorstr='#AA9174', GradientType=1);
+    /* -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+     border-radius: 10px;*/
+}
+
+#time, #time-search {
+    position:absolute;
+    padding:20px 8px 1px 8px;
+    /*margin-top: 10px;*/
+    font-size:15px;
+    right:0px;
+    bottom:0px;
+    font-family: 'Quicksand', sans-serif;
+    color: #602759;
+
+    background: -moz-linear-gradient(left, rgba(170, 145, 116, 0) 0%, rgba(170, 145, 116, 0.1) 50%, rgba(170, 145, 116, 1) 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(170, 145, 116, 0)), color-stop(50%, rgba(170, 145, 116, 0.25)), color-stop(100%, rgba(170, 145, 116, 1)));
+    background: -webkit-linear-gradient(left, rgba(170, 145, 116, 0) 0%, rgba(170, 145, 116,, 0.1) 50%, rgba(170, 145, 116, 1) 100%);
+    background: -o-linear-gradient(left, rgba(170, 145, 116, 0) 0%, rgba(170, 145, 116, 0.1) 50%, rgba(170, 145, 116, 1) 100%);
+    background: -ms-linear-gradient(left, rgba(170, 145, 116, 0) 0%, rgba(170, 145, 116, 0.1) 50%, rgba(170, 145, 116, 1) 100%);
+    background: linear-gradient(left, rgba(170, 145, 116, 0) 0%, rgba(170, 145, 116, 0.1) 50%, rgba(170, 145, 116, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='rgba(170, 145, 116, 0)', endColorstr='rgba(170, 145, 116, 1)', GradientType=1);
+   /* -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;*/
+}
+
+#searchaudio {
+    top: 20px;
+    padding-bottom: 20px;
+}
+
+#search-mute-glyph{
+    font-size: 20px;
+} #search-mute-glyph {
+    font-size: 15px;
+}

@@ -9,17 +9,26 @@
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/audiostyle.css">
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <link rel="stylesheet"
 	href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+	<link rel="stylesheet" href="css/perfect-scrollbar.css" />
+	<!-- Fonts -->
+	<link href='https://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="js/player/snd.js"></script>
+	<script src="js/perfect-scrollbar.jquery.js"></script>
 <script src="js/script.js"></script>
 <script src="http://vk.com/js/api/openapi.js" type="text/javascript"></script>
+
 
 <style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
 .en-markup-crop-options {
@@ -44,60 +53,75 @@ VK.init({
 </script>
 	<div class="container-fluid text-center">
 		<div class="row content">
-			<div class="col-sm-3 sidenav" id="left-panel">
-				<div class="panel panel-default" id="party-panel">
-				    <div class="panel-heading">
-				        <h4 class="panel-title">
-				            <a id="collapse-conf" data-toggle="collapse" href="#collapse1">
-				                <span class="btn btn-link">Conference</span>
-				                <span class="glyphicon glyphicon-eye-open btn btn-link" id="conf-glyph"></span>
-				            </a>
-				        </h4>
-				    </div>
-				    <div id="collapse1" class="panel-collapse collapse in">
-				        <div class="panel-body">
-							<audio id="main-player" src="" currentTime="" controls autoplay>
-							</audio>
-				        </div>
-				        <div class="panel-footer scrollfixed" id="music-div">
-				            Insert track names here.
-				        </div>
-				    </div>
-				</div>
-			</div>
-			<div class="col-sm-6 text-left" id="centre-panel">
+			<div class="row">
 				<div class="container-fluid" id="navbar-container">
 					<nav class="navbar navbar-default navbar-fixed-top">
 						<div class="container-fluid">
 							<div class="navbar-header">
 								<button type="button" class="navbar-toggle"
-									data-toggle="collapse" data-target="#myNavbar">
+										data-toggle="collapse" data-target="#myNavbar">
 									<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 										class="icon-bar"></span>
 								</button>
-								<a class="navbar-brand" href="#">Logo</a>
+								<a class="navbar-brand" href="#">LOGO</a>
 							</div>
+							<div class="col-sm-5"></div>
 							<div class="collapse navbar-collapse" id="myNavbar">
-								<ul class="nav navbar-nav">
-									<li class="active"><button type="button"
-											class="btn btn-link" id="homebtn">Home</button></li>
-									<li><button type="button" class="btn btn-link"
-											id="findbtn">Find Music</button></li>
-									<li><button type="button" class="btn btn-link"
-											id="followbtn">Following</button></li>
-									<li><button type="button" class="btn btn-link" id="recbtn">Recommended</button></li>
-									<li><button type="button" class="btn btn-link"
-											id="mymusicbtn">My Music</button></li>
+								<ul class="nav navbar-nav col-sm-7" id="mainNavbar">
+									<li class="active central-menu"><button type="button"
+															   class="btn btn-link btn-lg" id="homebtn">HOME</button></li>
+									<li class="central-menu"><button type="button" class="btn btn-link btn-lg"
+												id="findbtn">FIND MUSIC</button></li>
+									<li class="central-menu"><button type="button" class="btn btn-link btn-lg"
+												id="followbtn">FOLLOWING</button></li>
+									<li class="central-menu"><button type="button" class="btn btn-link btn-lg" id="recbtn">RECOMMENDED</button></li>
+									<li class="central-menu"><button type="button" class="btn btn-link btn-lg"
+												id="mymusicbtn">MY MUSIC</button></li>
 								</ul>
 								<ul class="nav navbar-nav navbar-right">
-									<li><a href="/SoundConnect/logout"> <span
-											class="glyphicon glyphicon-log-in"></span> Log out
+									<li><a href="/SoundConnect/logout" id="logout"> <span
+											class="glyphicon glyphicon-log-out"></span> Log out
 									</a></li>
 								</ul>
 							</div>
 						</div>
 					</nav>
 				</div>
+			</div>
+			<div class="col-sm-3 sidenav" id="left-panel">
+				<div class="panel panel-info" id="party-panel">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a id="collapse-conf" data-toggle="collapse" href="#collapse1">
+								<span class="text-warning">Conference</span>
+								<span class="glyphicon glyphicon-eye-open btn btn-link" id="conf-glyph"></span>
+							</a>
+						</h4>
+					</div>
+					<div id="collapse1" class="panel-collapse collapse in">
+						<div class="panel-body">
+							<div class="btn-group" id="main-player-btn-group">
+								<button type="button" class="btn btn-link" id="pause">
+									<span class="glyphicon glyphicon-pause btn btn-link" id="main-pause-glyph"></span>
+								</button>
+								<button type="button" class="mute button btn-link" id="mute">
+									<span class="glyphicon glyphicon-volume-off btn btn-link" id="mute-glyph"></span>
+								</button>
+							</div>
+							<audio id="main-player" src="" currentTime=""></audio>
+							<div id="progressOut">
+								<div id="progressIn">
+									<div id="time">00:00</div>
+								</div>
+							</div>
+						</div>
+						<div class="panel-footer scrollfixed" id="music-div">
+							Insert track names here.
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 text-left" id="centre-panel">
 				<div id="homediv" class="visiblediv scrollfixed">
 					<h1>Welcome</h1>
 					<h2>SoundConnect</h2>
@@ -123,6 +147,9 @@ VK.init({
 				</div>
 				<div id="recdiv" class="hiddendiv scrollfixed">
 					<jsp:include page="includes/recommended.jsp" />
+				</div>
+				<div id="profilediv" class="hiddendiv scrollfixed">
+					<jsp:include page="includes/profile.jsp" />
 				</div>
 				<div id="mymusicdiv" class="hiddendiv scrollfixed">
 					<div id="my-music-list"></div>
