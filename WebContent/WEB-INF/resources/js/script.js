@@ -160,7 +160,8 @@ function clickPreviewPlay(object, owner, id) {
 	else $('#search-results\\/'+id).removeClass('current-track');
 	getAudio(object, owner, id);
 
-	$('#search-btn-group').removeClass('hiddendiv');
+	$('#searchaudio').removeClass('hiddendiv');
+	$('#searchaudio').addClass('visiblediv');
 	var search_player = document.getElementById("player/search");
 	$('#pause-search').click(function() {
 		if (!search_player.paused) {
@@ -198,7 +199,6 @@ function clickPreviewPlay(object, owner, id) {
 
 		else if (search_player.currentTime > 0) {
 			value = Math.floor((100 / search_player.duration) * search_player.currentTime);
-			if (value < 50) value += 10;
 		}
 
 		//set the width of the progress bar

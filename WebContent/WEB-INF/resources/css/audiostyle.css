@@ -1,4 +1,4 @@
-#progressOut, #progressOut-search {
+#progressOut {
     width:100%;
     height:20px;
     border: none;
@@ -10,7 +10,23 @@
     -moz-border-radius: 10px;
     border-radius: 10px;*/
 }
-#progressIn, #progressIn-search {
+
+#progressOut-search {
+    width:60%;
+    height:20px;
+    border: none;
+    position:relative;
+    margin-top:10px;
+    padding-right: 0px;
+    left: 20px;
+    overflow:hidden;
+    background: #050540;
+    /*  -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;*/
+}
+
+#progressIn {
     position:relative;
     height:100%;
     bottom:0px;
@@ -27,6 +43,25 @@
     -moz-border-radius: 10px;
     border-radius: 10px;*/
 }
+
+#progressIn-search {
+    position:relative;
+    height:100%;
+    bottom:0px;
+    width:0px;
+    background: #050540;
+    background: -moz-linear-gradient(left, #050540 0%, #354f64 50%, #4AE9E4 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #050540), color-stop(50%, #354f64), color-stop(100%, #4AE9E4));
+    background: -webkit-linear-gradient(left, #050540 0%, #354f64 50%, #4AE9E4 100%);
+    background: -o-linear-gradient(left, #050540 0%, #354f64 50%, #4AE9E4 100%);
+    background: -ms-linear-gradient(left, #050540 0%, #354f64 50%, #4AE9E4 100%);
+    background: linear-gradient(left, #050540 0%, #354f64 50%, #4AE9E4 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#050540', endColorstr='#354f64', GradientType=1);
+    /* -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+     border-radius: 10px;*/
+}
+
 #time, #time-search {
     position:absolute;
     padding:20px 8px 1px 8px;
@@ -34,7 +69,7 @@
     font-size:15px;
     right:0px;
     bottom:0px;
-
+    font-family: 'Quicksand', sans-serif;
     color: #050540;
 
     background: -moz-linear-gradient(left, rgba(74, 233, 228, 0) 0%, rgba(74, 233, 228, 0.1) 50%, rgba(74, 233, 228, 1) 100%);
@@ -47,4 +82,9 @@
    /* -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;*/
+}
+
+#searchaudio {
+    top: 20px;
+    padding-bottom: 20px;
 }

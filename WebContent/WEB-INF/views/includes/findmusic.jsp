@@ -9,19 +9,21 @@
   Time: 2:56 PM
   To change this template use File | Settings | File Templates.
 --%>
-<div class="btn-group hiddendiv" id="search-btn-group">
-	<button type="button" class="btn btn-link" id="pause-search">
-		<span class="glyphicon glyphicon-play btn btn-link" id="search-pause-glyph"></span>
-	</button>
-	<button type="button" class="mute button btn-link" id="mute-search">
-		<span class="glyphicon glyphicon-volume-off btn btn-link" id="search-mute-glyph"></span>
-	</button>
-</div>
-<audio id="player/search" src="" currentTime=""></audio>
-<div id="progressOut-search">
-	<div id="progressIn-search">
-		<div id="time-search">00:00</div>
+<div class="row hiddendiv" id="searchaudio">
+	<div class="btn-group col-sm-4" id="search-btn-group">
+		<button type="button" class="btn btn-link" id="pause-search">
+			<span class="glyphicon glyphicon-play btn btn-link" id="search-pause-glyph"></span>
+		</button>
+		<button type="button" class="mute button btn-link" id="mute-search">
+			<span class="glyphicon glyphicon-volume-off btn btn-link" id="search-mute-glyph"></span>
+		</button>
 	</div>
+	<div class="col-sm-8" id="progressOut-search">
+		<div id="progressIn-search">
+			<div id="time-search">00:00</div>
+		</div>
+	</div>
+	<audio id="player/search" src="" currentTime=""></audio>
 </div>
 
 <c:forEach items="${audios}" var="audio">
@@ -30,16 +32,9 @@
 			<a href="javascript:void(0)" class="btn btn-link" id="previewbtn" data-toggle="tooltip" title="Preview" onclick="clickPreviewPlay('player/search', ${audio.ownerId}, ${audio.id })">
 				<span class="glyphicon glyphicon-play" id="play-glyph/${audio.id}"></span>
 			</a>
-			<div class="volume">
-				<span class="btn btn-lg btn-link glyphicon glyphicon-volume-down" id="volume-glyph/${audio.id}"></span>
-			</div>
 		</div>
 		<div class="col-sm-8">
 			<p class="row inner-row track-data text-primary">${audio.artist} - ${audio.title}</p>
-			<div class="row inner-row" id="slider">
-				<input class="volume-bar" id="rangeinput" type="range" />
-				<span class="highlight"></span>
-			</div>
 		</div>
 		<div class="col-sm-1">
 			<button class="audio-add-to-user btn btn-link" data-toggle="tooltip" onclick=audioAddToUser('{"id":${audio.id},"ownerId":"${audio.ownerId}","length":${audio.length},"title":"${audio.title}","artist":"${audio.artist}","genre":${audio.genre}}') title="Add to your playlist">
