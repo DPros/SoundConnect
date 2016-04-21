@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5582a5b3-2715-4da9-84c2-05865c4bc9e6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/config.xml" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/config.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/resources/css/style.css" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/resources/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/views/main.jsp" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/views/main.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/soundconnect/Configuration/MVCConfiguration.java" afterPath="$PROJECT_DIR$/src/main/java/com/soundconnect/Configuration/MVCConfiguration.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/soundconnect/Configuration/SpringSecurity.java" afterPath="$PROJECT_DIR$/src/main/java/com/soundconnect/Configuration/SpringSecurity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/soundconnect/Controllers/AuthController.java" afterPath="$PROJECT_DIR$/src/main/java/com/soundconnect/Controllers/AuthController.java" />
     </list>
     <ignored path="SoundConnect.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,18 +38,18 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/resources/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="472" column="19" selection-start-line="472" selection-start-column="19" selection-end-line="472" selection-end-column="19" />
+            <state relative-caret-position="203">
+              <caret line="487" column="14" selection-start-line="487" selection-start-column="14" selection-end-line="487" selection-end-column="14" />
               <folding>
                 <element signature="e#188#268#0" expanded="false" />
                 <element signature="e#1637#2717#0" expanded="false" />
                 <element signature="e#3908#3991#0" expanded="false" />
                 <element signature="e#4034#4613#0" expanded="false" />
                 <element signature="e#4864#5952#0" expanded="false" />
-                <element signature="e#7779#7802#0" expanded="false" />
-                <element signature="e#7822#7863#0" expanded="false" />
-                <element signature="e#7884#7926#0" expanded="false" />
-                <element signature="e#7951#7974#0" expanded="false" />
+                <element signature="e#7778#7801#0" expanded="false" />
+                <element signature="e#7821#7862#0" expanded="false" />
+                <element signature="e#7883#7925#0" expanded="false" />
+                <element signature="e#7950#7973#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -729,12 +722,12 @@
       <workItem from="1461079232061" duration="500000" />
       <workItem from="1461079761014" duration="9389000" />
       <workItem from="1461130048819" duration="24304000" />
-      <workItem from="1461214853316" duration="2500000" />
+      <workItem from="1461214853316" duration="2709000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136889000" />
+    <option name="totallyTimeSpent" value="137098000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="742" extended-state="0" />
@@ -1118,18 +1111,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/resources/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="472" column="19" selection-start-line="472" selection-start-column="19" selection-end-line="472" selection-end-column="19" />
+        <state relative-caret-position="203">
+          <caret line="487" column="14" selection-start-line="487" selection-start-column="14" selection-end-line="487" selection-end-column="14" />
           <folding>
             <element signature="e#188#268#0" expanded="false" />
             <element signature="e#1637#2717#0" expanded="false" />
             <element signature="e#3908#3991#0" expanded="false" />
             <element signature="e#4034#4613#0" expanded="false" />
             <element signature="e#4864#5952#0" expanded="false" />
-            <element signature="e#7779#7802#0" expanded="false" />
-            <element signature="e#7822#7863#0" expanded="false" />
-            <element signature="e#7884#7926#0" expanded="false" />
-            <element signature="e#7951#7974#0" expanded="false" />
+            <element signature="e#7778#7801#0" expanded="false" />
+            <element signature="e#7821#7862#0" expanded="false" />
+            <element signature="e#7883#7925#0" expanded="false" />
+            <element signature="e#7950#7973#0" expanded="false" />
           </folding>
         </state>
       </provider>
