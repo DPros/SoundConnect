@@ -133,6 +133,27 @@ var AudioAddToConference = function(au){
 	});
 };
 
+var connectToUsersConf = function(id){
+	var address = 'fetchconnect';
+	$.ajax({
+		type: "POST",
+		url: address,
+		data: id,
+		contentType: "application/json; charset=utf-8",
+		dataType: 'json',
+		success: function(data){
+			//action like this	
+			if(!data)
+				alert('Failed =(');
+			else
+				alert('Connected');
+		},
+		error: function(xhr, status, error){
+			alert('Something went wrong... Failed to connect ');
+		}
+	});
+};
+
 var unfollowUser = function(id){
 	var address = 'unfollow';
 		$.ajax({
@@ -149,7 +170,7 @@ var unfollowUser = function(id){
 					alert('Unfollowed');
 			},
 			error: function(xhr, status, error){
-				alert('Something went wrong... Failed to add ');
+				alert('Something went wrong... Failed to connect ');
 			}
 		});
 };

@@ -1,5 +1,7 @@
 package com.soundconnect.Controllers;
 
+import java.sql.SQLException;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +32,18 @@ public class UserController {
 	
 	@RequestMapping(value="/unfollow", method = RequestMethod.POST)
 	public @ResponseBody Boolean unfollow(@RequestBody Long id, Model model, HttpServletRequest request){
-		System.out.println("Unfollow: "+id);
 		userserv.unfollowUser(((User)request.getSession().getAttribute("user")).getId(), (Long) id);
+		return true;
+	}
+	
+	@RequestMapping(value="/fetchconnect", method = RequestMethod.POST)
+	public @ResponseBody Boolean fetchConnect(@RequestBody Long id, Model model, HttpServletRequest request){
+		User u = ((User) request.getSession().getAttribute("user"));
+		try {
+			userserv.updateUserConference(userserv.getUserById(id).getConference(), u.getId());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return true;
 	}
 }
