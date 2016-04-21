@@ -218,13 +218,13 @@ function clickPreviewPlay(object, owner, id) {
 		search_player.addEventListener("timeupdate", updateProgressSearch, false);
 	//	search_player.play();
 	//	$('#pause-search').click();
-		onSearchAudioPlayed(search_player);
-		$('#progressOut-search').removeClass('hiddendiv');
-		$('#progressOut-search').addClass('visiblediv');
+	//	onSearchAudioPlayed(search_player);
+	//	$('#progressOut-search').removeClass('hiddendiv');
+	//	$('#progressOut-search').addClass('visiblediv');
 	}
 	else
 	{
-		onSearchAudioMutes(search_player);
+		//onSearchAudioMutes(search_player);
 		$('#play-glyph\\/'+id).addClass('glyphicon-play');
 		$('#play-glyph\\/'+id).removeClass('glyphicon-remove');
 
@@ -233,8 +233,8 @@ function clickPreviewPlay(object, owner, id) {
 		search_player.paused = true;
 		/*search_player.removeEventListener("timeupdate", updateProgressSearch, false);*/
 
-		$('#progressOut-search').removeClass('visiblediv');
-		$('#progressOut-search').addClass('hiddendiv');
+		//$('#progressOut-search').removeClass('visiblediv');
+		//$('#progressOut-search').addClass('hiddendiv');
 		$('#searchaudio').removeClass('visiblediv');
 		$('#searchaudio').addClass('hiddendiv');
 	};
