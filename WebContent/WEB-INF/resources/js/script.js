@@ -6,19 +6,21 @@ var onAudioEnded;
 var track;
 var mainPlayer = $('#main-player');
 
+// stubs for testing the player
 var getAudio = function (object_id, owner, id){
 	  var req = owner+'_'+id;
-	  console.log('before api');
-	 var a = VK.api('audio.getById', {audios: req}, function(data){
+	 // console.log('before api');
+	// var a = VK.api('audio.getById', {audios: req}, function(data){
 		  
 			  console.log('OK');
-			  var sound = data.response[0];
+			 // var sound = data.response[0];
 		 	 	var a = document.getElementById(object_id);
-		 		a.setAttribute("src", sound.url);
-	 		console.log('OK');
-		  if(data.error)
-		  console.log(data.error);
-	  });
+		 	//	a.setAttribute("src", sound.url);
+	a.setAttribute("src", 'sound/2.mp3');
+	 		//console.log('OK');
+		///  if(data.error)
+		//  console.log(data.error);
+	 // });
 	  console.log('after api');
 	  console.log(a);
 };
@@ -166,6 +168,8 @@ $(document).ready(function () {
 	$('#member-div').perfectScrollbar();
 
 	var main_player = document.getElementById("main-player");
+	$('#play').click(function(){ main_player.play() }); //play when play is clicked
+	$('#pause').click(function(){ main_player.pause() }); //pause when pause clicked
 
 	$('.volume-bar').slider({
 		range: "%",
@@ -340,5 +344,5 @@ $(document).ready(function () {
 });
 
 $(window).load(function() {
-	mainPlayer.onended();	
+	mainPlayer.onended();
 });
