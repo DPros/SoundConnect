@@ -437,7 +437,7 @@ p .text-warning, .hr {
 }
 
 
-a:hover, a:visited, a:active, a:focus, .btn-link:hover, .nav .btn-link:hover, #mute-glyph:hover {
+a:hover, a:visited, a:active, a:focus, .btn-link:hover, .nav .btn-link:hover, #mute-glyph:hover, #logout:hover {
     text-decoration: none;
     border: none;
     color: white;

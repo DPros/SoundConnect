@@ -168,8 +168,8 @@ $(document).ready(function () {
 	$('#member-div').perfectScrollbar();
 
 	var main_player = document.getElementById("main-player");
-	$('#play').click(function(){ main_player.play() }); //play when play is clicked
-	$('#pause').click(function(){ main_player.pause() }); //pause when pause clicked
+	$('#play').click(function(){ main_player.play(); }); //play when play is clicked
+	$('#pause').click(function(){ main_player.pause(); }); //pause when pause clicked
 
 	$('.volume-bar').slider({
 		range: "%",
@@ -220,7 +220,7 @@ $(document).ready(function () {
 					main_player.currentTime = 0;//track.startTime;
 					main_player.play();
 					
-				}
+//				}
 //				if (!data)
 //					alert('Something went wrong... Failed to retrieve audio');
 //				else {
