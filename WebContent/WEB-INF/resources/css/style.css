@@ -104,6 +104,10 @@ html,body {
     width: 100%;
 }
 
+#homediv {
+    text-align: center;
+}
+
 .visiblediv {
     visibility: visible;
 }
@@ -338,7 +342,7 @@ a:hover, .text-warning:hover, a:visited, a:active, a:focus, .btn-link:hover, .na
 
 #mainNavbar {
     margin-left: 70px;
-    padding-left: 20px;
+    padding-left: 30px;
     display: inline-block;
     float: none;
     padding-top: 5px;
