@@ -29,7 +29,7 @@ html,body {
 .inner-row {
     padding: 0px;
     margin: 5px 0px 0px 0px;
-    width: 70%;
+    width: 90%;
    /* overflow-x: hidden;
     overflow-y: hidden;*/
 }
@@ -54,10 +54,13 @@ html,body {
 }
 
 .search-results {
-    margin-top: 10px;
+    /*margin-top: 10px;
     margin-right: 25px;
     margin-bottom: 10px;
-    margin-left: 0px;
+    margin-left: 0px;*/
+    float: none;
+    margin: 0 auto;
+
     left: 0px;
     width: 80%;
 }
@@ -157,6 +160,7 @@ html,body {
     margin-left: 12px;
     margin-top: 10px;
     padding: 0;
+    width: 100%;
 }
 
 #custom-search-input .search-query {
@@ -391,7 +395,8 @@ a:hover, .text-warning:hover, a:visited, a:active, a:focus, .btn-link:hover, .na
 }
 
 #login_button {
-    padding: 30px;
+    padding: 10px;
+    padding-left: 70px;
     left: 30px;
 }
 

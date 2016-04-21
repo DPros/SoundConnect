@@ -34,12 +34,12 @@
 						</h4>
 					</div>
 						<div class="panel-body">
-							<h3 class="text-primary">Simply sign in via VK.COM</h3>
+							<p class="text-primary">Simply sign in via VK.COM</p>
 							<div id="login_button" onclick="VK.Auth.login(authInfo);"></div>
 						</div>
 						<div class="panel-footer">
-							<p id="node" hidden="true">Loading...</p>
-							<a id="welcome" hidden="true" href="/SoundConnect/home">LET'S GO!</a>
+							<p id="node" class="text-primary" hidden="true">Loading...</p>
+							<a id="welcome" hidden="true" class="text-primary" href="/SoundConnect/home">LET'S GO!</a>
 						</div>
 				</div>
 			</div>
