@@ -17,7 +17,7 @@
 		</div>
 		<div class="col-sm-1">
 			<button class="follow btn btn-link" data-toggle="tooltip"
-				onclick=followUser('{"id":${user.id}}') title="Unfollow">
+				onclick=unfollowUser('{"id":${user.id}}') title="Unfollow">
 				<span class="glyphicon glyphicon-minus" id="follow-glyph"></span>
 			</button>
 		</div>

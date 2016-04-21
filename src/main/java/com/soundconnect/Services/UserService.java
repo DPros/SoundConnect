@@ -22,4 +22,6 @@ public interface UserService {
 	User getUserByUName(String name) throws SQLException;
 	
 	List<User> getFollowings(long id);
+	
+	void unfollowUser(long thisId, long targetId);
 }
