@@ -14,11 +14,11 @@
 		<button type="button" class="btn btn-link" id="pause-search">
 			<span class="glyphicon glyphicon-play btn btn-link" id="search-pause-glyph"></span>
 		</button>
-		<button type="button" class="mute button btn-link" id="mute-search">
+		<button type="button" class="mute btn btn-link" id="mute-search">
 			<span class="glyphicon glyphicon-volume-off btn btn-link" id="search-mute-glyph"></span>
 		</button>
 	</div>
-	<div class="col-sm-8" id="progressOut-search">
+	<div class="col-sm-8 hiddendiv" id="progressOut-search">
 		<div id="progressIn-search">
 			<div id="time-search">00:00</div>
 		</div>

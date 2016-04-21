@@ -18,7 +18,8 @@
     position:relative;
     margin-top:10px;
     padding-right: 0px;
-    left: 20px;
+    /*left: 10px;*/
+    right: 3px;
     overflow:hidden;
     background: #050540;
     /*  -webkit-border-radius: 10px;
@@ -87,4 +88,10 @@
 #searchaudio {
     top: 20px;
     padding-bottom: 20px;
+}
+
+#search-mute-glyph{
+    font-size: 20px;
+} #search-mute-glyph {
+    font-size: 15px;
 }
