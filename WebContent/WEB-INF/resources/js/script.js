@@ -4,6 +4,7 @@
 var myAudio;
 var onAudioEnded;
 var track;
+var mainPlayer = $('#main-player');
 
 var getAudio = function (object_id, owner, id){
 	  var req = owner+'_'+id;
@@ -154,6 +155,8 @@ function clickPreviewPlay(object, owner, id) {
 
 $(document).ready(function () {
 
+	var main_player = document.getElementById("main-player");
+	
 	$('.volume-bar').slider({
 		range: "%",
 		min: 0,
@@ -188,7 +191,7 @@ $(document).ready(function () {
 		}
 	});
 
-	onAudioEnded = function () {
+	mainPlayer.onended = function() {
 		track = undefined;
 		var address = 'player/content'; // TODO what's the actual address?
 		$.ajax({
@@ -197,9 +200,11 @@ $(document).ready(function () {
 			success: function (list) {
 				$('#music-div').html(list);
 				if(track!==undefined){
-					VK.api('audio.getById', {audios: track.ownerId+'_'+track.id}, function(data){
-						$('.snd').snd(data.response[0].url, {autoplay: true}, onAudioEnded);
-					});
+					getAudio("main-player", track.ownerId, track.id);
+					alert(track.startTime);
+					main_player.currentTime = track.startTime;
+					main_player.play();
+					
 				}
 //				if (!data)
 //					alert('Something went wrong... Failed to retrieve audio');
@@ -308,6 +313,6 @@ $(document).ready(function () {
 });
 
 $(window).load(function() {
-	onAudioEnded();
+	mainPlayer.onended();
 	//alert('new non-recursive call to onAudioEnded');
 });

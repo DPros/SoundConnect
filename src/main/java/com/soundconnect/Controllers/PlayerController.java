@@ -38,9 +38,8 @@ public class PlayerController {
 		
 		
 		///////////////////////
-		model.addAttribute("time", Calendar.getInstance().getTimeInMillis()-conference.getSongStarted());
+		model.addAttribute("time", (Calendar.getInstance().getTimeInMillis()-conference.getSongStarted())/1000);
 		model.addAttribute("conference", conference);
-		System.err.println(conference.getTracks().get(0).getOwnerId());
 		return "player";
 	}
 }

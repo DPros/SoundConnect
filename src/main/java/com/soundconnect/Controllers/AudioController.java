@@ -115,7 +115,7 @@ public class AudioController {
 			//////////////////////////////////////////////////
 			
 			
-			
+			confserv.getConferenceAudio(conf);
 			conf.addAudioToConference(audio);
 			confserv.updateConferenceAudios(conf);
 		} catch (NumberFormatException e) {
