@@ -100,8 +100,6 @@ public class AudioController {
 	@RequestMapping("/add-to-conference")
 	public @ResponseBody Boolean addAudioToConference(@RequestBody Audio audio, Model model, HttpServletRequest req) {
 		User u = (User) req.getSession().getAttribute("user");
-//		System.out.println("Current session info:\nuserId: " + u.getId() + "\nconfId: "
-//				+ u.getConference());
 		if (audio == null) {
 			System.out.println("null pointer audio request");
 			return false;
@@ -118,21 +116,11 @@ public class AudioController {
 				return false;
 			}
 		try {
-			///////////////////////////////////////
-			
-			
 			Conference conf = confserv
-					.getConferenceById(((User)req.getSession().getAttribute("user")).getConference());
-			
-			
-			//////////////////////////////////////////////////
-			
-			
+					.getConferenceById(u.getConference());
 			confserv.getConferenceAudio(conf);
 			conf.addAudioToConference(audio);
 			confserv.updateConferenceAudios(conf);
-//		} catch (NumberFormatException e) {
-			
 		} catch (SQLException e) {
 			return false;
 		}
