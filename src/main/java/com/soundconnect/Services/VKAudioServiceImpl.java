@@ -13,6 +13,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.stereotype.Service;
+import org.springframework.web.util.HtmlUtils;
 
 import com.soundconnect.Beans.Audio;
 import com.soundconnect.constants.Constants;
@@ -51,8 +52,8 @@ String url = "https://api.vk.com/method/audio.search?q="+query+"&access_token="+
         for (int i=1; i<mp3list.size(); i++) {
             JSONObject mp3 = (JSONObject) mp3list.get(i);
             //test
-            System.out.println((Long) mp3.get("aid")+" xxx "+(Long)mp3.get("owner_id")+(Long)mp3.get("duration")+(String)mp3.get("title")+(String) mp3.get("artist")+(Long)mp3.get("genre"));
-            audioresp.add(new Audio((Long) mp3.get("aid"), (Long)mp3.get("owner_id"), (Long)mp3.get("duration"), (String)mp3.get("title"), (String) mp3.get("artist"), ((Long)mp3.get("genre")!=null)?(Long)mp3.get("genre"):0));
+            System.out.println((Long) mp3.get("aid")+" xxx "+(Long)mp3.get("owner_id")+(Long)mp3.get("duration")+ ((String)mp3.get("title")).replaceAll(" ", "_")+((String) mp3.get("artist")).replaceAll(" ", "_")+(Long)mp3.get("genre"));
+            audioresp.add(new Audio((Long) mp3.get("aid"), (Long)mp3.get("owner_id"), (Long)mp3.get("duration"),((String)mp3.get("title")).replaceAll(" ", "_"), ((String) mp3.get("artist")).replaceAll(" ", "_"), ((Long)mp3.get("genre")!=null)?(Long)mp3.get("genre"):0));
             //control
            // System.out.println(mp3.get("artist")+" - "+mp3.get("title")+"\n src: "+mp3.get("url"));
         }

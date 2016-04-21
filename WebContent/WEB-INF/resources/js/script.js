@@ -43,6 +43,7 @@ var vkLogin = function(username){
 }
 
 var audioAddToUser = function(au){
+	console.log(au);
 	var address = 'add-to-user';
 	var success = false;
 	$.ajax({

@@ -64,8 +64,12 @@ public class AudioController {
 			System.out.println("null pointer audio request");
 			return false;
 		}
+		
 		if (audioserv.getAudioById(audio.getId()) == null)
 			try {
+				//crunches =(
+				audio.setTitle(audio.getTitle().replaceAll("_", " "));
+				audio.setArtist(audio.getArtist().replaceAll("_", " "));
 				// analyze song before creating!!
 				audioserv.createAudio(audio);		
 			// add audio to user here!!!
@@ -99,6 +103,8 @@ public class AudioController {
 		// update if needed
 		if (audioserv.getAudioById(audio.getId()) == null)
 			try {
+				audio.setTitle(audio.getTitle().replaceAll("_", " "));
+				audio.setArtist(audio.getArtist().replaceAll("_", " "));
 				// analyze song before creating!!
 				audioserv.createAudio(audio);
 			} catch (SQLException e1) {
