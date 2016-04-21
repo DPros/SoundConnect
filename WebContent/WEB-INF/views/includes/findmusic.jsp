@@ -18,7 +18,7 @@
 			<span class="glyphicon glyphicon-volume-off btn btn-link" id="search-mute-glyph"></span>
 		</button>
 	</div>
-	<div class="col-sm-8 hiddendiv" id="progressOut-search">
+	<div class="col-sm-8" id="progressOut-search">
 		<div id="progressIn-search">
 			<div id="time-search">00:00</div>
 		</div>
