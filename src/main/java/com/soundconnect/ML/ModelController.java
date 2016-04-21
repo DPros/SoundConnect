@@ -1,5 +1,8 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Scanner;
 
 import javazoom.jl.converter.Converter;
 import javazoom.jl.decoder.JavaLayerException;
@@ -25,7 +28,7 @@ public class ModelController {
 	}
 	public void test(String pathToTest){
 		System.out.println("Model is testing:");
-		model=new Model("D:\\.android\\AudioConverter\\src\\01_fft_based_classifier.py",pathToTest);
+		model=new Model("D:\\.android\\AudioConverter\\bin\\01_fft_based_classifier.py",pathToTest);
 		System.out.println("Finished!2')");
 	}
 	public void convert(String sourcemp3,String outwav){
@@ -59,6 +62,19 @@ public class ModelController {
 	public static void main(String[] args) {
 		ModelController mc=new ModelController();
 		mc.test("D:\\.android\\AudioConverter\\test1.wav");
+		Scanner sc;
+		try {
+			sc = new Scanner(new File("D:\\.android\\AudioConverter\\src\\Output.txt"));
+			while(sc.hasNext()){
+				System.out.println(sc.next());
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
 		//mc.convert();
 		//mc.trim("D:\\.android\\AudioConverter\\src\\testSample.mp3","D:\\.android\\AudioConverter\\src\\out.mp3",30);
 		// TODO Auto-generated method stub

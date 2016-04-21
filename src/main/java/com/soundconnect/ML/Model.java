@@ -49,19 +49,23 @@ public class Model {
 		}
 		return false;
 	}
-	private void giveOutput(Process pr){
+	private  static void giveOutput(Process pr){
 		BufferedReader stdInput = new BufferedReader(new 
 			     InputStreamReader(pr.getInputStream()));
+		 BufferedReader stdError = new BufferedReader(new 
+
+	             InputStreamReader(pr.getErrorStream()));
+
 		
 		try {
 			System.out.println("Here is the standard output of the command:\n");
 			String s = null;
 			while ((s = stdInput.readLine()) != null) {
 			    System.out.println(s);
-			    if(matches(s))setGenre(s);
-				
+			   //if(matches(s))setGenre(s);
 			}
-		
+			
+			
 			
 			
 		} catch (IOException e) {
@@ -81,6 +85,11 @@ public class Model {
 * @throws IOException
 */
 public static void main(String[] args) throws IOException {
+	Runtime rt =Runtime.getRuntime();
+	String cmd="python D:\\Project\\01_fft_based_classifier.py D:\\.android\\AudioConverter\\test1.wav";
+	Process pr=rt.exec(cmd);
+	giveOutput(pr);
+	
 	
 }
 }

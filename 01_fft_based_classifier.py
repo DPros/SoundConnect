@@ -135,6 +135,9 @@ def main():
          #for label  ,genre in enumerate(genre_list):
      proba = model.lr.predict(X)
      print(genre_list[proba])
+     f = open("D:\.android\\AudioConverter\\src\\Output.txt","r+")
+     f.write(genre_list[proba])
+     f.close()
              #print(proba)
              #if maxval > proba :
                  #maxval = proba;
