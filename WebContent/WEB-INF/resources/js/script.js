@@ -178,7 +178,7 @@ $(document).ready(function () {
 			$('#main-pause-glyph').removeClass('glyphicon-play');
 			$('#main-pause-glyph').addClass('glyphicon-pause');
 		}
-	}); //pause when pause clicked
+	});
 
 	/*UPDATE PROGRESS BAR*/
 	function updateProgress() {
@@ -214,6 +214,18 @@ $(document).ready(function () {
 		seconds = (seconds >= 10) ? seconds : "0" + seconds;
 		return minutes + ":" + seconds;
 	}
+
+	$('#mute').click(function (e) {
+		if (!main_player.muted) {
+			main_player.muted = true;
+			$('#mute-glyph').removeClass('glyphicon-volume-off');
+			$('#mute-glyph').addClass('glyphicon-volume-up');
+		} else {
+			main_player.muted = false;
+			$('#mute-glyph').removeClass('glyphicon-volume-up');
+			$('#mute-glyph').addClass('glyphicon-volume-off');
+		}
+	});
 
 	$('.volume-bar').slider({
 		range: "%",

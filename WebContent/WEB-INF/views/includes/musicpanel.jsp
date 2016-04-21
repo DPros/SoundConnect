@@ -21,7 +21,7 @@
                     <button type="button" class="btn btn-link" id="pause">
                         <span class="glyphicon glyphicon-pause btn btn-link" id="main-pause-glyph"></span>
                     </button>
-                    <button type="button" class="mute button btn-link">
+                    <button type="button" class="mute button btn-link" id="mute">
                         <span class="glyphicon glyphicon-volume-off btn btn-link" id="mute-glyph"></span>
                     </button>
                 </div>
