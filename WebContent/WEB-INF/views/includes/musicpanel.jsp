@@ -17,25 +17,20 @@
     </div>
     <div id="collapse1" class="panel-collapse collapse in">
         <div class="panel-body">
-            <div class="snd">
-                <div class="toggle">
-                    <!--<button type="button" class="button btn-default toggle-play">Play</button>-->
-                    <button type="button" class="mute button btn-default">
+                <div class="btn-group" id="main-player-btn-group">
+                    <button type="button" class="btn btn-link" id="pause">
+                        <span class="glyphicon glyphicon-pause btn btn-link" id="main-pause-glyph"></span>
+                    </button>
+                    <button type="button" class="mute button btn-link">
                         <span class="glyphicon glyphicon-volume-off btn btn-link" id="mute-glyph"></span>
                     </button>
                 </div>
-                <div id="slider">
+             <!--   <div id="slider">
                     <input class="time-bar" id="rangeinput" type="range" value="0" onchange="rangevalue.value=value" />
                     <span class="highlight"></span>
                     <output id="rangevalue">0</output>
-                </div>
-
-              <!--  <span class="currenttime">00:00</span>/
-                <span class="duration">00:00</span>-->
-            </div>
+                </div>-->
 			<audio id="main-player" src="" currentTime=""></audio>
-            <button id="play">Play</button>
-            <button id="pause">Pause</button>
             <div id="progressOut">
                 <div id="progressIn">
                     <div id="time">00:00</div>

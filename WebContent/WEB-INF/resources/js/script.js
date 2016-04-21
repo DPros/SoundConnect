@@ -168,8 +168,17 @@ $(document).ready(function () {
 	$('#member-div').perfectScrollbar();
 
 	var main_player = document.getElementById("main-player");
-	$('#play').click(function(){ main_player.play(); }); //play when play is clicked
-	$('#pause').click(function(){ main_player.pause(); }); //pause when pause clicked
+	$('#pause').click(function() {
+		if (!main_player.paused) {
+			main_player.pause();
+			$('#main-pause-glyph').removeClass('glyphicon-pause');
+			$('#main-pause-glyph').addClass('glyphicon-play');
+		} else {
+			main_player.play();
+			$('#main-pause-glyph').removeClass('glyphicon-play');
+			$('#main-pause-glyph').addClass('glyphicon-pause');
+		}
+	}); //pause when pause clicked
 
 	/*UPDATE PROGRESS BAR*/
 	function updateProgress() {
