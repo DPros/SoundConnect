@@ -29,8 +29,9 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/unfollow", method = RequestMethod.POST)
-	public @ResponseBody Boolean unfollow(@RequestBody String id, Model model, HttpServletRequest request){
-		
+	public @ResponseBody Boolean unfollow(@RequestBody Long id, Model model, HttpServletRequest request){
+		System.out.println("Unfollow: "+id);
+		userserv.unfollowUser(((User)request.getSession().getAttribute("user")).getId(), (Long) id);
 		return true;
 	}
 }

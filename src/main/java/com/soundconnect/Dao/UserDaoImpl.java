@@ -27,7 +27,7 @@ public class UserDaoImpl implements UserDao{
 	final String deleteAudio = "UPDATE users SET audios=array_erase(audios, ?) WHERE id=?";
 	final String getFollowings = "SELECT * FROM users WHERE ARRAY[id] && (SELECT following FROM users WHERE id=?)";
 	final String getUserByUName = "SELECT * FROM users WHERE username=?"; 
-	final String unfollowUser = "UPDATE users SET following=array_erase(following, ?) WHERE id=?";
+	final String unfollowUser = "update users set following = array_erase(following, CAST(? AS bigint)) where id = ?";
 	
 	
 	@Autowired
@@ -120,7 +120,7 @@ public class UserDaoImpl implements UserDao{
 
 	@Override
 	public void unfollowUser(long thisId, long targetId) {
-		jdbcTemplate.update(unfollowUser, thisId, targetId);		
+		jdbcTemplate.update(unfollowUser, targetId, thisId);		
 	}
 
 }
