@@ -104,10 +104,6 @@ html,body {
     width: 100%;
 }
 
-#homediv {
-    text-align: center;
-}
-
 .visiblediv {
     visibility: visible;
 }
@@ -125,6 +121,13 @@ html,body {
 .text-primary {
     color: #251D26;
     font-family: 'Quicksand', sans-serif;
+}
+
+.txt {
+    text-align: center;
+}
+.txt-small {
+    font-size: 20px;
 }
 
 .text-warning {
@@ -356,7 +359,7 @@ a:hover, .text-warning:hover, a:visited, a:active, a:focus, .btn-link:hover, .na
 
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
 .row.content {
-    height: 670px;
+    height: 47em; /*670px;*/
     overflow-x: hidden;
     overflow-y: hidden;
     border: 0;

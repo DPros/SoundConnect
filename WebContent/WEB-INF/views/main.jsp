@@ -123,9 +123,8 @@ VK.init({
 			</div>
 			<div class="col-sm-6 text-left" id="centre-panel">
 				<div id="homediv" class="visiblediv scrollfixed">
-					<h1>Welcome</h1>
-					<h2>SoundConnect</h2>
-					<p>... is a special service that allows you to communicate with your friends using the only one language -- MUSIC!</p>
+					<h2 class="text-primary txt">Welcome to Sound Connect!</h2>
+					<p class="text-primary txt txt-small">A special service that allows you to communicate with your friends using the only one language - MUSIC!</p>
 				</div>
 				<div id="finddiv" class="hiddendiv scrollfixed">
 					<div class="input-group col-md-12" id="custom-search-input">
