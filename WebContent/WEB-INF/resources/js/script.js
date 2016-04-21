@@ -183,12 +183,12 @@ $(document).ready(function () {
 		//else if it is > 0 calculate percentage to highlight
 
 		else if (main_player.currentTime > 0) {
-			value = Math.floor((100 / main_player.duration) * main_player.currentTime);
+			value = Math.floor((100 / main_player.duration) * main_player.currentTime) + 10;
 		}
 
 		//set the width of the progress bar
 
-		progress.stop().css({'width':value + '%'},500)
+		progress.stop().css({'width':value + '%'},500);
 
 		//set the new timestamp
 		$('#time').html(formatTime(main_player.currentTime))
