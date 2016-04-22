@@ -38,7 +38,6 @@ public class PlayerController {
 		model.addAttribute("time", (now-conference.getSongStarted())/1000);
 		System.out.println("Gonna start at "+(now-conference.getSongStarted())/1000);
 		model.addAttribute("conference", conference);
-		System.out.println(conference.getUsers().size());
 		model.addAttribute("members", conference.getUsers());
 		return "includes/playerAndMembers";
 	}

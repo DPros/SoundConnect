@@ -469,7 +469,6 @@ $(document).ready(function () {
     		},
     		error: function(xhr, status, error){
     			$.notify('Something went wrong... Failed to get data', 'error');
-    			console.log(xhr);
     		}
     	});
     });
@@ -495,8 +494,8 @@ $(document).ready(function () {
     			$('#my-recommended-list').html(data);
     		},
     		error: function(xhr, status, error){
-    			alert('Something went wrong... Failed to get data'+error+status+xhr);
-    			console.log(xhr);
+    			$.notify('Something went wrong... Failed to get data', 'error');
+
     		}
     	});
     });
@@ -510,7 +509,7 @@ $(document).ready(function () {
 		$('#mymusicdiv').removeClass('visiblediv').addClass('hiddendiv');
 		$('#recdiv').removeClass('visiblediv').addClass('hiddendiv');
 		$('#profilediv').removeClass('hiddendiv').addClass('visiblediv');
-	});
+    });
 
 
 	/* Shows the my music div */

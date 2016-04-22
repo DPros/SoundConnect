@@ -7,7 +7,7 @@
 --%>
 <div>
     <div class="row center-block">
-        <p class="text-primary profile-text">Hi, <b>User</b>!</p>
+        <p class="text-primary profile-text">Hi, <b>${usernamelabel }</b>!</p>
     </div>
     <div class="input-group row center-block">
         <form action="changename" method="post" id="change-username">

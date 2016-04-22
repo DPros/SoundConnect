@@ -31,15 +31,28 @@ public class UserController {
 	
 	@RequestMapping(value="/unfollow", method = RequestMethod.POST)
 	public @ResponseBody Boolean unfollow(@RequestBody Long id, Model model, HttpServletRequest request){
-		userserv.unfollowUser(((User)request.getSession().getAttribute("user")).getId(), (Long) id);
+		userserv.unfollowUser((Long) request.getSession().getAttribute("userId"), (Long) id);
 		return true;
+	}
+	
+	@RequestMapping(value="/changename", method = RequestMethod.POST)
+	public String viewName(@RequestBody String query, Model model, HttpServletRequest request){
+		try {
+			String name = query.substring(query.indexOf('=')+1, query.length());
+			name=name.replace('+', ' ');
+			userserv.updateUserName(name, (Long) request.getSession().getAttribute("userId"));
+			model.addAttribute("usernamelabel", name);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "main";
 	}
 	
 	@RequestMapping(value="/fetchconnect", method = RequestMethod.POST)
 	public @ResponseBody Boolean fetchConnect(@RequestBody Long id, Model model, HttpServletRequest request){
-		User u = ((User) request.getSession().getAttribute("user"));
 		try {
-			userserv.updateUserConference(userserv.getUserById(id).getConference(), u.getId());
+			userserv.updateUserConference(userserv.getUserById(id).getConference(), (Long) request.getSession().getAttribute("userId"));
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

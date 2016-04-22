@@ -52,7 +52,7 @@ public class ConferenceDaoImpl implements ConferenceDAO{
 			preparedStatement.setArray(2, jdbcTemplate.getDataSource().getConnection().createArrayOf("bigint", conference.getAudioIds()));
 			preparedStatement.setLong(3, conference.getSongStarted());
 			preparedStatement.setString(4, conference.getPassword());
-			preparedStatement.executeQuery();
+			preparedStatement.executeUpdate();
 			if(preparedStatement.getGeneratedKeys().next()){
 				id = preparedStatement.getGeneratedKeys().getLong(1);
 			}

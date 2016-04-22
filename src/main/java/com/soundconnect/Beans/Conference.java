@@ -1,5 +1,7 @@
 package com.soundconnect.Beans;
 
+import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
@@ -18,7 +20,11 @@ public class Conference {
 		this.id = id;
 		this.setPassword(password);
 		this.users = users;
+		if(users==null)
+			users = new HashSet<User>();
 		tracks = audios;
+		if(tracks==null)
+			tracks = new LinkedList<Audio>();
 		this.songStarted = songStarted;
 	}
 
