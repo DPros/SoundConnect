@@ -400,7 +400,6 @@ $(document).ready(function () {
 			type: "GET",
 			url: address,
 			success: function (list) {
-				alert(list);
 				$('#music-div').html(list);
 				$('#member-div').html($('#music-div').find('#member-content').html());
 				$('#member-content').hide();
