@@ -52,7 +52,9 @@ public class UserController {
 	@RequestMapping(value="/fetchconnect", method = RequestMethod.POST)
 	public @ResponseBody Boolean fetchConnect(@RequestBody Long id, Model model, HttpServletRequest request){
 		try {
-			userserv.updateUserConference(userserv.getUserById(id).getConference(), (Long) request.getSession().getAttribute("userId"));
+			User u = userserv.getUserById(id);
+			userserv.updateUserConference(u.getConference(), (Long) request.getSession().getAttribute("userId"));
+			request.getSession().setAttribute("confId", u.getConference());
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
