@@ -9,15 +9,19 @@
     <div class="row center-block">
         <p class="text-primary">Hi, User!</p>
     </div>
-    <div class="row center-block">
+    <div class="input-group row center-block">
         <form action="changename" method="post" id="change-username">
-            <input type="text" class="search-query form-control" name="query" />
+            <input type="text" class="search-query form-control" placeholder="Change your name" name="query" />
             <span class="input-group-btn">
-                <button type="submit" class="btn btn-link" id="searchbtn">
+                <button type="submit" class="btn btn-link" id="changebtn">
                     <span class="glyphicon glyphicon-ok"></span>
                 </button>
             </span>
         </form>
+    </div>
+    <div class="row"></div>
+    <div class="row center-block">
+        <p class="text-primary">Hi, User!</p>
     </div>
 
 
