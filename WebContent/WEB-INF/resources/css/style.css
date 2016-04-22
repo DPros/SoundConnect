@@ -164,7 +164,7 @@ html,body {
     width: 100%;
 }
 
-#custom-search-input .search-query, #change-username .search-query {
+#custom-search-input .search-query, #change-username .search-query, #create-conference .search-query {
     width: 100%;
     padding-right: 10px; \9
     padding-left: 10px;
@@ -183,41 +183,8 @@ html,body {
     border-radius: 20px;
 }
 
-::-webkit-input-placeholder {
-    color: #F925F9;
-}
 
-:-moz-placeholder { /* Firefox 18- */
-    color: #F925F9;
-}
-
-::-moz-placeholder {  /* Firefox 19+ */
-    color: #F925F9;
-}
-
-:-ms-input-placeholder {
-    color: #F925F9;
-}
-
-#searchbtn {
-    border: 0;
-    background: none;
-    /** belows styles are working good */
-    padding: 5px 5px;
-    margin-top: 2px;
-    position: absolute;
-    left: -28px;
-    /* IE7-8 doesn't have border-radius, so don't indent the padding */
-    margin-bottom: 0;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    /*color: #67DE40;*/
-    /* orange-red */
-    color: #602759;
-}
-
-#changebtn {
+#searchbtn, #changebtn, #confbtn {
     border: 0;
     background: none;
     /** belows styles are working good */
