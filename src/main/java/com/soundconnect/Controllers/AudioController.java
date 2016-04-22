@@ -66,7 +66,6 @@ public class AudioController {
 
 	@RequestMapping("/add-to-user")
 	public @ResponseBody Boolean addAudioToUser(@RequestBody Audio audio, Model model, HttpServletRequest req) {
-		User u = (User) req.getSession().getAttribute("user");
 		if (audio == null) {
 			System.out.println("null pointer audio request");
 			return false;
@@ -84,14 +83,14 @@ public class AudioController {
 				return false;
 			}
 		try {
-			userserv.addAudio(audio.getId(), u.getId());
+			userserv.addAudio(audio.getId(), (Long)req.getSession().getAttribute("userId"));
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		System.out.println("Current session info:\nuserId: " + u.getId() + "\nconfId: "
-				+ u.getConference());
+		System.out.println("Current session info:\nuserId: " + (Long)req.getSession().getAttribute("userId") + "\nconfId: "
+				+ (Long)req.getSession().getAttribute("confId"));
 
 		System.out.println("ADDING AUDIO TO USER; AID=" + audio.getId());
 		return true;
@@ -99,7 +98,6 @@ public class AudioController {
 
 	@RequestMapping("/add-to-conference")
 	public @ResponseBody Boolean addAudioToConference(@RequestBody Audio audio, Model model, HttpServletRequest req) {
-		User u = (User) req.getSession().getAttribute("user");
 		if (audio == null) {
 			System.out.println("null pointer audio request");
 			return false;
@@ -117,8 +115,9 @@ public class AudioController {
 			}
 		try {
 			Conference conf = confserv
-					.getConferenceById(u.getConference());
+					.getConferenceById((Long)req.getSession().getAttribute("confId"));
 			confserv.getConferenceAudio(conf);
+			if(conf.getTracks().isEmpty())conf.setSongStarted(0);
 			conf.addAudioToConference(audio);
 			confserv.updateConferenceAudios(conf);
 		} catch (SQLException e) {
@@ -130,20 +129,19 @@ public class AudioController {
 	
 	@RequestMapping("/remove-from-user")
 	public @ResponseBody Boolean removeAudioFromUser(@RequestBody Audio audio, Model model, HttpServletRequest req){
-		User u = (User) req.getSession().getAttribute("user");
 		if (audio == null) {
 			System.out.println("null pointer audio request");
 			return false;
 		}
 		try {
 			// add audio to user here!!!
-			userserv.deleteAudio(audio.getId(), u.getId());
+			userserv.deleteAudio(audio.getId(), (Long)req.getSession().getAttribute("userId"));
 		} catch (NumberFormatException e) {
 		} catch (SQLException e) {
 			return false;
 		}
-		System.out.println("Current session info:\nuserId: " + u.getId() + "\nconfId: "
-				+ u.getConference());
+		System.out.println("Current session info:\nuserId: " + (Long) req.getSession().getAttribute("userId") + "\nconfId: "
+				+ Long.parseLong((String) req.getSession().getAttribute("confId")));
 
 		System.out.println("DELETING AUDIO FROM USER; AID=" + audio.getId());
 		return true;

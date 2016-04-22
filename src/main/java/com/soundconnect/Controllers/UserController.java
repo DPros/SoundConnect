@@ -21,8 +21,7 @@ public class UserController {
 	
 	@RequestMapping(value="/followings", method=RequestMethod.POST)
 	public String listFollowedByMe(Model model, HttpServletRequest request){
-		User u = (User) request.getSession().getAttribute("user");
-		model.addAttribute("followedusers", userserv.getFollowings(u.getId()));
+		model.addAttribute("followedusers", userserv.getFollowings((Long) request.getSession().getAttribute("userId")));
 		return "includes/following";
 	}
 }

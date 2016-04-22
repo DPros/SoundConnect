@@ -15,7 +15,7 @@ public class MainController {
 	
 	@RequestMapping(value={"/home", "/"})
 	public ModelAndView viewMain(Model model, HttpServletRequest request){
-		if(request.getSession().getAttribute("user")==null)
+		if(request.getSession().getAttribute("userId")==null)
 			return new ModelAndView("redirect:/auth");
 		return new ModelAndView("main");
 	}

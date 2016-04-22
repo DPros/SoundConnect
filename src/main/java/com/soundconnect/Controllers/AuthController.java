@@ -80,7 +80,8 @@ public class AuthController {
 			return false;
 		}
 		//session
-		 request.getSession().setAttribute("user", u);
+		 request.getSession().setAttribute("userId", u.getId());
+		 request.getSession().setAttribute("confId", u.getConference());
 		return true;
 
 	}

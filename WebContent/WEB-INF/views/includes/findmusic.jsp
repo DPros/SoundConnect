@@ -23,14 +23,14 @@
 			<div id="time-search">00:00</div>
 		</div>
 	</div>
-	<audio id="player/search" src="" currentTime=""></audio>
+	<audio id="player/search" src="" currentTime="" autoplay></audio>
 </div>
 
 <c:forEach items="${audios}" var="audio">
 	<div class="row search-results" id="search-results/${audio.id}">
 		<div class="col-sm-2">
 			<a href="javascript:void(0)" class="btn btn-link" id="previewbtn" data-toggle="tooltip" title="Preview" onclick="clickPreviewPlay('player/search', ${audio.ownerId}, ${audio.id })">
-				<span class="glyphicon glyphicon-play" id="play-glyph/${audio.id}"></span>
+				<span class="glyphicon glyphicon-play preview-trigger" id="play-glyph/${audio.id}"></span>
 			</a>
 		</div>
 		<div class="col-sm-8">

@@ -1,6 +1,5 @@
 package com.soundconnect.Services;
 
-import java.lang.reflect.Array;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -76,15 +75,20 @@ public class ConferenceServiceImpl implements ConferenceService{
 		Conference conference = getConferenceById(id);
 		getConferenceAudio(conference);
 		if(!conference.getTracks().isEmpty()){
-			System.out.println("Started: "+conference.getSongStarted());
-			System.out.println("now: "+now);
+			Calendar calendar = Calendar.getInstance();
+			calendar.setTimeInMillis(conference.getSongStarted());
+			System.out.println("Started: "+calendar.getTime());
+			calendar.setTimeInMillis(now);
+			System.out.println("now: "+calendar.getTime());
+			System.out.println("length: "+conference.getTracks().get(0).getLength()/60.);
 			System.out.println("-----------");
+			System.out.println("diff"+(now - conference.getTracks().get(0).getLength() - conference.getSongStarted()));
 			if(conference.getSongStarted() < now - conference.getTracks().get(0).getLength()*1000){
 				if(conference.getSongStarted()!=0){
 					conference.getTracks().remove(0);
-					conferenceDAO.updateConferenceAudios(conference);
 				}
 				conference.setSongStarted(now);
+				conferenceDAO.updateConferenceAudios(conference);
 			}
 		}
 		return conference;
