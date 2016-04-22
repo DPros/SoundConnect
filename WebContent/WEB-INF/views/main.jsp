@@ -65,9 +65,9 @@ VK.init({
 								</button>
 								<a class="navbar-brand" href="#">SoundConnect</a>
 							</div>
-							<div class="col-sm-4"></div>
+							<div class="col-sm-3"></div>
 							<div class="collapse navbar-collapse" id="myNavbar">
-								<ul class="nav navbar-nav col-sm-8	" id="mainNavbar">
+								<ul class="nav navbar-nav col-sm-9" id="mainNavbar">
 									<li class="active central-menu"><button type="button"
 															   class="btn btn-link btn-lg" id="homebtn">HOME</button></li>
 									<li class="central-menu"><button type="button" class="btn btn-link btn-lg"
