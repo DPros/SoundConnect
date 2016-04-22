@@ -7,7 +7,7 @@
 --%>
 <div>
     <div class="row center-block">
-        <p class="text-primary">Hi, User!</p>
+        <p class="text-primary profile-text">Hi, <b>User</b>!</p>
     </div>
     <div class="input-group row center-block">
         <form action="changename" method="post" id="change-username">
@@ -20,7 +20,7 @@
         </form>
     </div>
     <div class="row"></div>
-    <div class="row center-block">
+    <div class="row center-block profile-text">
         <p class="text-primary">Create a new conference</p>
     </div>
     <div class="input-group row center-block">

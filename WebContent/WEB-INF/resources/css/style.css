@@ -202,6 +202,10 @@ html,body {
     color: #602759;
 }
 
+.profile-text {
+    font-size: 17px;
+}
+
 .search-query:focus + button {
     z-index: 3;
 }
@@ -344,7 +348,7 @@ a:hover, .text-warning:hover, a:visited, a:active, a:focus, .btn-link:hover, .na
 }
 
 #mainNavbar {
-    margin-left: 70px;
+    margin-left: 40px;
     padding-left: 30px;
     display: inline-block;
     float: none;
