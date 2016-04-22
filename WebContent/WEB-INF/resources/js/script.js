@@ -144,12 +144,12 @@ var connectToUsersConf = function(id){
 		success: function(data){
 			//action like this	
 			if(!data)
-				alert('Failed =(');
+				$.notify('Failed to connect =(', 'error');
 			else
-				alert('Connected');
+				$.notify('Connected', 'success');
 		},
 		error: function(xhr, status, error){
-			alert('Something went wrong... Failed to connect ');
+			$.notify('Failed to connect =(', 'error');
 		}
 	});
 };
@@ -165,9 +165,9 @@ var unfollowUser = function(id){
 			success: function(data){
 				//action like this	
 				if(!data)
-					alert('Failed =(');
+					$.notify('Failed in unfollowing =(', 'error');
 				else
-					alert('Unfollowed');
+					$.notify('Unfollowed', 'success');
 			},
 			error: function(xhr, status, error){
 				alert('Something went wrong... Failed to connect ');
