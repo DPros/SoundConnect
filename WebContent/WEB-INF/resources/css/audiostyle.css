@@ -88,6 +88,7 @@
 #searchaudio {
     top: 20px;
     padding-bottom: 20px;
+    margin: 0 auto;
 }
 
 #search-mute-glyph{

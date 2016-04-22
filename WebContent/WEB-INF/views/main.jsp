@@ -65,9 +65,9 @@ VK.init({
 								</button>
 								<a class="navbar-brand" href="#">SoundConnect</a>
 							</div>
-							<div class="col-sm-4"></div>
+							<div class="col-sm-3"></div>
 							<div class="collapse navbar-collapse" id="myNavbar">
-								<ul class="nav navbar-nav col-sm-8	" id="mainNavbar">
+								<ul class="nav navbar-nav col-sm-9" id="mainNavbar">
 									<li class="active central-menu"><button type="button"
 															   class="btn btn-link btn-lg" id="homebtn">HOME</button></li>
 									<li class="central-menu"><button type="button" class="btn btn-link btn-lg"
@@ -77,6 +77,8 @@ VK.init({
 									<li class="central-menu"><button type="button" class="btn btn-link btn-lg" id="recbtn">RECOMMENDED</button></li>
 									<li class="central-menu"><button type="button" class="btn btn-link btn-lg"
 												id="mymusicbtn">MY MUSIC</button></li>
+									<li class="central-menu"><button type="button" class="btn btn-link btn-lg"
+																	 id="profilebtn">PROFILE</button></li>
 								</ul>
 								<ul class="nav navbar-nav navbar-right">
 									<li><a href="/SoundConnect/logout" id="logout"> <span
@@ -152,7 +154,21 @@ VK.init({
 				</div>
 			</div>
 			<div class="col-sm-3 sidenav" id="right-panel">
-				<jsp:include page="includes/members.jsp" />
+				<div class="panel panel-info" id="members-panel">
+				    <div class="panel-heading">
+				        <h4 class="panel-title">
+				            <a id="collapse-members" data-toggle="collapse" href="#collapse2">
+				                <span class="text-warning">Members</span>
+				                <span class="glyphicon glyphicon-eye-open btn btn-link" id="members-glyph"></span>
+				            </a>
+				        </h4>
+				    </div>
+				    <div id="collapse2" class="panel-collapse collapse in">
+				        <div class="panel-body scrollfixed" id="member-div">
+							<jsp:include page="includes/members.jsp" />
+				        </div>
+				    </div>
+				</div>
 			</div>
 		</div>
 	</div>
