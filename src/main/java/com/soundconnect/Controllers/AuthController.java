@@ -25,6 +25,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.soundconnect.Beans.User;
+import com.soundconnect.Services.ConferenceService;
 import com.soundconnect.Services.UserService;
 import com.soundconnect.Utils.MD5;
 
@@ -33,6 +34,9 @@ import com.soundconnect.Utils.MD5;
 public class AuthController {
 	@Autowired
 	private UserService userv;
+	
+	@Autowired
+	private ConferenceService comferenceService;
 	
 	@RequestMapping(value = "/auth", method = RequestMethod.GET)
 	public String hello(Model model, HttpServletRequest request) {
@@ -58,6 +62,7 @@ public class AuthController {
 		if (u != null) {
 			request.getSession().setAttribute("userId", u.getId());
 			request.getSession().setAttribute("confId", u.getConference());
+			
 		}
 		return model;
 
@@ -82,6 +87,7 @@ public class AuthController {
 		//session
 		 request.getSession().setAttribute("userId", u.getId());
 		 request.getSession().setAttribute("confId", u.getConference());
+		 comferenceService.getConferenceById(u.getConference()).getUsers().add(u);
 		return true;
 
 	}

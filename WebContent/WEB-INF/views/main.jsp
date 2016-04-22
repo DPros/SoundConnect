@@ -154,7 +154,21 @@ VK.init({
 				</div>
 			</div>
 			<div class="col-sm-3 sidenav" id="right-panel">
-				<jsp:include page="includes/members.jsp" />
+				<div class="panel panel-info" id="members-panel">
+				    <div class="panel-heading">
+				        <h4 class="panel-title">
+				            <a id="collapse-members" data-toggle="collapse" href="#collapse2">
+				                <span class="text-warning">Members</span>
+				                <span class="glyphicon glyphicon-eye-open btn btn-link" id="members-glyph"></span>
+				            </a>
+				        </h4>
+				    </div>
+				    <div id="collapse2" class="panel-collapse collapse in">
+				        <div class="panel-body scrollfixed" id="member-div">
+							<jsp:include page="includes/members.jsp" />
+				        </div>
+				    </div>
+				</div>
 			</div>
 		</div>
 	</div>
