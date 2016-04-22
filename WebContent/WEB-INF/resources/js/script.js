@@ -133,6 +133,48 @@ var AudioAddToConference = function(au){
 	});
 };
 
+var connectToUsersConf = function(id){
+	var address = 'fetchconnect';
+	$.ajax({
+		type: "POST",
+		url: address,
+		data: id,
+		contentType: "application/json; charset=utf-8",
+		dataType: 'json',
+		success: function(data){
+			//action like this	
+			if(!data)
+				alert('Failed =(');
+			else
+				alert('Connected');
+		},
+		error: function(xhr, status, error){
+			alert('Something went wrong... Failed to connect ');
+		}
+	});
+};
+
+var unfollowUser = function(id){
+	var address = 'unfollow';
+		$.ajax({
+			type: "POST",
+			url: address,
+			data: id,
+			contentType: "application/json; charset=utf-8",
+			dataType: 'json',
+			success: function(data){
+				//action like this	
+				if(!data)
+					alert('Failed =(');
+				else
+					alert('Unfollowed');
+			},
+			error: function(xhr, status, error){
+				alert('Something went wrong... Failed to connect ');
+			}
+		});
+};
+
 var onSearchAudioPlayed = function(search_player) {
 	console.log(search_player);
 	if (!search_player.paused) {
@@ -439,6 +481,22 @@ $(document).ready(function () {
 		$('#mymusicdiv').removeClass('visiblediv').addClass('hiddendiv');
 		$('#profilediv').removeClass('visiblediv').addClass('hiddendiv');
         $('#recdiv').removeClass('hiddendiv').addClass('visiblediv');
+        
+        var address = 'recommended';
+        var id =0;
+    	$.ajax({
+    		type: "POST",
+    		url: address,
+    		data: id,
+    		contentType: "application/json; charset=utf-8",
+    		success: function(data){
+    			$('#my-recommended-list').html(data);
+    		},
+    		error: function(xhr, status, error){
+    			alert('Something went wrong... Failed to get data'+error+status+xhr);
+    			console.log(xhr);
+    		}
+    	});
     });
 
 	/* Shows the user's profile */

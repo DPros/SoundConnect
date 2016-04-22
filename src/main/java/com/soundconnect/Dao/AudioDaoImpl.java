@@ -27,6 +27,7 @@ public class AudioDaoImpl implements AudioDao{
 	final String deleteAudio = "DELETE FROM audios WHERE id=?";
 	final String createAudio = "INSERT INTO audios (id, owner_id, length, title , artist, genre) VALUES (?, ?, ?, ?, ?, ?)";
 	final String getAudioById = "SELECT * FROM audios WHERE id=?";
+	final String getRecommended = "SELECT * FROM audios WHERE genre=? LIMIT 50";
 	
 	@Override
 	public List<Audio> getAudioByUser(long id) {
@@ -90,4 +91,8 @@ public class AudioDaoImpl implements AudioDao{
 		}
 		
 	}
+
+	@Override
+	public List<Audio> getRecomendedAudio(long genre) {
+		return jdbcTemplate.query(getRecommended, new Object[]{genre}, new AudioMapper());	}
 }

@@ -24,4 +24,6 @@ public interface UserDao {
 	void deleteAudio(long audioId, long userId) throws SQLException;
 	
 	List<User> getFollowings(long userId);
+	
+	void unfollowUser(long thisId, long targetId);
 }

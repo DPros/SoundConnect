@@ -55,4 +55,9 @@ public class UserServiceImpl implements UserService{
 		return userDao.getFollowings(id);
 	}
 
+	@Override
+	public void unfollowUser(long thisId, long targetId) {
+		userDao.unfollowUser(thisId, targetId);
+	}
+
 }

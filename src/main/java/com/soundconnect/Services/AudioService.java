@@ -16,4 +16,6 @@ public interface AudioService {
 	void createAudio(Audio audio) throws SQLException;
 	
 	void deleteAudio(long id);
+	
+	List<Audio> getRecommended(long genre);
 }
