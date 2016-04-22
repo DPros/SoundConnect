@@ -39,8 +39,7 @@ public class AudioController {
 
 	@RequestMapping("/recommended")
 	public String getRecommended(Model model, HttpServletRequest request) {
-		User u = (User) request.getSession().getAttribute("user");
-		List<Audio> list = audioserv.getAudioByUser(u.getId());
+		List<Audio> list = audioserv.getAudioByUser((Long) request.getSession().getAttribute("userId"));
 		List<Long> alreadyAdded = new ArrayList<Long>(list.size());
 		int maxcount = 0, nn = 0;
 		for (int i = 0; i < list.size(); i++) {
@@ -87,9 +86,8 @@ public class AudioController {
 
 	@RequestMapping(value = "/list-music", method = { RequestMethod.POST })
 	public String listMusic(Model model, HttpServletRequest request) {
-		User u = (User) request.getSession().getAttribute("user");
 		List<Audio> list = new LinkedList<Audio>();
-		for (Audio a : audioserv.getAudioByUser(u.getId())) {
+		for (Audio a : audioserv.getAudioByUser((Long) request.getSession().getAttribute("userId"))) {
 			a.setTitle(a.getTitle().replaceAll(" ", "_"));
 			a.setArtist(a.getArtist().replaceAll(" ", "_"));
 			list.add(a);
