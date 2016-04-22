@@ -77,6 +77,8 @@ VK.init({
 									<li class="central-menu"><button type="button" class="btn btn-link btn-lg" id="recbtn">RECOMMENDED</button></li>
 									<li class="central-menu"><button type="button" class="btn btn-link btn-lg"
 												id="mymusicbtn">MY MUSIC</button></li>
+									<li class="central-menu"><button type="button" class="btn btn-link btn-lg"
+																	 id="profilebtn">PROFILE</button></li>
 								</ul>
 								<ul class="nav navbar-nav navbar-right">
 									<li><a href="/SoundConnect/logout" id="logout"> <span
