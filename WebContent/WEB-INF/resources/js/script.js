@@ -400,7 +400,10 @@ $(document).ready(function () {
 			type: "GET",
 			url: address,
 			success: function (list) {
+				alert(list);
 				$('#music-div').html(list);
+				$('#member-div').html($('#music-div').find('#member-content').html());
+				$('#member-content').hide();
 				if(track!==undefined){
 					getAudio("main-player", track.ownerId, track.id);
 					mainPlayer.currentTime = track.startTime;
