@@ -42,5 +42,10 @@ public class AudioServiceImpl implements AudioService{
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public List<Audio> getRecommended(long genre) {
+		return audioDao.getRecomendedAudio(genre);
+	}
 	
 }

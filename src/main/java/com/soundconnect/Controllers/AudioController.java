@@ -20,21 +20,55 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.net.URLEncoder;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 @Controller
-@SessionAttributes({ "user"})
+@SessionAttributes({ "user" })
 public class AudioController {
 
 	@Autowired
 	AudioService audioserv;
-	@Autowired							
+	@Autowired
 	VKAudioService service;
 	@Autowired
 	UserService userserv;
 	@Autowired
 	ConferenceService confserv;
+
+	@RequestMapping("/recommended")
+	public String getRecommended(Model model, HttpServletRequest request) {
+		User u = (User) request.getSession().getAttribute("user");
+		List<Audio> list = audioserv.getAudioByUser(u.getId());
+		List<Long> alreadyAdded = new ArrayList<Long>(list.size());
+		int maxcount = 0, nn = 0;
+		for (int i = 0; i < list.size(); i++) {
+			alreadyAdded.add(list.get(i).getId());
+			int count = 0;
+			for (int j = i; j < list.size(); j++)
+				if (list.get(i).getGenre() == list.get(j).getGenre())
+					count++;
+
+			if (maxcount < count) {
+				maxcount = count;
+				nn = i;
+			}
+		}
+		List<Audio> list2 = audioserv.getRecommended(list.get(nn).getGenre());
+		list=new ArrayList<Audio>(list2.size());
+		Audio a;
+		for(int i=0; i<list2.size(); ++i){
+			a=list2.get(i);
+			//my crunches
+			a.setArtist(a.getArtist().replace(" ", "_"));
+			a.setTitle(a.getTitle().replace(" ", "_"));
+			if(!alreadyAdded.contains(a.getId()))
+				list.add(a);
+		}
+		model.addAttribute("recaudios", list);
+		return "includes/recommended";
+	}
 
 	@RequestMapping("/search")
 	// @RequestMapping(method=RequestMethod.POST)
@@ -50,12 +84,12 @@ public class AudioController {
 		}
 		return "includes/findmusic";
 	}
-	
-	@RequestMapping(value="/list-music", method = {RequestMethod.POST})
-	public String listMusic(Model model, HttpServletRequest request){
+
+	@RequestMapping(value = "/list-music", method = { RequestMethod.POST })
+	public String listMusic(Model model, HttpServletRequest request) {
 		User u = (User) request.getSession().getAttribute("user");
-		List <Audio> list = new LinkedList<Audio>();
-		for (Audio a : audioserv.getAudioByUser(u.getId())){
+		List<Audio> list = new LinkedList<Audio>();
+		for (Audio a : audioserv.getAudioByUser(u.getId())) {
 			a.setTitle(a.getTitle().replaceAll(" ", "_"));
 			a.setArtist(a.getArtist().replaceAll(" ", "_"));
 			list.add(a);
@@ -71,15 +105,15 @@ public class AudioController {
 			System.out.println("null pointer audio request");
 			return false;
 		}
-		
+
 		if (audioserv.getAudioById(audio.getId()) == null)
 			try {
-				//crunches =(
+				// crunches =(
 				audio.setTitle(audio.getTitle().replaceAll("_", " "));
 				audio.setArtist(audio.getArtist().replaceAll("_", " "));
 				// analyze song before creating!!
-				audioserv.createAudio(audio);		
-			// add audio to user here!!!
+				audioserv.createAudio(audio);
+				// add audio to user here!!!
 			} catch (SQLException e1) {
 				return false;
 			}
@@ -89,9 +123,8 @@ public class AudioController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		System.out.println("Current session info:\nuserId: " + u.getId() + "\nconfId: "
-				+ u.getConference());
+
+		System.out.println("Current session info:\nuserId: " + u.getId() + "\nconfId: " + u.getConference());
 
 		System.out.println("ADDING AUDIO TO USER; AID=" + audio.getId());
 		return true;
@@ -116,8 +149,7 @@ public class AudioController {
 				return false;
 			}
 		try {
-			Conference conf = confserv
-					.getConferenceById(u.getConference());
+			Conference conf = confserv.getConferenceById(u.getConference());
 			confserv.getConferenceAudio(conf);
 			conf.addAudioToConference(audio);
 			confserv.updateConferenceAudios(conf);
@@ -127,9 +159,9 @@ public class AudioController {
 		System.out.println("ADDING AUDIO TO CONFERENCE; AID=" + audio.getId());
 		return true;
 	}
-	
+
 	@RequestMapping("/remove-from-user")
-	public @ResponseBody Boolean removeAudioFromUser(@RequestBody Audio audio, Model model, HttpServletRequest req){
+	public @ResponseBody Boolean removeAudioFromUser(@RequestBody Audio audio, Model model, HttpServletRequest req) {
 		User u = (User) req.getSession().getAttribute("user");
 		if (audio == null) {
 			System.out.println("null pointer audio request");
@@ -142,8 +174,7 @@ public class AudioController {
 		} catch (SQLException e) {
 			return false;
 		}
-		System.out.println("Current session info:\nuserId: " + u.getId() + "\nconfId: "
-				+ u.getConference());
+		System.out.println("Current session info:\nuserId: " + u.getId() + "\nconfId: " + u.getConference());
 
 		System.out.println("DELETING AUDIO FROM USER; AID=" + audio.getId());
 		return true;

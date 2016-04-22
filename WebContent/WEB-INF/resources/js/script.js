@@ -473,6 +473,22 @@ $(document).ready(function () {
 		$('#mymusicdiv').removeClass('visiblediv').addClass('hiddendiv');
 		$('#profilediv').removeClass('visiblediv').addClass('hiddendiv');
         $('#recdiv').removeClass('hiddendiv').addClass('visiblediv');
+        
+        var address = 'recommended';
+        var id =0;
+    	$.ajax({
+    		type: "POST",
+    		url: address,
+    		data: id,
+    		contentType: "application/json; charset=utf-8",
+    		success: function(data){
+    			$('#my-recommended-list').html(data);
+    		},
+    		error: function(xhr, status, error){
+    			alert('Something went wrong... Failed to get data'+error+status+xhr);
+    			console.log(xhr);
+    		}
+    	});
     });
 
 	/* Shows the user's profile */

@@ -13,6 +13,8 @@ public interface AudioDao {
 	
 	List<Audio> getAudioByConference(long id);
 	
+	List<Audio> getRecomendedAudio(long genre);
+	
 	void deleteAudioById(long id) throws EmptyResultDataAccessException;
 	
 	long createAudio(Audio audio) throws SQLException;
