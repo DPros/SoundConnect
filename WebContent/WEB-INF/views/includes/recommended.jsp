@@ -9,27 +9,27 @@
   Time: 2:56 PM
   To change this template use File | Settings | File Templates.
 --%>
-<div class="row hiddendiv" id="recommendedaudio">
-	<div class="btn-group col-sm-4" id="recommended-btn-group">
-		<button type="button" class="btn btn-link" id="pause-recommended">
-			<span class="glyphicon glyphicon-play btn btn-link" id="recommended-pause-glyph"></span>
+<div class="row hiddendiv" id="searchaudio">
+	<div class="btn-group col-sm-4" id="search-btn-group">
+		<button type="button" class="btn btn-link" id="pause-search">
+			<span class="glyphicon glyphicon-play btn btn-link" id="search-pause-glyph"></span>
 		</button>
-		<button type="button" class="mute btn btn-link" id="mute-recommended">
-			<span class="glyphicon glyphicon-volume-off btn btn-link" id="recommended-mute-glyph"></span>
+		<button type="button" class="mute btn btn-link" id="mute-search">
+			<span class="glyphicon glyphicon-volume-off btn btn-link" id="search-mute-glyph"></span>
 		</button>
 	</div>
-	<div class="col-sm-8" id="progressOut-recommended">
-		<div id="progressIn-recommended">
-			<div id="time-recommended">00:00</div>
+	<div class="col-sm-8" id="progressOut-search">
+		<div id="progressIn-search">
+			<div id="time-search">00:00</div>
 		</div>
 	</div>
-	<audio id="player/recommended" src="" currentTime=""></audio>
+	<audio id="player/search" src="" currentTime="" autoplay></audio>
 </div>
 
 <c:forEach items="${recaudios}" var="audio">
-	<div class="row recommended-results" id="recommended-results/${audio.id}">
+	<div class="row search-results" id="search-results/${audio.id}">
 		<div class="col-sm-2">
-			<a href="javascript:void(0)" class="btn btn-link" id="previewbtn" data-toggle="tooltip" title="Preview" onclick="clickPreviewPlay('player/recommended', ${audio.ownerId}, ${audio.id })">
+			<a href="javascript:void(0)" class="btn btn-link" id="previewbtn" data-toggle="tooltip" title="Preview" onclick="clickPreviewPlay('player/search', ${audio.ownerId}, ${audio.id })">
 				<span class="glyphicon glyphicon-play" id="play-glyph/${audio.id}"></span>
 			</a>
 		</div>
