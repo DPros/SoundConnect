@@ -24,7 +24,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="js/player/snd.js"></script>
+<script src="js/notify.js"></script>
 	<script src="js/perfect-scrollbar.jquery.js"></script>
 <script src="js/script.js"></script>
 <script src="http://vk.com/js/api/openapi.js" type="text/javascript"></script>
@@ -103,14 +103,11 @@ VK.init({
 					<div id="collapse1" class="panel-collapse collapse in">
 						<div class="panel-body">
 							<div class="btn-group" id="main-player-btn-group">
-								<button type="button" class="btn btn-link" id="pause">
-									<span class="glyphicon glyphicon-pause btn btn-link" id="main-pause-glyph"></span>
-								</button>
 								<button type="button" class="mute button btn-link" id="mute">
 									<span class="glyphicon glyphicon-volume-off btn btn-link" id="mute-glyph"></span>
 								</button>
 							</div>
-							<audio id="main-player" src="" currentTime=""></audio>
+							<audio id="main-player" src="" currentTime="" autoplay></audio>
 							<div id="progressOut">
 								<div id="progressIn">
 									<div id="time">00:00</div>

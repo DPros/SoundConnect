@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.soundconnect.Beans.Conference;
 import com.soundconnect.Beans.User;
@@ -19,6 +20,7 @@ import com.soundconnect.Services.AudioService;
 import com.soundconnect.Services.ConferenceService;
 
 @Controller
+@SessionAttributes({ "user"})
 @RequestMapping("/player")
 public class PlayerController {
 	
@@ -31,9 +33,10 @@ public class PlayerController {
 	@RequestMapping(path = "/content")
 	public String getPlaying(Model model, HttpServletRequest request) throws DataAccessException, SQLException {
 		long now = Calendar.getInstance().getTimeInMillis();
-		Conference conference = conferenceService.playConference(((User)request.getSession().getAttribute("user")).getConference(), now);
-		if((!conference.getTracks().isEmpty())&&conference.getSongStarted()+conference.getTracks().get(0).getLength()+10000<now)now=1;
+		System.out.println("Request by "+(Long)request.getSession().getAttribute("userId"));
+		Conference conference = conferenceService.playConference((Long) request.getSession().getAttribute("confId"), now);
 		model.addAttribute("time", (now-conference.getSongStarted())/1000);
+		System.out.println("Gonna start at "+(now-conference.getSongStarted())/1000);
 		model.addAttribute("conference", conference);
 		return "player";
 	}

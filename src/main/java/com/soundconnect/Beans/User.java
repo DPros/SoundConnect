@@ -16,7 +16,7 @@ public class User {
 	private String password;
 	private Short role;
 
-	public User(){}
+	public User(){};
 	
 	public Set<Audio> getAudio() {
 		return audio;

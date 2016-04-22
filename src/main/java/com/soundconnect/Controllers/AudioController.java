@@ -39,8 +39,7 @@ public class AudioController {
 
 	@RequestMapping("/recommended")
 	public String getRecommended(Model model, HttpServletRequest request) {
-		User u = (User) request.getSession().getAttribute("user");
-		List<Audio> list = audioserv.getAudioByUser(u.getId());
+		List<Audio> list = audioserv.getAudioByUser((Long) request.getSession().getAttribute("userId"));
 		List<Long> alreadyAdded = new ArrayList<Long>(list.size());
 		int maxcount = 0, nn = 0;
 		for (int i = 0; i < list.size(); i++) {
@@ -87,9 +86,8 @@ public class AudioController {
 
 	@RequestMapping(value = "/list-music", method = { RequestMethod.POST })
 	public String listMusic(Model model, HttpServletRequest request) {
-		User u = (User) request.getSession().getAttribute("user");
 		List<Audio> list = new LinkedList<Audio>();
-		for (Audio a : audioserv.getAudioByUser(u.getId())) {
+		for (Audio a : audioserv.getAudioByUser((Long) request.getSession().getAttribute("userId"))) {
 			a.setTitle(a.getTitle().replaceAll(" ", "_"));
 			a.setArtist(a.getArtist().replaceAll(" ", "_"));
 			list.add(a);
@@ -100,7 +98,6 @@ public class AudioController {
 
 	@RequestMapping("/add-to-user")
 	public @ResponseBody Boolean addAudioToUser(@RequestBody Audio audio, Model model, HttpServletRequest req) {
-		User u = (User) req.getSession().getAttribute("user");
 		if (audio == null) {
 			System.out.println("null pointer audio request");
 			return false;
@@ -118,13 +115,14 @@ public class AudioController {
 				return false;
 			}
 		try {
-			userserv.addAudio(audio.getId(), u.getId());
+			userserv.addAudio(audio.getId(), (Long)req.getSession().getAttribute("userId"));
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		System.out.println("Current session info:\nuserId: " + u.getId() + "\nconfId: " + u.getConference());
+		
+		System.out.println("Current session info:\nuserId: " + (Long)req.getSession().getAttribute("userId") + "\nconfId: "
+				+ (Long)req.getSession().getAttribute("confId"));
 
 		System.out.println("ADDING AUDIO TO USER; AID=" + audio.getId());
 		return true;
@@ -132,7 +130,6 @@ public class AudioController {
 
 	@RequestMapping("/add-to-conference")
 	public @ResponseBody Boolean addAudioToConference(@RequestBody Audio audio, Model model, HttpServletRequest req) {
-		User u = (User) req.getSession().getAttribute("user");
 		if (audio == null) {
 			System.out.println("null pointer audio request");
 			return false;
@@ -149,8 +146,10 @@ public class AudioController {
 				return false;
 			}
 		try {
-			Conference conf = confserv.getConferenceById(u.getConference());
+			Conference conf = confserv
+					.getConferenceById((Long)req.getSession().getAttribute("confId"));
 			confserv.getConferenceAudio(conf);
+			if(conf.getTracks().isEmpty())conf.setSongStarted(0);
 			conf.addAudioToConference(audio);
 			confserv.updateConferenceAudios(conf);
 		} catch (SQLException e) {
@@ -161,20 +160,20 @@ public class AudioController {
 	}
 
 	@RequestMapping("/remove-from-user")
-	public @ResponseBody Boolean removeAudioFromUser(@RequestBody Audio audio, Model model, HttpServletRequest req) {
-		User u = (User) req.getSession().getAttribute("user");
+	public @ResponseBody Boolean removeAudioFromUser(@RequestBody Audio audio, Model model, HttpServletRequest req){
 		if (audio == null) {
 			System.out.println("null pointer audio request");
 			return false;
 		}
 		try {
 			// add audio to user here!!!
-			userserv.deleteAudio(audio.getId(), u.getId());
+			userserv.deleteAudio(audio.getId(), (Long)req.getSession().getAttribute("userId"));
 		} catch (NumberFormatException e) {
 		} catch (SQLException e) {
 			return false;
 		}
-		System.out.println("Current session info:\nuserId: " + u.getId() + "\nconfId: " + u.getConference());
+		System.out.println("Current session info:\nuserId: " + (Long) req.getSession().getAttribute("userId") + "\nconfId: "
+				+ (Long)req.getSession().getAttribute("confId"));
 
 		System.out.println("DELETING AUDIO FROM USER; AID=" + audio.getId());
 		return true;

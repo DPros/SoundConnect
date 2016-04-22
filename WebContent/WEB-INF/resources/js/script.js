@@ -65,13 +65,13 @@ var audioAddToUser = function(au){
 		success: function(data){
 			// TODO remove this alert after testing, the glyphicon change is enough to notify the user of success
 			if(!data)
-				alert('Something went wrong... Failed to add ');
+				$.notify('Something went wrong... Failed to add audio', 'error');
 			else
-				alert('Audio added to your playlist');
+				$.notify('Audio added to your playlist', 'success');
 			success = true;
 		},
 		error: function(xhr, status, error){
-			alert('Something went wrong... Failed to add ');
+			$.notify('Something went wrong. Please try again', 'error');
 		}
 	});
 
@@ -94,13 +94,13 @@ var audioRemoveFromUser = function(au){
 		success: function(data){
 			// TODO remove this alert after testing, the glyphicon change is enough to notify the user of success
 			if(!data)
-				alert('Something went wrong... Failed to add ');
+				$.notify('Something went wrong... Failed to remove audio', 'error');
 			else
-				alert('Audio deleted from your playlist');
+				$.notify('Audio deleted from your playlist', 'success');
 			success = true;
 		},
 		error: function(xhr, status, error){
-			alert('Something went wrong... Failed to add ');
+			$.notify('Something went wrong... Failed to remove audio', 'error');
 		}
 	});
 
@@ -122,13 +122,13 @@ var AudioAddToConference = function(au){
 		success: function(data){
 			//action like this	
 			if(!data)
-				alert('Something went wrong... Failed to add ');
+				$.notify('Something went wrong... Failed to add audio', 'error');
 			else
-				alert('Audio added to current conference');
-			if(mainPlayer.src == "") mainPlayer.onended();
+				$.notify('Audio added to current conference', 'success');
+			if($('#progressIn').css('width')=="0px") mainPlayer.onended();
 		},
 		error: function(xhr, status, error){
-			alert('Something went wrong... Failed to add ');
+			$.notify('Something went wrong... Failed to add audio', 'error');
 		}
 	});
 };
@@ -179,9 +179,11 @@ var onSearchAudioPlayed = function(search_player) {
 	console.log(search_player);
 	if (!search_player.paused) {
 		search_player.pause();
+		mainPlayer.muted=false;
 		$('#search-pause-glyph').removeClass('glyphicon-pause');
 		$('#search-pause-glyph').addClass('glyphicon-play');
 	} else {
+		mainPlayer.muted=true;
 		search_player.play();
 		$('#search-pause-glyph').removeClass('glyphicon-play');
 		$('#search-pause-glyph').addClass('glyphicon-pause');
@@ -218,9 +220,11 @@ function clickPreviewPlay(object, owner, id) {
 
 	if($('#play-glyph\\/'+id).hasClass('glyphicon-play'))
 	{
+		$('.preview-trigger').addClass('glyphicon-play');
+		$('.preview-trigger').removeClass('glyphicon-remove');
 		$('#play-glyph\\/'+id).removeClass('glyphicon-play');
 		$('#play-glyph\\/'+id).addClass('glyphicon-remove');
-
+		
 		getAudio(object, owner, id);
 
 		$('#searchaudio').removeClass('hiddendiv');
@@ -229,9 +233,11 @@ function clickPreviewPlay(object, owner, id) {
 		$('#pause-search').click(function (e) {
 			if (!search_player.paused) {
 				search_player.pause();
+				mainPlayer.muted = false;
 				$('#search-pause-glyph').removeClass('glyphicon-pause');
 				$('#search-pause-glyph').addClass('glyphicon-play');
 			} else {
+				mainPlayer.muted = true;
 				search_player.play();
 				$('#search-pause-glyph').removeClass('glyphicon-play');
 				$('#search-pause-glyph').addClass('glyphicon-pause');
@@ -270,8 +276,8 @@ function clickPreviewPlay(object, owner, id) {
 	else
 	{
 		//onSearchAudioMutes(search_player);
-		$('#play-glyph\\/'+id).addClass('glyphicon-play');
-		$('#play-glyph\\/'+id).removeClass('glyphicon-remove');
+		$('.preview-trigger').addClass('glyphicon-play');
+		$('.preview-trigger').removeClass('glyphicon-remove');
 
 		search_player.src = "";
 		search_player.currentTime = "";
@@ -299,17 +305,17 @@ $(document).ready(function () {
 	$('#mymusicdiv').perfectScrollbar();
 	$('#member-div').perfectScrollbar();
 
-	$('#pause').click(function() {
-		if (!mainPlayer.paused) {
-			mainPlayer.pause();
-			$('#main-pause-glyph').removeClass('glyphicon-pause');
-			$('#main-pause-glyph').addClass('glyphicon-play');
-		} else {
-			mainPlayer.play();
-			$('#main-pause-glyph').removeClass('glyphicon-play');
-			$('#main-pause-glyph').addClass('glyphicon-pause');
-		}
-	});
+//	$('#pause').click(function() {
+//		if (!mainPlayer.paused) {
+//			mainPlayer.pause();
+//			$('#main-pause-glyph').removeClass('glyphicon-pause');
+//			$('#main-pause-glyph').addClass('glyphicon-play');
+//		} else {
+//			mainPlayer.play();
+//			$('#main-pause-glyph').removeClass('glyphicon-play');
+//			$('#main-pause-glyph').addClass('glyphicon-pause');
+//		}
+//	});
 
 	/*UPDATE PROGRESS BAR*/
 	function updateProgress() {
@@ -345,7 +351,7 @@ $(document).ready(function () {
 			$('#mute-glyph').removeClass('glyphicon-volume-off');
 			$('#mute-glyph').addClass('glyphicon-volume-up');
 		} else {
-			main_player.muted = false;
+			mainPlayer.muted = false;
 			$('#mute-glyph').removeClass('glyphicon-volume-up');
 			$('#mute-glyph').addClass('glyphicon-volume-off');
 		}
@@ -385,10 +391,10 @@ $(document).ready(function () {
 		}
 	});
 
-
 	mainPlayer.onended = function() {
 		mainPlayer.src = "";
 		track = undefined;
+		$('#progressIn').css({'width': 0+'%'},500);
 		var address = 'player/content';
 		$.ajax({
 			type: "GET",
@@ -399,11 +405,13 @@ $(document).ready(function () {
 					getAudio("main-player", track.ownerId, track.id);
 					mainPlayer.currentTime = track.startTime;
 					mainPlayer.load();
+					var sp =  document.getElementById('player/search');
+					if(sp!=undefined)sp.pause();
 					mainPlayer.play();
 				}
 			},
 			error: function (xhr, status, error) {
-				alert('Something went wrong... Failed to retrieve audio');
+				$.notify('Something went wrong... Failed to retrieve audio', 'error');
 			}
 		});
 	};
@@ -458,7 +466,7 @@ $(document).ready(function () {
     			$('#my-followings-list').html(data);
     		},
     		error: function(xhr, status, error){
-    			alert('Something went wrong... Failed to get data'+error+status+xhr);
+    			$.notify('Something went wrong... Failed to get data', 'error');
     			console.log(xhr);
     		}
     	});
@@ -524,7 +532,7 @@ $(document).ready(function () {
 				$('#my-music-list').html(data);
 			},
 			error: function(xhr, status, error) {
-				alert("Failed to load data =( Please try again");
+				$.notify('Something went wrong... Failed to get data, please try again', 'error');
 			}
 		});
 	});
@@ -542,7 +550,7 @@ $(document).ready(function () {
 				$('#audio-search-results').html(data);
           	},
 			error: function(xhr, status, error) {
-					alert("Please try again");
+				$.notify('Something went wrong, please try again', 'error');
 			}
 		});
 	});   

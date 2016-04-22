@@ -20,7 +20,7 @@
             <div id="time-search">00:00</div>
         </div>
     </div>
-    <audio id="player/list" src="" currentTime=""></audio>
+    <audio id="player/list" src="" currentTime="" autoplay></audio>
 </div>
 <c:forEach items="${myaudios}" var="audio">
     <div class="row search-results" id="search-results/${audio.id}">
