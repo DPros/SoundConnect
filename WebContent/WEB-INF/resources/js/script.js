@@ -133,6 +133,48 @@ var AudioAddToConference = function(au){
 	});
 };
 
+var connectToUsersConf = function(id){
+	var address = 'fetchconnect';
+	$.ajax({
+		type: "POST",
+		url: address,
+		data: id,
+		contentType: "application/json; charset=utf-8",
+		dataType: 'json',
+		success: function(data){
+			//action like this	
+			if(!data)
+				alert('Failed =(');
+			else
+				alert('Connected');
+		},
+		error: function(xhr, status, error){
+			alert('Something went wrong... Failed to connect ');
+		}
+	});
+};
+
+var unfollowUser = function(id){
+	var address = 'unfollow';
+		$.ajax({
+			type: "POST",
+			url: address,
+			data: id,
+			contentType: "application/json; charset=utf-8",
+			dataType: 'json',
+			success: function(data){
+				//action like this	
+				if(!data)
+					alert('Failed =(');
+				else
+					alert('Unfollowed');
+			},
+			error: function(xhr, status, error){
+				alert('Something went wrong... Failed to connect ');
+			}
+		});
+};
+
 var onSearchAudioPlayed = function(search_player) {
 	console.log(search_player);
 	if (!search_player.paused) {

@@ -26,7 +26,9 @@ public class UserDaoImpl implements UserDao{
 	final String addAudio = "UPDATE users SET audios=(audios || ?) WHERE id=?";
 	final String deleteAudio = "UPDATE users SET audios=array_erase(audios, ?) WHERE id=?";
 	final String getFollowings = "SELECT * FROM users WHERE ARRAY[id] && (SELECT following FROM users WHERE id=?)";
-	private String getUserByUName = "SELECT * FROM users WHERE username=?"; 
+	final String getUserByUName = "SELECT * FROM users WHERE username=?"; 
+	final String unfollowUser = "update users set following = array_erase(following, CAST(? AS bigint)) where id = ?";
+	
 	
 	@Autowired
 	ConferenceService conferenceService;
@@ -114,6 +116,11 @@ public class UserDaoImpl implements UserDao{
 					rs.getLong("conference"), null, null, rs.getString("username"), rs.getShort("role"));
 			return user;
 		}
+	}
+
+	@Override
+	public void unfollowUser(long thisId, long targetId) {
+		jdbcTemplate.update(unfollowUser, targetId, thisId);		
 	}
 
 }
